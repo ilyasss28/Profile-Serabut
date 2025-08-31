@@ -41,10 +41,7 @@
                 <!-- About Dropdown -->
                 <div class="relative" x-data="{ open: false }" @click.away="open = false">
                     <button @click="open = !open"
-                        class="flex items-center gap-1 relative
-          after:content-[''] after:absolute after:right-0 after:bottom-0
-          after:w-0 after:h-[2px] after:bg-[#ca7305] after:transition-all after:duration-300
-          hover:after:w-full">
+                        class="flex items-center gap-1 nav-link">
                         <span>Profile</span>
                         <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transition-transform duration-200"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,35 +68,15 @@
                     </div>
                 </div>
 
-                <a href="#visi"
-                    class="relative
-          after:content-[''] after:absolute after:right-0 after:bottom-0
-          after:w-0 after:h-[2px] after:bg-[#ca7305] after:transition-all after:duration-300
-          hover:after:w-full">Visi
-                    & Misi</a>
-                <a href="#proyek"
-                    class="relative
-          after:content-[''] after:absolute after:right-0 after:bottom-0
-          after:w-0 after:h-[2px] after:bg-[#ca7305] after:transition-all after:duration-300
-          hover:after:w-full">
-                    Proyek
-                </a>
-
-                <a href="#cerita"
-                    class="relative
-          after:content-[''] after:absolute after:right-0 after:bottom-0
-          after:w-0 after:h-[2px] after:bg-[#ca7305] after:transition-all after:duration-300
-          hover:after:w-full"">Cerita</a>
-                <a href="#publikasi"
-                    class="relative
-          after:content-[''] after:absolute after:right-0 after:bottom-0
-          after:w-0 after:h-[2px] after:bg-[#ca7305] after:transition-all after:duration-300
-          hover:after:w-full">Publikasi</a>
+                <a href="#visi" class="nav-link">Visi & Misi</a>
+                <a href="#proyek" class="nav-link">Proyek</a>
+                <a href="#cerita" class="nav-link">Cerita</a>
+                <a href="#publikasi" class="nav-link">Publikasi</a>
             </nav>
 
             {{-- Mobile Menu Button --}}
             <button @click="isOpen = !isOpen" class="lg:hidden focus:outline-none"
-                :class="scrolled ? 'text-gray-800' : 'text-white'">
+                :class="scrolled ? 'text-gray-800' : 'text-[#ca7305]'">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': isOpen, 'inline-flex': !isOpen }" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

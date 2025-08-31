@@ -1,3 +1,13 @@
+// Loader hilang setelah halaman selesai dimuat
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+        loader.classList.add("hide");
+        setTimeout(() => loader.style.display = "none", 600);
+    }, 800); // kasih delay sedikit biar animasi kelihatan
+});
+
+
 // Function untuk menjalankan animasi hitung
 function animateCounter(element, target) {
     let count = 0;

@@ -1,7 +1,7 @@
 <x-main>
     {{-- Kami dalam Angka --}}
     <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center py-12 bg-gray-50 px-6">
-        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="bg-white/60 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
                 <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="9">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Lokasi</span>
@@ -9,7 +9,7 @@
             <p class="mt-3 text-gray-700 font-medium">Desa Yang Terlibat</p>
         </div>
 
-        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
                 <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="344">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Orang</span>
@@ -17,7 +17,7 @@
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
         </div>
 
-        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
                 <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="3">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Kab/Kota</span>
@@ -55,8 +55,7 @@
                 </p>
 
                 <!-- Tombol CTA -->
-                <a href="/tentang"
-                    class="inline-flex col items-center gap-2 mt-6 px-5 py-3 bg-[#ca7305] text-white font-medium rounded-full shadow hover:bg-[#a35604] transition self-start">
+                <a href="/tentang" class="btn-primary gap-2 mt-4 self-start">
                     Pelajari Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -66,32 +65,61 @@
     {{-- Tentang Kami --}}
 
     {{-- Visi & Misi --}}
-    {{-- <section class="container max-w-full mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <!-- Konten -->
-            <div class="flex flex-col justify-center">
-                <h4 class="text-sm font-semibold text-gray-600 uppercase">Visi & Misi</h4>
-                <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305] mt-2">
-                    Menjadi Lembaga Pendidikan yang Unggul
-                </h2>
-                <p class="text-gray-600 mt-4 leading-relaxed">
-                    Kami berkomitmen untuk memberikan pendidikan yang berkualitas, mendorong keterampilan, dan
-                    menginspirasi generasi muda untuk menjadi pemimpin yang unggul.
-                </p>
-                <!-- Tombol CTA -->
-                <a href="/anggota"
-                    class="inline-flex col items-center gap-2 mt-6 px-5 py-3 bg-[#ca7305] text-white font-medium rounded-full shadow hover:bg-[#a35604] transition self-start">
-                    Pelajari Selengkapnya
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-            <!-- Gambar -->
-            <div class="flex justify-center">
-                <img src="{{ asset('assets/img/visi-misi.png') }}" alt="Visi & Misi"
-                    class="w-full h-full object-cover rounded-xl shadow-lg">
+    <section class="relative overflow-hidden py-16">
+        <!-- Background Gambar Full Width -->
+        <div class="absolute inset-0">
+            <img src="{{ asset('assets/img/visi&misi.jpg') }}" alt="Visi & Misi"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-black/60 to-transparent"></div>
+        </div>
+
+        <!-- Konten Visi & Misi -->
+        <div class="relative z-10 max-w-full px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-white">
+
+                <!-- Bagian Visi -->
+                <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
+                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Visi</h4>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
+                        Menjadi <span class="text-[#ca7305]">Lembaga Pendidikan</span> yang Unggul
+                    </h2>
+                    <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
+                    <p class="text-base sm:text-md md:text-lg leading-relaxed text-gray-100">
+                        Membentuk generasi yang cerdas, berkarakter, dan berdaya saing global
+                        melalui pendidikan yang berkualitas, inovatif, dan berkelanjutan.
+                    </p>
+                </div>
+
+                <!-- Bagian Misi -->
+                <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
+                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Misi</h4>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
+                        Mewujudkan Pendidikan <span class="text-[#ca7305]">Berkualitas</span> untuk Semua
+                    </h2>
+                    <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
+
+                    <ul class="space-y-4 text-base sm:text-md md:text-lg text-gray-100">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">1</span>
+                            Memberikan akses pendidikan yang merata bagi seluruh lapisan masyarakat.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">2</span>
+                            Mendorong inovasi dalam metode pembelajaran dan teknologi pendidikan.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">3</span>
+                            Mengembangkan potensi siswa agar menjadi individu yang mandiri dan berintegritas.
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
-    </section> --}}
+    </section>
     {{-- Visi & Misi --}}
 
     {{-- FAQ --}}
@@ -110,14 +138,9 @@
 
                 <!-- Tombol Aksi -->
                 <div class="flex justify-center md:justify-end">
-                    <a href="#"
-                        class="flex items-center gap-2 bg-[#ca7305] text-white px-5 py-2 rounded-full shadow hover:bg-[#a35604] transition">
+                    <a href="#" class="btn-primary">
                         Jelajahi FAQ
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -130,15 +153,8 @@
                     <div class="flex justify-between items-center">
                         <h3 class="font-semibold text-gray-800">Apa itu Sekolah Rakyat Butuni?</h3>
                         <span>
-                            <svg x-show="selected !== 1" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                            <svg x-show="selected === 1" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                            </svg>
+                            <i x-show="selected !== 1" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
+                            <i x-show="selected === 1" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
                         </span>
                     </div>
                     <div x-show="selected === 1" x-collapse class="mt-3 text-gray-600">
@@ -153,15 +169,8 @@
                     <div class="flex justify-between items-center">
                         <h3 class="font-semibold text-gray-800">Siapa yang mendirikan Sekolah Rakyat Butuni?</h3>
                         <span>
-                            <svg x-show="selected !== 2" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                            <svg x-show="selected === 2" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                            </svg>
+                            <i x-show="selected !== 2" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
+                            <i x-show="selected === 2" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
                         </span>
                     </div>
                     <div x-show="selected === 2" x-collapse class="mt-3 text-gray-600">
@@ -176,17 +185,8 @@
                     <div class="flex justify-between items-center">
                         <h3 class="font-semibold text-gray-800">Apa saja kegiatan utama yang dilakukan?</h3>
                         <span>
-                            <svg x-show="selected !== 3" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                            <svg x-show="selected === 3" xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                            </svg>
+                            <i x-show="selected !== 3" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
+                            <i x-show="selected === 3" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
                         </span>
                     </div>
                     <div x-show="selected === 3" x-collapse class="mt-3 text-gray-600">
@@ -198,6 +198,4 @@
         </div>
     </section>
     {{-- FAQ --}}
-
-    <script src="{{ asset('assets/js/main.js') }}"></script>
 </x-main>

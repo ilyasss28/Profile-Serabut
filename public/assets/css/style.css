@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 h1,
 h2,
@@ -9,10 +9,139 @@ h6 {
     font-family: "Outfit", sans-serif;
 }
 
-*{
+* {
     font-family: "Poppins", sans-serif;
 }
 
-/* *{
-    font-family: "Raleway", sans-serif;
-} */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner-svg {
+    width: 120px;
+    height: 120px;
+}
+
+/* Garis lingkaran */
+.circle {
+    stroke: #ca7305;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: dash 2s infinite linear;
+    opacity: 0.7;
+    transform-origin: center;
+}
+
+/* Setiap lingkaran beda timing */
+.circle1 {
+    animation: rotate 2s linear infinite, dash 2s ease-in-out infinite;
+}
+.circle2 {
+    animation: rotate 3s linear infinite reverse, dash 3s ease-in-out infinite;
+    stroke: #e0933d;
+}
+.circle3 {
+    animation: rotate 4s linear infinite, dash 4s ease-in-out infinite;
+    stroke: #f5b971;
+}
+
+/* Titik tengah */
+.center-dot {
+    fill: #ca7305;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Garis dekorasi */
+.line {
+    stroke: #ca7305;
+    opacity: 0.5;
+}
+.line1 {
+    animation: fadeLine 2s infinite alternate;
+}
+.line2 {
+    animation: fadeLine 2s infinite alternate-reverse;
+}
+
+/* Animations */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+    0% { stroke-dashoffset: 250; }
+    50% { stroke-dashoffset: 125; }
+    100% { stroke-dashoffset: 250; }
+}
+
+@keyframes pulse {
+    0%, 100% { r: 5; opacity: 0.6; }
+    50% { r: 8; opacity: 1; }
+}
+
+@keyframes fadeLine {
+    0% { opacity: 0.2; }
+    100% { opacity: 0.8; }
+}
+
+/* Navlink */
+.nav-link {
+    position: relative;
+    display: flex;
+    padding-bottom: 2px; /* jarak kecil dengan underline */
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    right: 0; /* mulai dari kanan */
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ca7305; /* warna underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;  /* full saat hover */
+    left: 0;      /* tarik ke kiri */
+}
+
+/* Button */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* jarak antara icon dan text */
+    background-color: #ca7305; /* warna utama */
+    color: #fff;
+    padding: 0.5rem 1.25rem; /* px-5 py-2 */
+    border-radius: 9999px; /* full rounded */
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #a35604; /* warna lebih gelap saat hover */
+    transform: translateY(-2px); /* efek hover naik */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0); /* balik normal saat diklik */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}

@@ -18,6 +18,23 @@
 
 <body class="h-full">
 
+    <div class="loader" id="loader">
+        <div class="spinner">
+            <svg viewBox="0 0 100 100" class="spinner-svg">
+                <!-- Circular loading animation with 3 rotating circles -->
+                <circle cx="50" cy="50" r="20" class="circle circle1" fill="none" stroke-width="4" />
+                <circle cx="50" cy="50" r="30" class="circle circle2" fill="none" stroke-width="4" />
+                <circle cx="50" cy="50" r="40" class="circle circle3" fill="none" stroke-width="4" />
+                <!-- Pulsing center dot -->
+                <circle cx="50" cy="50" r="5" class="center-dot" />
+                <!-- Decorative lines -->
+                <line x1="20" y1="50" x2="80" y2="50" class="line line1" stroke-width="2" />
+                <line x1="50" y1="20" x2="50" y2="80" class="line line2" stroke-width="2" />
+            </svg>
+        </div>
+    </div>
+
+
     <x-header />
 
     <main id="main" class="main">
@@ -26,6 +43,7 @@
 
     <x-footer />
 
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
