@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 
 h1,
 h2,
@@ -6,11 +7,19 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Outfit", sans-serif;
+    font-family: "Unbounded", sans-serif;
 }
 
+/* a,
+p,
+span,
+li,
+button{
+
+} */
+
 * {
-    font-family: "Poppins", sans-serif;
+    font-family: "Outfit", sans-serif;
 }
 
 .loader {
@@ -127,9 +136,9 @@ h6 {
     gap: 0.5rem; /* jarak antara icon dan text */
     background-color: #ca7305; /* warna utama */
     color: #fff;
-    padding: 0.5rem 1.25rem; /* px-5 py-2 */
+    padding: 0.5rem 1rem; /* px-5 py-2 */
     border-radius: 9999px; /* full rounded */
-    font-weight: 500;
+    font-weight: 400;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     text-decoration: none;
@@ -138,10 +147,8 @@ h6 {
 .btn-primary:hover {
     background-color: #a35604; /* warna lebih gelap saat hover */
     transform: translateY(-2px); /* efek hover naik */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:active {
     transform: translateY(0); /* balik normal saat diklik */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }

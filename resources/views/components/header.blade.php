@@ -4,8 +4,7 @@
         '{{ asset('assets/img/slide2.jpg') }}',
         '{{ asset('assets/img/slide3.jpg') }}'
     ],
-    currentIndex: 0
-}" x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 5000)" class="relative h-screen w-full overflow-hidden">
+    currentIndex: 0 }" x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 5000)" class="relative h-screen w-full overflow-hidden">
 
     <!-- Background Images -->
     <template x-for="(image, index) in images" :key="index">
@@ -26,12 +25,13 @@
         :class="scrolled ? 'bg-white/90 shadow-md text-gray-800 backdrop-blur' : 'bg-transparent text-white'"
         class="fixed w-full z-50 transition-all duration-300">
 
-        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+        <div class="w-full flex items-center justify-between py-4 px-6">
             {{-- Logo --}}
-            <div class="flex items-center gap-3">
-                <img src="{{ asset('assets/img/icon.png') }}" alt="logo" class="w-12 h-12">
-                <span
-                    class="font-bold tracking-wide font-sans text-[#ca7305] text-[clamp(14px,4vw,26px)] md:text-[clamp(12px,3vw,20px)]">
+            <div class="flex items-center gap-1">
+                <img :src="scrolled ? '{{ asset('assets/img/icon.png') }}' : '{{ asset('assets/img/icon2.png') }}'"
+                    alt="logo" class="w-12 h-12">
+                <span :class="scrolled ? 'text-[#ca7305]' : 'text-white'"
+                    class="font-bold tracking-wide font-sans text-[clamp(14px,4vw,26px)] md:text-[clamp(12px,3vw,20px)]">
                     Sekolah Rakyat Butuni
                 </span>
             </div>
@@ -40,8 +40,7 @@
             <nav class="hidden lg:flex items-center gap-8">
                 <!-- About Dropdown -->
                 <div class="relative" x-data="{ open: false }" @click.away="open = false">
-                    <button @click="open = !open"
-                        class="flex items-center gap-1 nav-link">
+                    <button @click="open = !open" class="flex items-center gap-1 nav-link">
                         <span>Profile</span>
                         <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transition-transform duration-200"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,7 +75,7 @@
 
             {{-- Mobile Menu Button --}}
             <button @click="isOpen = !isOpen" class="lg:hidden focus:outline-none"
-                :class="scrolled ? 'text-gray-800' : 'text-[#ca7305]'">
+                :class="scrolled ? 'text-[#ca7305]' : 'text-white'">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': isOpen, 'inline-flex': !isOpen }" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

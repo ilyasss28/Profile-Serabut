@@ -28,25 +28,64 @@
     {{-- Kami dalam Angka --}}
 
     {{-- Tentang Kami --}}
-    <section class="container max-w-full mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            <!-- Video -->
-            <div class="flex">
-                <iframe class="w-full h-full aspect-video md:aspect-auto rounded-xl shadow-lg"
-                    src="https://www.youtube.com/embed/K-e6CERE8O4?si=3it-agFfEx0cl-_y" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+    <section class="max-w-full px-6 py-12">
+        <div class="flex flex-col md:flex-row gap-4">
+            <!-- Video Carousel -->
+            <div x-data="{ currentSlide: 0, slides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)" class="relative rounded-lg overflow-hidden flex-1">
+
+                <!-- Slides wrapper -->
+                <div class="relative w-full aspect-video overflow-hidden">
+                    <div class="flex transition-transform duration-1000 ease-in-out"
+                        :style="`transform: translateX(-${currentSlide * 100}%);`">
+
+                        <!-- Slide 1 -->
+                        <div class="min-w-full h-full">
+                            <img src="{{ asset('assets/img/slide1.jpg') }}" alt="Slide 1"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="min-w-full h-full">
+                            <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Slide 2"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="min-w-full h-full">
+                            <img src="{{ asset('assets/img/slide2.jpg') }}" alt="Slide 3"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button @click="currentSlide = (currentSlide - 1 + slides) % slides"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-3 rounded-full transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button @click="currentSlide = (currentSlide + 1) % slides"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-3 rounded-full transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                        <template x-for="(slide, index) in slides" :key="index">
+                            <button @click="currentSlide = index"
+                                :class="currentSlide === index ? 'bg-white' : 'bg-white/50'"
+                                class="w-3 h-3 rounded-full transition">
+                            </button>
+                        </template>
+                    </div>
+                </div>
             </div>
 
-            <!-- Konten -->
-            <div class="flex flex-col justify-center">
+            <!-- Content -->
+            <div class="flex flex-col justify-center flex-1 gap-4">
                 <h4 class="text-sm font-semibold text-gray-600 uppercase">Tentang Kami</h4>
-                <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305] mt-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305]">
                     Memelihara Alam,<br>Memberdayakan Komunitas
                 </h2>
-                <p class="text-gray-600 mt-4 leading-relaxed">
+                <p class="text-gray-600 leading-relaxed">
                     Penelitian dan inovasi dalam pengelolaan sumber daya alam yang berkelanjutan oleh
                     organisasi-organisasi akar rumput.
                     Organisasi masyarakat sipil Indonesia, termasuk organisasi non-profit lokal dan jaringan tematik,
@@ -54,8 +93,8 @@
                     dalam mendorong perubahan untuk kepentingan masyarakat dan alam.
                 </p>
 
-                <!-- Tombol CTA -->
-                <a href="/tentang" class="btn-primary gap-2 mt-4 self-start">
+                <!-- CTA Button -->
+                <a href="/tentang" class="btn-primary text-sm gap-2 self-start hover:bg-[#b36504] transition-colors">
                     Pelajari Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -80,8 +119,8 @@
                 <!-- Bagian Visi -->
                 <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
                     <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Visi</h4>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
-                        Menjadi <span class="text-[#ca7305]">Lembaga Pendidikan</span> yang Unggul
+                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
+                        Menjadi Lembaga Pendidikan yang Unggul
                     </h2>
                     <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
                     <p class="text-base sm:text-md md:text-lg leading-relaxed text-gray-100">
@@ -93,12 +132,12 @@
                 <!-- Bagian Misi -->
                 <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
                     <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Misi</h4>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
-                        Mewujudkan Pendidikan <span class="text-[#ca7305]">Berkualitas</span> untuk Semua
+                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
+                        Mewujudkan Pendidikan Berkualitas untuk Semua
                     </h2>
                     <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
 
-                    <ul class="space-y-4 text-base sm:text-md md:text-lg text-gray-100">
+                    <ul class="space-y-4 text-base text-gray-100">
                         <li class="flex items-start gap-3">
                             <span
                                 class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">1</span>
@@ -122,13 +161,208 @@
     </section>
     {{-- Visi & Misi --}}
 
+    {{-- Proyek --}}
+    <section class="py-16 bg-white">
+        <div class="max-w-full mx-auto px-6">
+            <!-- Header -->
+            <div class="flex flex-col items-center justify-center mb-16 relative">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-10 -left-10 w-20 h-20 bg-[#ca7305]/5 rounded-full"></div>
+                <div class="absolute top-20 right-0 w-32 h-32 bg-yellow-100/30 rounded-full blur-2xl"></div>
+
+                <!-- Main heading with animated underline -->
+                <div class="relative group">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#ca7305] mb-2 relative z-10 tracking-tight">
+                        Program Unggulan
+                    </h2>
+                    <!-- Accent dots -->
+                    <div class="absolute -right-4 -top-4 w-2 h-2 bg-[#ca7305] rounded-full"></div>
+                    <div class="absolute -left-6 top-1/2 w-3 h-3 bg-yellow-200 rounded-full"></div>
+                </div>
+
+                <!-- Description with hover effect -->
+                <div class="mt-8 relative max-w-2xl hidden md:block">
+                    <p class="text-gray-600 text-center leading-relaxed relative z-10 text-lg">
+                        Berbagai inisiatif dan program yang kami kembangkan untuk
+                        <span class="font-semibold text-[#ca7305]">memberikan dampak positif</span> bagi masyarakat
+                    </p>
+
+                    <!-- Animated decorative elements -->
+                    <div
+                        class="absolute -left-8 -top-8 w-6 h-6 rounded-full border-2 border-[#ca7305]/30 animate-pulse">
+                    </div>
+                    <div
+                        class="absolute -right-6 -bottom-6 w-10 h-10 rounded-full border-2 border-[#ca7305]/20 animate-bounce">
+                    </div>
+                    <div class="absolute right-1/4 -top-4 w-4 h-4 bg-yellow-100 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Project Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Project 1"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-lg font-bold mt-3">Pemberdayaan Petani Lokal</h3>
+                        <p class="text-sm text-gray-200 mt-2">Program pelatihan dan pendampingan untuk meningkatkan
+                            produktivitas petani</p>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek2.jpg') }}" alt="Project 2"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-lg font-bold mt-3">Konservasi Hutan Mangrove</h3>
+                        <p class="text-sm text-gray-200 mt-2">Pelestarian ekosistem mangrove bersama masyarakat pesisir
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek3.jpg') }}" alt="Project 3"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    </div>
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-lg font-bold mt-3">Edukasi Lingkungan</h3>
+                        <p class="text-sm text-gray-200 mt-2">Program pendidikan lingkungan untuk generasi muda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Proyek --}}
+
+    {{-- Publikasi --}}
+    <section class="pb-12">
+        <div class="max-w-full mx-auto px-6">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#ca7305] mb-4">Publikasi Terbaru</h2>
+                    <p class="text-gray-600 max-w-2xl">Temukan berbagai artikel, penelitian, dan berita terkini tentang
+                        aktivitas kami</p>
+                </div>
+                <a href="/publikasi" class="btn-primary">
+                    Lihat Semua Publikasi
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Publication Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Publication Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 1"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                22 Mar 2024
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                Admin
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Strategi Pemberdayaan Masyarakat
+                            Pesisir</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">Mengulas berbagai pendekatan efektif dalam
+                            memberdayakan masyarakat pesisir untuk pengelolaan sumber daya alam yang berkelanjutan.</p>
+                    </div>
+                </div>
+
+                <!-- Publication Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 2"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                20 Mar 2024
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                Admin
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Inovasi dalam Pertanian
+                            Berkelanjutan</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">Menggali berbagai inovasi teknologi dan metode
+                            dalam mengembangkan sistem pertanian yang ramah lingkungan.</p>
+                    </div>
+                </div>
+
+                <!-- Publication Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 3"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                18 Mar 2024
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                Admin
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Pelestarian Kearifan Lokal</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">Upaya mempertahankan dan mengembangkan
+                            nilai-nilai kearifan lokal dalam pengelolaan sumber daya alam.</p>
+                    </div>
+                </div>
+
+                <!-- Publication Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 4"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-calendar mr-2"></i>
+                                15 Mar 2024
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="far fa-user mr-2"></i>
+                                Admin
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Dampak Program Pemberdayaan</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">Evaluasi dan analisis dampak program pemberdayaan
+                            masyarakat terhadap kesejahteraan dan kelestarian lingkungan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Publikasi --}}
+
     {{-- FAQ --}}
     <section id="faq" class="py-16 bg-gray-50">
         <div class="max-w-full mx-auto px-6">
             <!-- Judul -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-10">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#ca7305] mb-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305] mb-4">
                         Pertanyaan yang Sering Diajukan
                     </h2>
                     <p class="text-gray-600 max-w-2xl">
@@ -138,7 +372,7 @@
 
                 <!-- Tombol Aksi -->
                 <div class="flex justify-center md:justify-end">
-                    <a href="#" class="btn-primary">
+                    <a href="#" class="btn-primary text-sm">
                         Jelajahi FAQ
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -147,54 +381,42 @@
 
             <!-- Accordion -->
             <div x-data="{ selected: null }" class="space-y-4">
-                <!-- Item 1 -->
-                <div class="bg-white shadow rounded-2xl p-5 cursor-pointer"
-                    @click="selected !== 1 ? selected = 1 : selected = null">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-gray-800">Apa itu Sekolah Rakyat Butuni?</h3>
-                        <span>
-                            <i x-show="selected !== 1" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
-                            <i x-show="selected === 1" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
-                        </span>
-                    </div>
-                    <div x-show="selected === 1" x-collapse class="mt-3 text-gray-600">
-                        Sekolah Rakyat Butuni adalah ruang belajar bersama berbasis komunitas yang berfokus pada
-                        pendidikan alternatif untuk masyarakat.
-                    </div>
-                </div>
+                <!-- Item -->
+                <template
+                    x-for="(item, index) in [
+        { q: 'Apa itu Sekolah Rakyat Butuni?', a: 'Sekolah Rakyat Butuni adalah ruang belajar bersama berbasis komunitas yang berfokus pada pendidikan alternatif untuk masyarakat.' },
+        { q: 'Siapa yang mendirikan Sekolah Rakyat Butuni?', a: 'Sekolah Rakyat Butuni didirikan oleh sekelompok relawan pendidikan dan aktivis sosial yang peduli terhadap akses pendidikan di daerah.' },
+        { q: 'Apa saja kegiatan utama yang dilakukan?', a: 'Beberapa kegiatan utama meliputi kelas literasi, diskusi komunitas, pelatihan keterampilan, hingga kegiatan seni dan budaya.' }
+    ]"
+                    :key="index">
 
-                <!-- Item 2 -->
-                <div class="bg-white shadow rounded-2xl p-5 cursor-pointer"
-                    @click="selected !== 2 ? selected = 2 : selected = null">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-gray-800">Siapa yang mendirikan Sekolah Rakyat Butuni?</h3>
-                        <span>
-                            <i x-show="selected !== 2" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
-                            <i x-show="selected === 2" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
-                        </span>
-                    </div>
-                    <div x-show="selected === 2" x-collapse class="mt-3 text-gray-600">
-                        Sekolah Rakyat Butuni didirikan oleh sekelompok relawan pendidikan dan aktivis sosial yang
-                        peduli terhadap akses pendidikan di daerah.
-                    </div>
-                </div>
+                    <div class="bg-white shadow rounded-2xl p-5 cursor-pointer transition-all duration-500 hover:shadow-xl hover:scale-[1.01]"
+                        @click="selected !== index ? selected = index : selected = null">
 
-                <!-- Item 3 -->
-                <div class="bg-white shadow rounded-2xl p-5 cursor-pointer"
-                    @click="selected !== 3 ? selected = 3 : selected = null">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-semibold text-gray-800">Apa saja kegiatan utama yang dilakukan?</h3>
-                        <span>
-                            <i x-show="selected !== 3" class="fa-solid fa-plus text-gray-500 h-5 w-5"></i>
-                            <i x-show="selected === 3" class="fa-solid fa-minus text-gray-500 h-5 w-5"></i>
-                        </span>
+                        <!-- Header -->
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-gray-800" x-text="item.q"></h3>
+                            <span class="transform transition-transform duration-500"
+                                :class="selected === index ? 'rotate-180 text-[#ca7305]' : 'rotate-0 text-gray-500'">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+
+                        <!-- Isi -->
+                        <div x-show="selected === index" x-collapse
+                            x-transition:enter="transition ease-out duration-500"
+                            x-transition:enter-start="opacity-0 -translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-400"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 -translate-y-2"
+                            class="mt-3 text-gray-600 leading-relaxed">
+                            <p x-text="item.a"></p>
+                        </div>
                     </div>
-                    <div x-show="selected === 3" x-collapse class="mt-3 text-gray-600">
-                        Beberapa kegiatan utama meliputi kelas literasi, diskusi komunitas, pelatihan keterampilan,
-                        hingga kegiatan seni dan budaya.
-                    </div>
-                </div>
+                </template>
             </div>
+
         </div>
     </section>
     {{-- FAQ --}}
