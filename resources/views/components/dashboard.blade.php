@@ -1,9 +1,42 @@
 <x-main>
+    {{-- Hero --}}
+    <div x-data="{
+        images: [
+            '{{ asset('assets/img/slide1.jpg') }}',
+            '{{ asset('assets/img/slide2.jpg') }}',
+            '{{ asset('assets/img/slide3.jpg') }}'
+        ],
+        currentIndex: 0
+    }" x-init="setInterval(() => { currentIndex = (currentIndex + 1) % images.length }, 5000)" class="relative h-screen w-full overflow-hidden">
+
+        <!-- Background Slides -->
+        <template x-for="(image, index) in images" :key="index">
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+                :style="`background-image: url(${image})`"
+                :class="currentIndex === index ? 'opacity-100' : 'opacity-0'">
+            </div>
+        </template>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Sekolah Rakyat Butuni
+            </h1>
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
+                Bersama menjaga lingkungan, membangun komunitas, dan menciptakan masa depan yang berkelanjutan.
+            </p>
+        </div>
+    </div>
+    {{-- Hero --}}
+
     {{-- Kami dalam Angka --}}
     <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center py-12 bg-gray-50 px-6">
         <div class="bg-white/60 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="9">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="9">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Lokasi</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Desa Yang Terlibat</p>
@@ -11,7 +44,7 @@
 
         <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="344">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="344">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Orang</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
@@ -19,7 +52,7 @@
 
         <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl md:text-4xl font-extrabold text-[#ca7305] tracking-tight" data-target="3">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="3">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Kab/Kota</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Wilayah Kerja</p>
@@ -31,29 +64,30 @@
     <section class="max-w-full px-6 py-12">
         <div class="flex flex-col md:flex-row gap-4">
             <!-- Video Carousel -->
-            <div x-data="{ currentSlide: 0, slides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)" class="relative rounded-lg overflow-hidden flex-1">
+            <div x-data="{ currentSlide: 0, slides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)"
+                class="relative rounded-lg h-[280px] overflow-hidden flex-1">
 
                 <!-- Slides wrapper -->
-                <div class="relative w-full aspect-video overflow-hidden">
-                    <div class="flex transition-transform duration-1000 ease-in-out"
+                <div class="relative w-full h-full overflow-hidden">
+                    <div class="flex transition-transform duration-1000 ease-in-out h-full"
                         :style="`transform: translateX(-${currentSlide * 100}%);`">
 
                         <!-- Slide 1 -->
                         <div class="min-w-full h-full">
                             <img src="{{ asset('assets/img/slide1.jpg') }}" alt="Slide 1"
-                                class="w-full h-full object-cover">
+                                class="w-full h-full object-cover rounded-lg">
                         </div>
 
                         <!-- Slide 2 -->
                         <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Slide 2"
-                                class="w-full h-full object-cover">
+                            <img src="{{ asset('assets/img/slide3.jpg') }}" alt="Slide 2"
+                                class="w-full h-full object-cover rounded-lg">
                         </div>
 
                         <!-- Slide 3 -->
                         <div class="min-w-full h-full">
                             <img src="{{ asset('assets/img/slide2.jpg') }}" alt="Slide 3"
-                                class="w-full h-full object-cover">
+                                class="w-full h-full object-cover rounded-lg">
                         </div>
                     </div>
 
@@ -80,7 +114,7 @@
             </div>
 
             <!-- Content -->
-            <div class="flex flex-col justify-center flex-1 gap-4">
+            <div class="flex flex-col justify-start flex-1 gap-4">
                 <h4 class="text-sm font-semibold text-gray-600 uppercase">Tentang Kami</h4>
                 <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305]">
                     Memelihara Alam,<br>Memberdayakan Komunitas
@@ -103,66 +137,8 @@
     </section>
     {{-- Tentang Kami --}}
 
-    {{-- Visi & Misi --}}
-    <section class="relative overflow-hidden py-16">
-        <!-- Background Gambar Full Width -->
-        <div class="absolute inset-0">
-            <img src="{{ asset('assets/img/visi&misi.jpg') }}" alt="Visi & Misi"
-                class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
-            <div class="absolute inset-0 bg-black/60 to-transparent"></div>
-        </div>
-
-        <!-- Konten Visi & Misi -->
-        <div class="relative z-10 max-w-full px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-white">
-
-                <!-- Bagian Visi -->
-                <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
-                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Visi</h4>
-                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
-                        Menjadi Lembaga Pendidikan yang Unggul
-                    </h2>
-                    <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
-                    <p class="text-base sm:text-md md:text-lg leading-relaxed text-gray-100">
-                        Membentuk generasi yang cerdas, berkarakter, dan berdaya saing global
-                        melalui pendidikan yang berkualitas, inovatif, dan berkelanjutan.
-                    </p>
-                </div>
-
-                <!-- Bagian Misi -->
-                <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
-                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Misi</h4>
-                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
-                        Mewujudkan Pendidikan Berkualitas untuk Semua
-                    </h2>
-                    <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
-
-                    <ul class="space-y-4 text-base text-gray-100">
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">1</span>
-                            Memberikan akses pendidikan yang merata bagi seluruh lapisan masyarakat.
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">2</span>
-                            Mendorong inovasi dalam metode pembelajaran dan teknologi pendidikan.
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">3</span>
-                            Mengembangkan potensi siswa agar menjadi individu yang mandiri dan berintegritas.
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    {{-- Visi & Misi --}}
-
     {{-- Proyek --}}
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-gray-50">
         <div class="max-w-full mx-auto px-6">
             <!-- Header -->
             <div class="flex flex-col items-center justify-center mb-16 relative">
@@ -249,7 +225,7 @@
     {{-- Proyek --}}
 
     {{-- Publikasi --}}
-    <section class="pb-12">
+    <section class="py-12">
         <div class="max-w-full mx-auto px-6">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-center mb-12">

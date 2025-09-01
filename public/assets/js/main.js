@@ -8,11 +8,11 @@ window.addEventListener("load", () => {
 });
 
 
-// Function untuk menjalankan animasi hitung
+// Function animasi hitung
 function animateCounter(element, target) {
     let count = 0;
-    const increment = target / 200; // Sesuaikan angka ini untuk kecepatan
-    const speed = 10; // Kecepatan (dalam ms)
+    const increment = target / 200; // Sesuaikan untuk kecepatan
+    const speed = 10; // Interval update (ms)
 
     const counter = setInterval(() => {
         count += increment;
@@ -20,14 +20,30 @@ function animateCounter(element, target) {
             count = target;
             clearInterval(counter);
         }
-        element.textContent = Math.floor(count).toLocaleString(); // Menggunakan toLocaleString untuk format angka
+        element.textContent = Math.floor(count).toLocaleString();
     }, speed);
 }
 
-// Cari semua elemen dengan class .text-[#ca7305] (atau yang memiliki data-target)
+// Ambil semua elemen counter
 const counters = document.querySelectorAll('h6[data-target]');
 
+// Buat observer
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = +counter.getAttribute('data-target');
+
+            // Jalankan animasi
+            animateCounter(counter, target);
+
+            // Stop observe biar ga keulang setiap scroll
+            observer.unobserve(counter);
+        }
+    });
+}, { threshold: 0.5 }); // 0.5 artinya jalan ketika 50% elemen kelihatan
+
+// Observe semua counter
 counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    animateCounter(counter, target);
+    observer.observe(counter);
 });

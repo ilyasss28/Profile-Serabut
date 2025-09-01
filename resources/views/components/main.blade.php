@@ -34,8 +34,7 @@
         </div>
     </div>
 
-
-    <x-header />
+    <x-navbar />
 
     <main id="main" class="main">
         {{ $slot }}
@@ -45,35 +44,6 @@
 
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function showToast(icon, title) {
-                Swal.fire({
-                    toast: true,
-                    position: "top-end",
-                    icon: icon,
-                    title: title,
-                    showConfirmButton: false,
-                    width: '450px',
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-            }
-
-            @if (session('success'))
-                showToast("success", "{{ session('success') }}");
-            @elseif (session('error'))
-                showToast("error", "{{ session('error') }}");
-            @elseif ($errors->any())
-                showToast("warning", "{!! implode('<br>', $errors->all()) !!}");
-            @endif
-        });
-    </script>
 </body>
 
 </html>
