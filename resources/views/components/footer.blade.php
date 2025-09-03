@@ -41,7 +41,6 @@
                         <ul class="space-y-2">
                             <li><a href="/" class="hover:text-[#ca7305] transition">Beranda</a></li>
                             <li><a href="/tentang" class="hover:text-[#ca7305] transition">Profile</a></li>
-                            <li><a href="/anggota" class="hover:text-[#ca7305] transition">Visi & Misi</a></li>
                             <li><a href="/proyek" class="hover:text-[#ca7305] transition">Proyek</a></li>
                             <li><a href="/cerita" class="hover:text-[#ca7305] transition">Cerita</a></li>
                             <li><a href="/publikasi" class="hover:text-[#ca7305] transition">Publikasi</a></li>

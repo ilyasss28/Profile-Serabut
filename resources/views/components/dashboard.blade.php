@@ -22,7 +22,7 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                 Sekolah Rakyat Butuni
             </h1>
             <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
@@ -128,7 +128,7 @@
                 </p>
 
                 <!-- CTA Button -->
-                <a href="/tentang" class="btn-primary text-sm gap-2 self-start hover:bg-[#b36504] transition-colors">
+                <a href="/tentang" class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
                     Pelajari Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -138,86 +138,116 @@
     {{-- Tentang Kami --}}
 
     {{-- Proyek --}}
-    <section class="py-16 bg-gray-50">
+    <section class="py-10 bg-gray-50">
         <div class="max-w-full mx-auto px-6">
             <!-- Header -->
-            <div class="flex flex-col items-center justify-center mb-16 relative">
-                <!-- Decorative background elements -->
-                <div class="absolute -top-10 -left-10 w-20 h-20 bg-[#ca7305]/5 rounded-full"></div>
-                <div class="absolute top-20 right-0 w-32 h-32 bg-yellow-100/30 rounded-full blur-2xl"></div>
-
-                <!-- Main heading with animated underline -->
-                <div class="relative group">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#ca7305] mb-2 relative z-10 tracking-tight">
-                        Program Unggulan
-                    </h2>
-                    <!-- Accent dots -->
-                    <div class="absolute -right-4 -top-4 w-2 h-2 bg-[#ca7305] rounded-full"></div>
-                    <div class="absolute -left-6 top-1/2 w-3 h-3 bg-yellow-200 rounded-full"></div>
-                </div>
-
-                <!-- Description with hover effect -->
-                <div class="mt-8 relative max-w-2xl hidden md:block">
-                    <p class="text-gray-600 text-center leading-relaxed relative z-10 text-lg">
-                        Berbagai inisiatif dan program yang kami kembangkan untuk
-                        <span class="font-semibold text-[#ca7305]">memberikan dampak positif</span> bagi masyarakat
-                    </p>
-
-                    <!-- Animated decorative elements -->
-                    <div
-                        class="absolute -left-8 -top-8 w-6 h-6 rounded-full border-2 border-[#ca7305]/30 animate-pulse">
-                    </div>
-                    <div
-                        class="absolute -right-6 -bottom-6 w-10 h-10 rounded-full border-2 border-[#ca7305]/20 animate-bounce">
-                    </div>
-                    <div class="absolute right-1/4 -top-4 w-4 h-4 bg-yellow-100 rounded-full"></div>
-                </div>
-            </div>
-
-            <!-- Project Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Project 1"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-lg font-bold mt-3">Pemberdayaan Petani Lokal</h3>
-                        <p class="text-sm text-gray-200 mt-2">Program pelatihan dan pendampingan untuk meningkatkan
-                            produktivitas petani</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek2.jpg') }}" alt="Project 2"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-lg font-bold mt-3">Konservasi Hutan Mangrove</h3>
-                        <p class="text-sm text-gray-200 mt-2">Pelestarian ekosistem mangrove bersama masyarakat pesisir
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
+                <div class="flex flex-row gap-3">
+                    <span class="w-1 bg-[#ca7305] rounded"></span>
+                    <div class="flex flex-col">
+                        <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
+                            Proyek Unggulan
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl italic">
+                            Menampilkan berbagai inisiatif dan program unggulan Sekolah Rakyat Butuni yang berfokus pada
+                            pemberdayaan masyarakat, pendidikan berkelanjutan, dan pembangunan komunitas.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project Card 3 -->
-                <div
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek3.jpg') }}" alt="Project 3"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="flex justify-start md:justify-end">
+                    <a href="#" class="btn-primary text-md">
+                        Jelajahi Proyek
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Proyek -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Artikel Utama -->
+                <a href="/proyek/detail"
+                    class="block relative md:col-span-2 group overflow-hidden rounded-lg shadow-md">
+                    <img src="/assets/img/slide1.jpg" alt="Main Article"
+                        class="w-full h-[600px] object-cover transition-transform duration-300 group-hover:scale-110">
+
+                    <!-- Tanggal -->
+                    <div
+                        class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                        <i class="fas fa-calendar-alt text-white/80"></i>
+                        <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
                     </div>
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-lg font-bold mt-3">Edukasi Lingkungan</h3>
-                        <p class="text-sm text-gray-200 mt-2">Program pendidikan lingkungan untuk generasi muda</p>
+
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                        <div class="w-full p-6 text-white flex items-center justify-between">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-2">Judul Utama</h3>
+                                <p class="text-xl md:text-base">
+                                    {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus, maiores architecto quia vitae repellendus. Placeat, aut labore aliquid molestiae laboriosam eos beatae praesentium voluptate? Quidem est similique autem iusto eligendi facilis error explicabo sequi tempore.', 30, '...') }}
+                                </p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-lg ml-4"></i>
+                        </div>
                     </div>
+                </a>
+
+                <!-- Artikel Samping -->
+                <div class="flex flex-col gap-4">
+                    <!-- Artikel 1 -->
+                    <a href="/proyek/detail" class="block relative group overflow-hidden rounded-md shadow">
+                        <img src="/assets/img/slide2.jpg" alt="Article 1"
+                            class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
+
+                        <!-- Tanggal -->
+                        <div
+                            class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                            <i class="fas fa-calendar-alt text-white/80"></i>
+                            <time datetime="2025-05-15" class="tracking-wide">15 Mei 2025</time>
+                        </div>
+
+                        <!-- Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                            <div class="p-4 text-white w-full flex items-center justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold mb-1">Judul 1</h3>
+                                    <p class="text-md">
+                                        {{ Str::words('Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum reiciendis blanditiis deleniti.', 10, '...') }}
+                                    </p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right mt-1 ml-3"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Artikel 2 -->
+                    <a href="/proyek/detail" class="block relative group overflow-hidden rounded-md shadow">
+                        <img src="/assets/img/slide3.jpg" alt="Article 2"
+                            class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
+
+                        <!-- Tanggal -->
+                        <div
+                            class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                            <i class="fas fa-calendar-alt text-white/80"></i>
+                            <time datetime="2025-05-11" class="tracking-wide">11 Mei 2025</time>
+                        </div>
+
+                        <!-- Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                            <div class="p-4 text-white w-full flex items-center justify-between">
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold mb-1">Judul 2</h3>
+                                    <p class="text-md">
+                                        {{ Str::words('Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum reiciendis blanditiis deleniti.', 10, '...') }}
+                                    </p>
+                                </div>
+                                <i class="fa-solid fa-chevron-right mt-1 ml-3"></i>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -225,130 +255,175 @@
     {{-- Proyek --}}
 
     {{-- Publikasi --}}
-    <section class="py-12">
-        <div class="max-w-full mx-auto px-6">
-            <!-- Header -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-                <div class="text-center md:text-left mb-6 md:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#ca7305] mb-4">Publikasi Terbaru</h2>
-                    <p class="text-gray-600 max-w-2xl">Temukan berbagai artikel, penelitian, dan berita terkini tentang
-                        aktivitas kami</p>
+    <section class="py-10 bg-white">
+        <div class="container max-w-full mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
+                <!-- Judul -->
+                <div class="flex flex-row gap-3">
+                    <!-- Garis samping -->
+                    <span class="w-1 bg-[#ca7305] rounded"></span>
+                    <!-- Konten publikasi -->
+                    <div class="flex flex-col">
+                        <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
+                            Artikel & Publikasi
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl italic">
+                            Kumpulan berita, artikel, laporan, dan dokumentasi kegiatan yang dipublikasikan oleh Sekolah
+                            Rakyat Butuni.
+                        </p>
+                    </div>
                 </div>
-                <a href="/publikasi" class="btn-primary">
-                    Lihat Semua Publikasi
-                    <i class="fas fa-arrow-right ml-2"></i>
+
+                <!-- Tombol Aksi -->
+                <div class="flex justify-start md:justify-end">
+                    <a href="#" class="btn-primary text-md">
+                        Jelajahi Publikasi
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Publikasi Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Publikasi Card 1 -->
+                <a href="/publikasi/detail/1"
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Publikasi 1"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+                        <!-- Tanggal & Kategori -->
+                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
+                            <!-- Tanggal -->
+                            <time datetime="2025-01-28"
+                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-calendar-alt text-white/80"></i>
+                                28 Jan 2025
+                            </time>
+
+                            <!-- Kategori -->
+                            <span
+                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-tag text-white/80"></i>
+                                Pendidikan
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Judul Utama</h3>
+                            <p class="text-sm md:text-base">
+                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </div>
+                </a>
+
+                <!-- Publikasi Card 2 -->
+                <a href="/publikasi/detail/1"
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek2.jpg') }}" alt="Publikasi 1"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+                        <!-- Tanggal & Kategori -->
+                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
+                            <!-- Tanggal -->
+                            <time datetime="2025-01-28"
+                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-calendar-alt text-white/80"></i>
+                                28 Jan 2025
+                            </time>
+
+                            <!-- Kategori -->
+                            <span
+                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-tag text-white/80"></i>
+                                Pendidikan
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Judul 2</h3>
+                            <p class="text-sm md:text-base">
+                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </div>
+                </a>
+
+                <!-- Publikasi Card 3 -->
+                <a href="/publikasi/detail/3"
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
+                    <div class="relative h-90">
+                        <img src="{{ asset('assets/img/proyek3.jpg') }}" alt="Publikasi 3"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+                        <!-- Tanggal & Kategori -->
+                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
+                            <!-- Tanggal -->
+                            <time datetime="2025-01-28"
+                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-calendar-alt text-white/80"></i>
+                                28 Jan 2025
+                            </time>
+
+                            <!-- Kategori -->
+                            <span
+                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                <i class="fas fa-tag text-white/80"></i>
+                                Pendidikan
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Judul Utama</h3>
+                            <p class="text-sm md:text-base">
+                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </div>
                 </a>
             </div>
-
-            <!-- Publication Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Publication Card 1 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 1"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-3">
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-calendar mr-2"></i>
-                                22 Mar 2024
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-user mr-2"></i>
-                                Admin
-                            </span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Strategi Pemberdayaan Masyarakat
-                            Pesisir</h3>
-                        <p class="text-gray-600 text-sm line-clamp-3">Mengulas berbagai pendekatan efektif dalam
-                            memberdayakan masyarakat pesisir untuk pengelolaan sumber daya alam yang berkelanjutan.</p>
-                    </div>
-                </div>
-
-                <!-- Publication Card 2 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 2"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-3">
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-calendar mr-2"></i>
-                                20 Mar 2024
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-user mr-2"></i>
-                                Admin
-                            </span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Inovasi dalam Pertanian
-                            Berkelanjutan</h3>
-                        <p class="text-gray-600 text-sm line-clamp-3">Menggali berbagai inovasi teknologi dan metode
-                            dalam mengembangkan sistem pertanian yang ramah lingkungan.</p>
-                    </div>
-                </div>
-
-                <!-- Publication Card 3 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 3"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-3">
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-calendar mr-2"></i>
-                                18 Mar 2024
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-user mr-2"></i>
-                                Admin
-                            </span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Pelestarian Kearifan Lokal</h3>
-                        <p class="text-gray-600 text-sm line-clamp-3">Upaya mempertahankan dan mengembangkan
-                            nilai-nilai kearifan lokal dalam pengelolaan sumber daya alam.</p>
-                    </div>
-                </div>
-
-                <!-- Publication Card 4 -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <img src="{{ asset('assets/img/pub.jpg') }}" alt="Publication 4"
-                        class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-3">
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-calendar mr-2"></i>
-                                15 Mar 2024
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                <i class="far fa-user mr-2"></i>
-                                Admin
-                            </span>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">Dampak Program Pemberdayaan</h3>
-                        <p class="text-gray-600 text-sm line-clamp-3">Evaluasi dan analisis dampak program pemberdayaan
-                            masyarakat terhadap kesejahteraan dan kelestarian lingkungan.</p>
-                    </div>
-                </div>
-            </div>
+            {{-- Card Publikasi --}}
         </div>
     </section>
     {{-- Publikasi --}}
 
     {{-- FAQ --}}
-    <section id="faq" class="py-16 bg-gray-50">
+    <section id="faq" class="py-10 bg-gray-50">
         <div class="max-w-full mx-auto px-6">
-            <!-- Judul -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-10">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305] mb-4">
-                        Pertanyaan yang Sering Diajukan
-                    </h2>
-                    <p class="text-gray-600 max-w-2xl">
-                        Semua hal yang perlu Anda ketahui tentang Sekolah Rakyat Butuni
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
+                <!-- Judul -->
+                <div class="flex flex-row gap-3">
+                    <!-- Garis samping -->
+                    <span class="w-1 bg-[#ca7305] rounded"></span>
+                    <!-- Konten publikasi -->
+                    <div class="flex flex-col">
+                        <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
+                            Pertanyaan yang Sering Diajukan
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl italic">
+                            Semua hal yang perlu Anda ketahui tentang Sekolah Rakyat Butuni
+                        </p>
+                    </div>
                 </div>
 
+
                 <!-- Tombol Aksi -->
-                <div class="flex justify-center md:justify-end">
-                    <a href="#" class="btn-primary text-sm">
+                <div class="flex justify-start md:justify-end">
+                    <a href="#" class="btn-primary text-md">
                         Jelajahi FAQ
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -392,7 +467,6 @@
                     </div>
                 </template>
             </div>
-
         </div>
     </section>
     {{-- FAQ --}}

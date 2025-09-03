@@ -40,13 +40,13 @@
                     <a href="{{ route('profile') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Profile
                         Serabut</a>
-                    <a href="#wilayah"
+                    <a href="{{ route('wilayahkerja') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Wilayah
                         Kerja Serabut</a>
                 </div>
             </div>
 
-            <a href="#proyek" class="nav-link">Proyek</a>
+            <a href="{{ route('proyek') }}" class="nav-link">Proyek</a>
             <a href="#publikasi" class="nav-link">Publikasi</a>
         </nav>
 
@@ -71,24 +71,23 @@
             class="absolute top-full left-0 right-0 bg-white shadow-md lg:hidden">
 
             <div class="p-4 space-y-3">
+                <a href="/" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Beranda</a>
                 <div x-data="{ dropdownOpen: false }" class="relative">
                     <button @click="dropdownOpen = !dropdownOpen"
                         class="w-full text-left px-4 py-2 text-gray-700 hover:text-[#ca7305] flex justify-between items-center">
-                        <span>Tentang</span>
+                        <span>Profile</span>
                         <svg :class="{ 'rotate-180': dropdownOpen }" class="w-4 h-4 transition-transform duration-200"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="dropdownOpen" class="pl-8 space-y-2">
-                        <a href="#visi" class="block py-2 text-gray-700 hover:text-[#ca7305]">Visi & Misi</a>
-                        <a href="#sejarah" class="block py-2 text-gray-700 hover:text-[#ca7305]">Sejarah</a>
-                        <a href="#struktur" class="block py-2 text-gray-700 hover:text-[#ca7305]">Struktur</a>
+                        <a href="{{ route('profile') }}" class="block py-2 text-gray-700 hover:text-[#ca7305]">Profile Serabut</a>
+                        <a href="{{ route('wilayahkerja') }}" class="block py-2 text-gray-700 hover:text-[#ca7305]">Wilayah Kerja
+                            Serabut</a>
                     </div>
                 </div>
-                <a href="#anggota" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Anggota</a>
-                <a href="#proyek" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Proyek</a>
-                <a href="#cerita" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Cerita</a>
+                <a href="{{ route('proyek') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Proyek</a>
                 <a href="#publikasi" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
             </div>
         </div>

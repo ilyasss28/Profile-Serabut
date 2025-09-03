@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WilayahKerja;
+use App\Models\Proyek;
 use Illuminate\Http\Request;
 
-class WilayahKerjaController extends Controller
+class ProyekController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('components.wilayahkerja');
+        return view('components.proyek');
     }
 
     /**
@@ -34,7 +34,7 @@ class WilayahKerjaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WilayahKerja $wilayahKerja)
+    public function show(Proyek $proyek)
     {
         //
     }
@@ -42,7 +42,7 @@ class WilayahKerjaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WilayahKerja $wilayahKerja)
+    public function edit(Proyek $proyek)
     {
         //
     }
@@ -50,7 +50,7 @@ class WilayahKerjaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WilayahKerja $wilayahKerja)
+    public function update(Request $request, Proyek $proyek)
     {
         //
     }
@@ -58,7 +58,7 @@ class WilayahKerjaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WilayahKerja $wilayahKerja)
+    public function destroy(Proyek $proyek)
     {
         //
     }

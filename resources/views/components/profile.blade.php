@@ -8,7 +8,7 @@
         </div>
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 Profile Organisasi
             </h1>
             <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
@@ -114,7 +114,7 @@
 
     {{-- Struktur Organisasi --}}
     <section id="struktur" class="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative">
-        <div class="container mx-auto px-6 lg:px-12 text-center relative z-10">
+        <div class="w-full px-6 text-center relative z-10">
 
             <!-- Title -->
             <div class="flex items-center justify-center gap-4 mb-4">
