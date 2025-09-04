@@ -117,19 +117,14 @@
             <div class="flex flex-col justify-start flex-1 gap-4">
                 <h4 class="text-sm font-semibold text-gray-600 uppercase">Tentang Kami</h4>
                 <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305]">
-                    Memelihara Alam,<br>Memberdayakan Komunitas
+                    Pemberdayaan Masyarakat & Pelestarian Lingkungan
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
-                    Penelitian dan inovasi dalam pengelolaan sumber daya alam yang berkelanjutan oleh
-                    organisasi-organisasi akar rumput.
-                    Organisasi masyarakat sipil Indonesia, termasuk organisasi non-profit lokal dan jaringan tematik,
-                    berada di garis depan
-                    dalam mendorong perubahan untuk kepentingan masyarakat dan alam.
+                    Sekolah Rakyat Butuni, atau disingkat SERABUT adalah organisasi yang dibentuk berdasarkan kesamaan visi dan misi serta rasa kepedulian bersama di antara pemberdayaan masyarakat dan pelestarian lingkungan hidup. SERABUT didirikan untuk memastikan agar hak atas tanah dan perlindungan lingkungan yang diatur dalam undang-undang dan merupakan hak konstitusi setiap warga negara dapat terpenuhi, khususnya di wilayah Sulawesi Tenggara.
                 </p>
-
                 <!-- CTA Button -->
                 <a href="/tentang" class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
-                    Pelajari Selengkapnya
+                    Lihat Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
@@ -258,7 +253,7 @@
     <section class="py-10 bg-white">
         <div class="container max-w-full mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
-                <!-- Judul -->
+                <!-- Header -->
                 <div class="flex flex-row gap-3">
                     <!-- Garis samping -->
                     <span class="w-1 bg-[#ca7305] rounded"></span>

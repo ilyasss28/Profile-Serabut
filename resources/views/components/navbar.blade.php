@@ -47,7 +47,7 @@
             </div>
 
             <a href="{{ route('proyek') }}" class="nav-link">Proyek</a>
-            <a href="#publikasi" class="nav-link">Publikasi</a>
+            <a href="{{ route('publikasi') }}" class="nav-link">Publikasi</a>
         </nav>
 
         {{-- Mobile Menu Button --}}
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <a href="{{ route('proyek') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Proyek</a>
-                <a href="#publikasi" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
+                <a href="{{ route('publikasi') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
             </div>
         </div>
     </div>

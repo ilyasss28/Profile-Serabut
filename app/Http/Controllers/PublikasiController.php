@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proyek;
+use App\Models\Publikasi;
 use Illuminate\Http\Request;
 
-class ProyekController extends Controller
+class PublikasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('components.proyek');
+        return view('components.publikasi');
     }
 
-    public function indexDetail()
-    {
-        return view('components.detail-proyek');
+    public function indexDetail(){
+        return view('components.detail-publikasi');
     }
 
     /**
@@ -39,7 +38,7 @@ class ProyekController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Proyek $proyek)
+    public function show(Publikasi $publikasi)
     {
         //
     }
@@ -47,7 +46,7 @@ class ProyekController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Proyek $proyek)
+    public function edit(Publikasi $publikasi)
     {
         //
     }
@@ -55,7 +54,7 @@ class ProyekController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proyek $proyek)
+    public function update(Request $request, Publikasi $publikasi)
     {
         //
     }
@@ -63,7 +62,7 @@ class ProyekController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Proyek $proyek)
+    public function destroy(Publikasi $publikasi)
     {
         //
     }

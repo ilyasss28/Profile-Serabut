@@ -1,8 +1,8 @@
 <footer class="relative bg-cover bg-center text-white py-8"
-    style="background-image:url('{{ asset('assets/img/background.jpg') }}')">
+    style="background-image:url('{{ asset('assets/img/bg-profile.jpg') }}')">
 
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 backdrop-blur-sm bg-black/70"></div>
 
     <div class="relative max-w-8xl mx-auto px-6 sm:px-12">
         <!-- Bagian Atas -->
@@ -72,7 +72,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-white mt-6 pt-6 text-center relative z-10">
-            <p class="text-sm text-gray-300">© 2024 — Serabut. All Rights Reserved.</p>
+            <p class="text-sm text-gray-300">© 2025 — Serabut. All Rights Reserved.</p>
         </div>
     </div>
 </footer>

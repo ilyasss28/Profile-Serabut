@@ -3,8 +3,8 @@ window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
     setTimeout(() => {
         loader.classList.add("hide");
-        setTimeout(() => loader.style.display = "none", 600);
-    }, 800); // kasih delay sedikit biar animasi kelihatan
+        setTimeout(() => loader.style.display = "none", 200);
+    }, 400); // kasih delay sedikit biar animasi kelihatan
 });
 
 

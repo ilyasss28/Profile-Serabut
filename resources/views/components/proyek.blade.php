@@ -11,107 +11,130 @@
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 Proyek Serabut
             </h1>
-            <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
-                Mengenal lebih dekat sejarah, visi, misi, dan struktur organisasi kami.
+            <p class="text-base sm:text-md md:text-lg max-w-3xl mx-auto">
+                Jelajahi berbagai proyek Sekolah Rakyat Butuni yang mengedepankan kolaborasi, inovasi, serta
+                keberlanjutan untuk membangun masyarakat dan lingkungan yang lebih baik.
             </p>
         </div>
     </section>
     {{-- Hero Section --}}
 
     {{-- Halaman Proyek --}}
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <!-- Header Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-12">
-                <div class="flex flex-row gap-3">
-                    <span class="w-1 bg-[#ca7305] rounded"></span>
-                    <div class="flex flex-col">
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-[#252422] uppercase">
-                            Semua Proyek
+    <section class="py-12 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto space-y-10">
+            <div class="flex flex-row gap-3 mb-10"> <!-- Garis samping --> <span
+                    class="w-1 bg-[#ca7305] rounded"></span> <!-- Konten publikasi -->
+                <div class="flex flex-col">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase"> Proyek Serabut </h2>
+                    <p class="text-gray-600 max-w-2xl italic"> Kumpulan proyek, program, dan kegiatan yang telah
+                        dilaksanakan oleh Tim Serabut untuk mendukung pemberdayaan masyarakat dan pelestarian
+                        lingkungan. </p>
+                </div>
+            </div>
+            @php
+                $projects = [
+                    [
+                        'title' => 'Meningkatkan Restorasi Berbasis Masyarakat di Seluruh Kepulauan Indonesia',
+                        'image' => '/assets/img/proyek1.jpg',
+                        'date' => '2024-06-24',
+                        'date_label' => '24 Jun, 2024',
+                        'status' => 'Sedang Berjalan',
+                        'desc' =>
+                            'LATAR BELAKANG Hutan primer di Indonesia telah ditebang untuk berbagai proyek pembangunan guna memenuhi beragam permintaan akibat pertumbuhan penduduk, urbanisasi yang pesat, dan peningkatan konsumsi. Ketika ekosistem hutan terdegradasi, hutan kehilangan kemampuannya untuk memberikan jasa lingkungan...',
+                    ],
+                    [
+                        'title' => 'Konservasi Hutan Mangrove di Pesisir Buton',
+                        'image' => '/assets/img/proyek2.jpg',
+                        'date' => '2025-02-12',
+                        'date_label' => '12 Feb, 2025',
+                        'status' => 'Selesai',
+                        'desc' =>
+                            'Proyek ini bertujuan untuk melestarikan ekosistem mangrove dengan melibatkan masyarakat pesisir. Upaya ini mencakup penanaman bibit, pengelolaan ekosistem, serta edukasi pentingnya mangrove bagi keseimbangan lingkungan dan sumber mata pencaharian masyarakat sekitar...',
+                    ],
+                ];
+            @endphp
+
+            @foreach ($projects as $project)
+                <div
+                    class="flex flex-col md:flex-row bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 overflow-hidden">
+                    <!-- Gambar -->
+                    <div class="md:w-1/2 aspect-video overflow-hidden">
+                        <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}"
+                            class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+
+                    <!-- Konten -->
+                    <div class="p-6 flex flex-col justify-evenly md:w-1/2">
+                        <!-- Judul -->
+                        <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-[#ca7305] transition">
+                            {{ Str::limit($project['title'], 80) }}
                         </h2>
-                        <p class="text-gray-600 max-w-2xl">
-                            Jelajahi inisiatif dan program unggulan <span class="font-semibold">Sekolah Rakyat
-                                Butuni</span>
-                            dalam pemberdayaan masyarakat, pendidikan berkelanjutan, dan pembangunan komunitas.
+
+                        <!-- Meta -->
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                            <span class="flex items-center gap-1">
+                                <i class="fas fa-calendar-alt text-[#ca7305]"></i>
+                                {{ $project['date_label'] }}
+                            </span>
+                            <span
+                                class="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
+                                {{ $project['status'] == 'Sedang Berjalan' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700' }}">
+                                <i class="fas fa-flag"></i>
+                                {{ $project['status'] }}
+                            </span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            {{ Str::words($project['desc'], 30, '...') }}
                         </p>
-                    </div>
-                </div>
-                <div class="flex justify-start md:justify-end">
-                    <a href="#"
-                        class="inline-flex items-center gap-2 bg-[#ca7305] text-white px-6 py-3 rounded-full shadow hover:bg-[#a35604] transition">
-                        Tambah Proyek
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Grid Proyek -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card Proyek -->
-                <div class="relative group rounded-xl shadow-md overflow-hidden bg-white">
-                    <img src="/assets/img/slide1.jpg" alt="Proyek 1"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div class="absolute bottom-0 p-6 text-white flex justify-between items-end w-full">
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Proyek 1</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Restorasi hutan berbasis masyarakat untuk meningkatkan keberlanjutan lingkungan di wilayah Buton.', 12, '...') }}
-                            </p>
-                        </div>
-                        <a href="/proyek/detail" class="ml-3">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
+                        <!-- Tombol -->
+                        <a href="{{ route('detail-proyek', $project['title']) }}"
+                            class="inline-flex items-center text-[#ca7305] font-semibold hover:underline">
+                            Lihat Project <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Card Proyek -->
-                <div class="relative group rounded-xl shadow-md overflow-hidden bg-white">
-                    <img src="/assets/img/slide2.jpg" alt="Proyek 2"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div class="absolute bottom-0 p-6 text-white flex justify-between items-end w-full">
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Proyek 2</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Program pendidikan lingkungan untuk generasi muda di desa-desa binaan.', 12, '...') }}
-                            </p>
-                        </div>
-                        <a href="/proyek/detail" class="ml-3">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card Proyek -->
-                <div class="relative group rounded-xl shadow-md overflow-hidden bg-white">
-                    <img src="/assets/img/slide3.jpg" alt="Proyek 3"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div class="absolute bottom-0 p-6 text-white flex justify-between items-end w-full">
-                        <div>
-                            <h3 class="text-xl font-bold mb-1">Proyek 3</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Inovasi pertanian berkelanjutan untuk meningkatkan kesejahteraan petani lokal.', 12, '...') }}
-                            </p>
-                        </div>
-                        <a href="/proyek/detail" class="ml-3">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="mt-12 flex justify-center">
-                <nav class="flex space-x-2">
-                    <a href="#" class="px-4 py-2 rounded-full bg-[#ca7305] text-white">1</a>
-                    <a href="#"
-                        class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-[#ca7305] hover:text-white transition">2</a>
-                    <a href="#"
-                        class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-[#ca7305] hover:text-white transition">3</a>
-                </nav>
-            </div>
+            @endforeach
         </div>
+
+        <!-- Modern Pagination -->
+        <div class="mt-10 flex justify-center">
+            <nav class="inline-flex items-center gap-2">
+                <!-- Previous Button -->
+                <a href="#"
+                    class="flex items-center w-10 h-10 justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300 group">
+                    <svg class="w-4 h-4 group-hover:text-white" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </a>
+
+                <!-- Page Numbers -->
+                <div class="flex items-center gap-1">
+                    <a href="#"
+                        class="w-10 h-10 flex items-center justify-center text-sm font-medium bg-[#ca7305] text-white rounded-full">1</a>
+                    <a href="#"
+                        class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">2</a>
+                    <a href="#"
+                        class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">3</a>
+                    <span
+                        class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500">...</span>
+                    <a href="#"
+                        class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">10</a>
+                </div>
+
+                <!-- Next Button -->
+                <a href="#"
+                    class="flex items-center w-10 h-10 justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300 group">
+                    <svg class="w-4 h-4 group-hover:text-white" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+        {{-- Halaman Proyek --}}
     </section>
 </x-main>

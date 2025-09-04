@@ -70,22 +70,21 @@
 
                 <!-- Bagian Visi -->
                 <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
-                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Visi</h4>
-                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
-                        Menjadi Lembaga Pendidikan yang Unggul
+                    {{-- <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Visi</h4> --}}
+                    <h2 class="text-xl md:text-2xl font-bold uppercase leading-snug">
+                        Visi
                     </h2>
                     <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
                     <p class="text-base sm:text-md md:text-lg leading-relaxed text-gray-100">
-                        Membentuk generasi yang cerdas, berkarakter, dan berdaya saing global
-                        melalui pendidikan yang berkualitas, inovatif, dan berkelanjutan.
+                        Menciptakan keadilan bersama, menegakkan kedaulatan rakyat untuk pengelolaan, penguasaan dan penataan sumber daya alam yang berbasis kearfian lokal.
                     </p>
                 </div>
 
                 <!-- Bagian Misi -->
                 <div class="backdrop-blur-sm bg-black/40 p-6 sm:p-10 rounded-2xl shadow-lg">
-                    <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Misi</h4>
-                    <h2 class="text-xl md:text-2xl font-bold leading-snug">
-                        Mewujudkan Pendidikan Berkualitas untuk Semua
+                    {{-- <h4 class="text-sm sm:text-base font-semibold uppercase tracking-wider mb-2">Misi</h4> --}}
+                    <h2 class="text-xl md:text-2xl font-bold uppercase leading-snug">
+                        Misi
                     </h2>
                     <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
 
@@ -93,17 +92,27 @@
                         <li class="flex items-start gap-3">
                             <span
                                 class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">1</span>
-                            Memberikan akses pendidikan yang merata bagi seluruh lapisan masyarakat.
+                            Menegakkan keadilan sosial dan gender demi Hak Asasi Manusia.
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">2</span>
-                            Mendorong inovasi dalam metode pembelajaran dan teknologi pendidikan.
+                            Menegakkan penguasaan, pengelolaan, dan penataan SDA untuk keserasian lingkungan.
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">3</span>
-                            Mengembangkan potensi siswa agar menjadi individu yang mandiri dan berintegritas.
+                            Menguatkan organisasi rakyat agar lebih mandiri dan berdaya guna.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">4</span>
+                            Menguatkan sumber-sumber ekonomi masyarakat desa dan pedalaman sebagai sumber kesejahteraan dalam bentuk koperasi.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">5</span>
+                            Mengkonsolidasikan basis kepulauan sebagai ruang belajar rakyat.
                         </li>
                     </ul>
                 </div>
@@ -135,7 +144,7 @@
                     <!-- Photo -->
                     <div
                         class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile.jpg') }}" alt="Finance"
+                        <img src="{{ asset('assets/img/Profile1.png') }}" alt="Finance"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
@@ -154,7 +163,7 @@
                 <div class="relative group w-64">
                     <div
                         class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile3.jpg') }}" alt="Finance"
+                        <img src="{{ asset('assets/img/Profile2.jpg') }}" alt="Finance"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
@@ -172,7 +181,7 @@
                 <div class="relative group w-64">
                     <div
                         class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile2.jpg') }}" alt="Program Manager"
+                        <img src="{{ asset('assets/img/Profile3.png') }}" alt="Program Manager"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
