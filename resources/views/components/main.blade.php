@@ -12,7 +12,9 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/icon.png') }}" type="image/x-icon">
     <title>WEBSITE ORGANISASI</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {{-- FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    {{-- Tailwind --}}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -43,6 +45,7 @@
     <x-footer />
 
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    {{-- AlpineJS --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 </body>
 

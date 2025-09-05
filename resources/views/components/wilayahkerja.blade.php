@@ -8,7 +8,7 @@
         </div>
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 Wilayah Kerja Serabut
             </h1>
             <p class="text-base sm:text-md md:text-lg max-w-3xl mx-auto">

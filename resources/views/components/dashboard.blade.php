@@ -22,7 +22,7 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 Sekolah Rakyat Butuni
             </h1>
             <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
@@ -65,7 +65,7 @@
         <div class="flex flex-col md:flex-row gap-4">
             <!-- Video Carousel -->
             <div x-data="{ currentSlide: 0, slides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)"
-                class="relative rounded-lg h-[280px] overflow-hidden flex-1">
+                class="relative rounded-lg aspect-video overflow-hidden flex-1">
 
                 <!-- Slides wrapper -->
                 <div class="relative w-full h-full overflow-hidden">
@@ -74,19 +74,19 @@
 
                         <!-- Slide 1 -->
                         <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/slide1.jpg') }}" alt="Slide 1"
+                            <img src="{{ asset('assets/img/about-img1.png') }}" alt="Slide 1"
                                 class="w-full h-full object-cover rounded-lg">
                         </div>
 
                         <!-- Slide 2 -->
                         <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/slide3.jpg') }}" alt="Slide 2"
+                            <img src="{{ asset('assets/img/about-img2.png') }}" alt="Slide 2"
                                 class="w-full h-full object-cover rounded-lg">
                         </div>
 
                         <!-- Slide 3 -->
                         <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/slide2.jpg') }}" alt="Slide 3"
+                            <img src="{{ asset('assets/img/about-img3.png') }}" alt="Slide 3"
                                 class="w-full h-full object-cover rounded-lg">
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                     Sekolah Rakyat Butuni, atau disingkat SERABUT adalah organisasi yang dibentuk berdasarkan kesamaan visi dan misi serta rasa kepedulian bersama di antara pemberdayaan masyarakat dan pelestarian lingkungan hidup. SERABUT didirikan untuk memastikan agar hak atas tanah dan perlindungan lingkungan yang diatur dalam undang-undang dan merupakan hak konstitusi setiap warga negara dapat terpenuhi, khususnya di wilayah Sulawesi Tenggara.
                 </p>
                 <!-- CTA Button -->
-                <a href="/tentang" class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
+                <a href="{{ route('profile') }}" class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
                     Lihat Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -151,7 +151,7 @@
                 </div>
 
                 <div class="flex justify-start md:justify-end">
-                    <a href="#" class="btn-primary text-md">
+                    <a href="{{ route('proyek') }}" class="btn-primary text-md">
                         Jelajahi Proyek
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -178,9 +178,9 @@
                         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
                         <div class="w-full p-6 text-white flex items-center justify-between">
                             <div>
-                                <h3 class="text-3xl font-bold mb-2">Judul Utama</h3>
-                                <p class="text-xl md:text-base">
-                                    {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus, maiores architecto quia vitae repellendus. Placeat, aut labore aliquid molestiae laboriosam eos beatae praesentium voluptate? Quidem est similique autem iusto eligendi facilis error explicabo sequi tempore.', 30, '...') }}
+                                <h3 class="text-xl sm:text-3xl font-bold mb-2">Judul Utama</h3>
+                                <p class="text-md sm:text-xl md:text-base">
+                                    {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus, maiores architecto quia vitae repellendus. Placeat, aut labore aliquid molestiae laboriosam eos beatae praesentium voluptate? Quidem est similique autem iusto eligendi facilis error explicabo sequi tempore.', 15, '...') }}
                                 </p>
                             </div>
                             <i class="fa-solid fa-chevron-right text-lg ml-4"></i>
@@ -271,7 +271,7 @@
 
                 <!-- Tombol Aksi -->
                 <div class="flex justify-start md:justify-end">
-                    <a href="#" class="btn-primary text-md">
+                    <a href="{{ route('publikasi') }}" class="btn-primary text-md">
                         Jelajahi Publikasi
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -418,7 +418,7 @@
 
                 <!-- Tombol Aksi -->
                 <div class="flex justify-start md:justify-end">
-                    <a href="#" class="btn-primary text-md">
+                    <a href="/FAQ" class="btn-primary text-md">
                         Jelajahi FAQ
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -436,7 +436,7 @@
     ]"
                     :key="index">
 
-                    <div class="bg-white shadow rounded-2xl p-5 cursor-pointer transition-all duration-500 hover:shadow-xl hover:scale-[1.01]"
+                    <div class="bg-white shadow rounded-2xl p-5 cursor-pointer transition-all duration-500 hover:shadow-lg hover:scale-[1.01]"
                         @click="selected !== index ? selected = index : selected = null">
 
                         <!-- Header -->

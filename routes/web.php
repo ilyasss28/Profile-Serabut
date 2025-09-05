@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('components.dashboard');
 });
 
+Route::get('/FAQ', function () {
+    return view('components.detail-faq');
+});
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/wilayah-kerja', [WilayahKerjaController::class, 'index'])->name('wilayahkerja');
 Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');

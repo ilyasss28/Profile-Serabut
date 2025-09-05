@@ -8,6 +8,10 @@
         </div>
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            <span class="text-sm font-semibold uppercase text-[#ca7305] tracking-widest mb-4 inline-block">
+                Detail Publikasi
+            </span>
+
             <!-- Judul -->
             <h6 class="text-xl sm:text-2xl md:text-3xl font-bold leading-tight max-w-4xl mb-3">
                 Respons terhadap Perubahan Iklim: Persepsi dan Adaptasi di Kalangan Petani Skala Kecil di Indonesia
