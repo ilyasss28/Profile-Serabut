@@ -40,10 +40,9 @@
                         <h4 class="text-lg font-semibold mb-4">Navigasi</h4>
                         <ul class="space-y-2">
                             <li><a href="/" class="hover:text-[#ca7305] transition">Beranda</a></li>
-                            <li><a href="/tentang" class="hover:text-[#ca7305] transition">Profile</a></li>
-                            <li><a href="/proyek" class="hover:text-[#ca7305] transition">Proyek</a></li>
-                            <li><a href="/cerita" class="hover:text-[#ca7305] transition">Cerita</a></li>
-                            <li><a href="/publikasi" class="hover:text-[#ca7305] transition">Publikasi</a></li>
+                            <li><a href="{{ route('profile') }}" class="hover:text-[#ca7305] transition">Profile</a></li>
+                            <li><a href="{{ route('proyek') }}" class="hover:text-[#ca7305] transition">Program</a></li>
+                            <li><a href="{{ route('publikasi') }}" class="hover:text-[#ca7305] transition">Publikasi</a></li>
                         </ul>
                     </div>
 
@@ -51,7 +50,7 @@
                         <h4 class="text-lg font-semibold mb-2">Kontak Kami</h4>
                         <p class="flex items-center gap-2">
                             <i class="fas fa-phone text-[#ca7305]"></i>
-                            +62 251 836-83-49
+                            +62 812-8942-4001
                         </p>
                         <p class="flex items-center gap-2">
                             <i class="fas fa-envelope text-[#ca7305]"></i>
@@ -62,8 +61,7 @@
                     <!-- Kontak & Lokasi -->
                     <div>
                         <h4 class="text-lg font-semibold mb-2">Lokasi</h4>
-                        <p><strong>Pulau Buton, Sulawesi Tenggara</strong></p>
-                        <p>Kabupaten Buton, Kabupaten Buton Selatan, dan Kota Baubau</p>
+                        <p><strong>Jl. Dayanu Ikhsanuddin Topaz Residence 1 Kel. Sulaa Kec.Betaombari Kota Baubau, Sulawesi Tenggara</strong></p>
                         <p class="text-sm text-gray-300 mt-1">Senin - Jumat: 08:00 - 17:00 WIB</p>
                     </div>
                 </div>

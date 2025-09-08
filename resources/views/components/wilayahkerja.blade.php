@@ -42,51 +42,58 @@
 
                     {{-- List Desa --}}
                     <ul class="space-y-4">
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        <a href="https://www.google.com/maps?q=Sumber+Sari" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Sumber Sari</span>
                             <span class="text-sm text-gray-600">159 Petani • 2023</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+                        <a href="https://maps.app.goo.gl/mYJnfv7ngWnxm23i6" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Labuandiri</span>
                             <span class="text-sm text-gray-600">28 Petani • 2022</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/5Yq3ha9aDSto6Xms9" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Wajah Jaya</span>
                             <span class="text-sm text-gray-600">28 Petani • 2022</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/TssBTczX72iCm9QP8" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Sumber Agung</span>
                             <span class="text-sm text-gray-600">10 Petani • 2021</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/G7SjjRw3utt4SGc76" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Siotapina</span>
                             <span class="text-sm text-gray-600">19 Petani • 2021</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/B5b2NnqiVH9ddZFu7" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Siomanuru</span>
                             <span class="text-sm text-gray-600">9 Petani • 2020</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/s8bwBXtw35pQ1yxFA" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Rejo Sari</span>
                             <span class="text-sm text-gray-600">4 Petani • 2020</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/DHCSczT52DmdJ8w87" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Barangka</span>
                             <span class="text-sm text-gray-600">4 Petani • 2020</span>
-                        </li>
-                        <li
-                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+                        </a>
+
+                        <a href="https://maps.app.goo.gl/qScVAV3apUoLg5Fk9" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-md hover:bg-gray-50 transition">
                             <span class="font-medium text-gray-800">Karya Jaya</span>
                             <span class="text-sm text-gray-600">4 Petani • 2020</span>
-                        </li>
+                        </a>
                     </ul>
                 </div>
             </div>

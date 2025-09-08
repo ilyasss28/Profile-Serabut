@@ -22,40 +22,45 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                Sekolah Rakyat Butuni
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight relative">
+                SERABUT
             </h1>
-            <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
-                Bersama menjaga lingkungan, membangun komunitas, dan menciptakan masa depan yang berkelanjutan.
-            </p>
+            <span class="block w-full max-w-[20ch] border-t-2 border-[#ca7305] mt-2"></span>
+            <span class="text-md font-semibold uppercase text-[#ca7305] tracking-widest mt-3 inline-block">
+                SEKOLAH RAKYAT BUTUNI
+            </span>
         </div>
     </div>
     {{-- Hero --}}
 
     {{-- Kami dalam Angka --}}
     <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center py-12 bg-gray-50 px-6">
-        <div class="bg-white/60 rounded-2xl shadow p-6 hover:shadow-md transition">
+        {{-- Card Lokasi --}}
+        <a href="{{ route('wilayahkerja') }}"
+            class="block bg-white/60 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
                 <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="9">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Lokasi</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Desa Yang Terlibat</p>
-        </div>
+        </a>
 
-        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
+        {{-- Card Masyarakat Terlibat --}}
+        <a href="{{ route('wilayahkerja') }}"
+            class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
                 <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="344">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Orang</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
-        </div>
+        </a>
 
         <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="3">0</h6>
-                <span class="text-lg md:text-xl font-medium text-gray-700">Kab/Kota</span>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="6">0</h6>
+                <span class="text-lg md:text-xl font-medium text-gray-700">Jenis</span>
             </div>
-            <p class="mt-3 text-gray-700 font-medium">Wilayah Kerja</p>
+            <p class="mt-3 text-gray-700 font-medium">Bahan Komoditas</p>
         </div>
     </section>
     {{-- Kami dalam Angka --}}
@@ -120,10 +125,15 @@
                     Pemberdayaan Masyarakat & Pelestarian Lingkungan
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
-                    Sekolah Rakyat Butuni, atau disingkat SERABUT adalah organisasi yang dibentuk berdasarkan kesamaan visi dan misi serta rasa kepedulian bersama di antara pemberdayaan masyarakat dan pelestarian lingkungan hidup. SERABUT didirikan untuk memastikan agar hak atas tanah dan perlindungan lingkungan yang diatur dalam undang-undang dan merupakan hak konstitusi setiap warga negara dapat terpenuhi, khususnya di wilayah Sulawesi Tenggara.
+                    Sekolah Rakyat Butuni, atau disingkat SERABUT adalah organisasi yang dibentuk berdasarkan kesamaan
+                    visi dan misi serta rasa kepedulian bersama di antara pemberdayaan masyarakat dan pelestarian
+                    lingkungan hidup. SERABUT didirikan untuk memastikan agar hak atas tanah dan perlindungan lingkungan
+                    yang diatur dalam undang-undang dan merupakan hak konstitusi setiap warga negara dapat terpenuhi,
+                    khususnya di wilayah Sulawesi Tenggara.
                 </p>
                 <!-- CTA Button -->
-                <a href="{{ route('profile') }}" class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
+                <a href="{{ route('profile') }}"
+                    class="btn-primary text-md gap-2 self-start hover:bg-[#b36504] transition-colors">
                     Lihat Selengkapnya
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -141,7 +151,7 @@
                     <span class="w-1 bg-[#ca7305] rounded"></span>
                     <div class="flex flex-col">
                         <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
-                            Proyek Unggulan
+                            Program Unggulan
                         </h2>
                         <p class="text-gray-600 max-w-2xl italic">
                             Menampilkan berbagai inisiatif dan program unggulan Sekolah Rakyat Butuni yang berfokus pada
@@ -152,7 +162,7 @@
 
                 <div class="flex justify-start md:justify-end">
                     <a href="{{ route('proyek') }}" class="btn-primary text-md">
-                        Jelajahi Proyek
+                        Jelajahi Program
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -249,8 +259,93 @@
     </section>
     {{-- Proyek --}}
 
-    {{-- Publikasi --}}
+    {{-- Komoditas --}}
     <section class="py-10 bg-white">
+        <div class="max-w-full mx-auto px-6">
+            <!-- Header -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
+                <div class="flex flex-row gap-3">
+                    <span class="w-1 bg-[#ca7305] rounded"></span>
+                    <div class="flex flex-col">
+                        <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
+                            Jenis Komoditas
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl italic">
+                            Jelajahi berbagai jenis komoditas yang dihasilkan oleh Sekolah Rakyat Butuni untuk membangun
+                            masyarakat dan lingkungan yang
+                            lebih baik.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-start md:justify-end">
+                    <a href="{{ route('komoditas') }}" class="btn-primary text-md">
+                        Jelajahi Komoditas
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            @php
+                $commodities = [
+                    [
+                        'name' => 'Padi',
+                        'image' => '/assets/img/komoditas/padi.jpg',
+                        'desc' => 'Komoditas utama yang menjadi sumber pangan pokok masyarakat desa.',
+                    ],
+                    [
+                        'name' => 'Jagung',
+                        'image' => '/assets/img/komoditas/jagung.jpg',
+                        'desc' => 'Jagung digunakan sebagai bahan pangan alternatif dan pakan ternak.',
+                    ],
+                    [
+                        'name' => 'Kopi',
+                        'image' => '/assets/img/komoditas/kopi.jpg',
+                        'desc' => 'Komoditas unggulan dengan potensi ekspor tinggi di wilayah Serabut.',
+                    ],
+                    [
+                        'name' => 'Cokelat',
+                        'image' => '/assets/img/komoditas/cokelat.jpg',
+                        'desc' => 'Cokelat menjadi produk turunan dengan nilai ekonomi tinggi.',
+                    ],
+                ];
+            @endphp
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+                @foreach ($commodities as $item)
+                    <a href="{{ route('detail-komoditas') }}"
+                        class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-[#ca7305]/40">
+
+                        <!-- Gambar -->
+                        <div class="relative h-56 w-full">
+                            <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        </div>
+
+                        <!-- Konten -->
+                        <div class="p-5 flex flex-col justify-between h-40">
+                            <h3
+                                class="text-lg font-extrabold text-[#ca7305] tracking-wide">
+                                {{ $item['name'] }}
+                            </h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                {{ Str::words($item['desc'], 15, '...') }}
+                            </p>
+
+                            <span
+                                class="inline-flex items-center gap-2 text-[#ca7305] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                                Lihat Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    {{-- Komoditas --}}
+
+    {{-- Publikasi --}}
+    <section class="py-10 bg-gray-50">
         <div class="container max-w-full mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
                 <!-- Header -->
@@ -397,7 +492,7 @@
     {{-- Publikasi --}}
 
     {{-- FAQ --}}
-    <section id="faq" class="py-10 bg-gray-50">
+    <section id="faq" class="py-10 bg-white">
         <div class="max-w-full mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start mb-10">
                 <!-- Judul -->

@@ -11,10 +11,10 @@
         <div class="flex items-center gap-1">
             <img :src="scrolled ? '{{ asset('assets/img/icon.png') }}' : '{{ asset('assets/img/icon2.png') }}'"
                 alt="logo" class="w-12 h-12">
-            <span :class="scrolled ? 'text-[#ca7305]' : 'text-white'"
+            <h1 :class="scrolled ? 'text-[#ca7305]' : 'text-white'"
                 class="font-bold tracking-wide font-sans text-[clamp(14px,4vw,26px)] md:text-[clamp(12px,3vw,20px)]">
-                Sekolah Rakyat Butuni
-            </span>
+                SERABUT
+            </h1>
         </div>
 
         {{-- Desktop Navigation --}}
@@ -38,15 +38,17 @@
                     x-transition:leave-end="opacity-0 transform scale-95"
                     class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                     <a href="{{ route('profile') }}"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Profile
-                        Serabut</a>
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Profile</a>
                     <a href="{{ route('wilayahkerja') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Wilayah
-                        Kerja Serabut</a>
+                        Kerja</a>
+                    <a href="{{ route('komoditas') }}"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">Jenis
+                        Komoditas</a>
                 </div>
             </div>
 
-            <a href="{{ route('proyek') }}" class="nav-link">Proyek</a>
+            <a href="{{ route('proyek') }}" class="nav-link">Program</a>
             <a href="{{ route('publikasi') }}" class="nav-link">Publikasi</a>
         </nav>
 
@@ -82,13 +84,19 @@
                         </svg>
                     </button>
                     <div x-show="dropdownOpen" class="pl-8 space-y-2">
-                        <a href="{{ route('profile') }}" class="block py-2 text-gray-700 hover:text-[#ca7305]">Profile Serabut</a>
-                        <a href="{{ route('wilayahkerja') }}" class="block py-2 text-gray-700 hover:text-[#ca7305]">Wilayah Kerja
-                            Serabut</a>
+                        <a href="{{ route('profile') }}"
+                            class="block py-2 text-gray-700 hover:text-[#ca7305]">Profile</a>
+                        <a href="{{ route('wilayahkerja') }}"
+                            class="block py-2 text-gray-700 hover:text-[#ca7305]">Wilayah Kerja</a>
+                        <a href="{{ route('komoditas') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">
+                            Jenis Komoditas
+                        </a>
                     </div>
                 </div>
-                <a href="{{ route('proyek') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Proyek</a>
-                <a href="{{ route('publikasi') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
+                <a href="{{ route('proyek') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Program</a>
+                <a href="{{ route('publikasi') }}"
+                    class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
             </div>
         </div>
     </div>
