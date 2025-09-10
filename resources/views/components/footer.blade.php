@@ -12,22 +12,10 @@
             <div class="flex flex-col items-center md:mb-0 w-full md:w-auto">
                 <img src="{{ asset('assets/img/icon.png') }}" alt="Logo Organisasi" class="w-40 mb-4 relative z-10">
                 <div class="flex justify-evenly">
-                    <!-- Youtube -->
-                    <a href="#" target="_blank"
-                        class="transform transition-transform duration-300 hover:-translate-y-2">
-                        <img class="mx-1 w-7" src="{{ asset('assets/img/youtube.png') }}" alt="youtube">
-                    </a>
-
                     <!-- Instagram -->
-                    <a href="#" target="_blank"
+                    <a href="https://www.instagram.com/serabut____?igsh=MWE2eXA2d3hrM3Zlbw==" target="_blank"
                         class="transform transition-transform duration-300 hover:-translate-y-2">
                         <img class="mx-1 w-7" src="{{ asset('assets/img/instagram.png') }}" alt="instagram">
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="#" target="_blank"
-                        class="transform transition-transform duration-300 hover:-translate-y-2">
-                        <img class="mx-1 w-7" src="{{ asset('assets/img/linkedin.png') }}" alt="linkedin">
                     </a>
                 </div>
             </div>
@@ -54,7 +42,7 @@
                         </p>
                         <p class="flex items-center gap-2">
                             <i class="fas fa-envelope text-[#ca7305]"></i>
-                            sekretariat@serabut.or.id
+                            rabutse41@gmail.com
                         </p>
                     </div>
 

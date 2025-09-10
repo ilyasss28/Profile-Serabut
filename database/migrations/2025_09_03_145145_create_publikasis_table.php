@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('publikasis', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->text('deskripsi')->nullable();
+            $table->string('gambar')->nullable();
+            $table->string('file_url')->nullable();
             $table->timestamps();
         });
     }

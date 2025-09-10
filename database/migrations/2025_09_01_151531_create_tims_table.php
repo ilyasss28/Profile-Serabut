@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tims', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_tim');
+            $table->string('foto')->nullable();
+            $table->string('jabatan')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('judul')->nullable();
+            $table->string('sub_judul')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

@@ -55,13 +55,14 @@
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
         </a>
 
-        <div class="backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md transition">
+        <a href="{{ route('komoditas') }}"
+            class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="6">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="4">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Jenis</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Bahan Komoditas</p>
-        </div>
+        </a>
     </section>
     {{-- Kami dalam Angka --}}
 
@@ -78,22 +79,12 @@
                         :style="`transform: translateX(-${currentSlide * 100}%);`">
 
                         <!-- Slide 1 -->
-                        <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/about-img1.png') }}" alt="Slide 1"
-                                class="w-full h-full object-cover rounded-lg">
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/about-img2.png') }}" alt="Slide 2"
-                                class="w-full h-full object-cover rounded-lg">
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="min-w-full h-full">
-                            <img src="{{ asset('assets/img/about-img3.png') }}" alt="Slide 3"
-                                class="w-full h-full object-cover rounded-lg">
-                        </div>
+                        @foreach ($profile_image as $img)
+                            <div class="min-w-full h-full">
+                                <img src="{{ asset('storage/' . $img->gambar) }}" alt="Slide {{ $loop->iteration }}"
+                                    class="w-full h-full object-cover rounded-lg">
+                            </div>
+                        @endforeach
                     </div>
 
                     <!-- Navigation Buttons -->
@@ -120,16 +111,12 @@
 
             <!-- Content -->
             <div class="flex flex-col justify-start flex-1 gap-4">
-                <h4 class="text-sm font-semibold text-gray-600 uppercase">Tentang Kami</h4>
+                <h4 class="text-sm font-semibold text-gray-600 uppercase">{{ $profiles->first()->sub_judul ?? 'Tentang Kami' }}</h4>
                 <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305]">
-                    Pemberdayaan Masyarakat & Pelestarian Lingkungan
+                    {{ $profiles->first()->judul ?? 'Pemberdayaan Masyarakat & Pelestarian Lingkungan' }}
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
-                    Sekolah Rakyat Butuni, atau disingkat SERABUT adalah organisasi yang dibentuk berdasarkan kesamaan
-                    visi dan misi serta rasa kepedulian bersama di antara pemberdayaan masyarakat dan pelestarian
-                    lingkungan hidup. SERABUT didirikan untuk memastikan agar hak atas tanah dan perlindungan lingkungan
-                    yang diatur dalam undang-undang dan merupakan hak konstitusi setiap warga negara dapat terpenuhi,
-                    khususnya di wilayah Sulawesi Tenggara.
+                    {{ Str::words(strip_tags($profiles->first()->deskripsi), 60, '...') }}
                 </p>
                 <!-- CTA Button -->
                 <a href="{{ route('profile') }}"

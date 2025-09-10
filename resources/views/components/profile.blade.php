@@ -22,7 +22,7 @@
         <div class="flex flex-col lg:flex-row gap-4">
             <!-- Image -->
             <div class="relative rounded-lg overflow-hidden lg:w-1/2 h-[200px] sm:h-[240px] md:h-[280px]">
-                <img src="{{ asset('assets/img/slide1.jpg') }}" alt="Slide 1" class="w-full h-full object-cover">
+                <img src="{{ asset('storage/' . $profile_image->gambar) }}" alt="Slide 1" class="w-full h-full object-cover">
             </div>
 
             {{-- Konten --}}
@@ -35,20 +35,7 @@
                 </div>
 
                 <p class="text-gray-600 leading-relaxed">
-                    Sekolah Rakyat Butuni berada di Pulau Buton, Provinsi Sulawesi Tenggara. Pulau
-                    Buton memiliki luas 4.408 km2. Wilayah kerja dampingan kami adalah desa-desa pertanian, masyarakat
-                    adat/lokal sekitar hutan serta masyarakat nelayan/pesisir di Kabupaten Buton, Kabupaten Buton
-                    Selatan, dan Kota Baubau.
-                </p>
-
-                <p class="text-gray-600 leading-relaxed">
-                    Sejak didirikan pada tahun 2006, Sekolah Rakyat Butuni (SERABUT) berjuang untuk memastikan hak
-                    konstitusi atas tanah dan perlindungan lingkungan bagi masyarakat Sulawesi Tenggara, khususnya yang
-                    terdampak negatif oleh pengambilalihan lahan dan kerusakan lingkungan. Organisasi ini berfokus pada
-                    adaptasi perubahan iklim, ekspansi pertambangan, restorasi hutan berbasis
-                    masyarakat, pertanian regeneratif, pemberdayaan masyarakat tani dan nelayan, pelestarian ekosistem
-                    hutan, pesisir dan laut untuk mengedukasi masyarakat lokal agar mampu bersatu dan memperjuangkan
-                    hak-hak mereka secara mandiri.
+                    {!! $profiles->first()->deskripsi !!}
                 </p>
             </div>
         </div>
@@ -76,7 +63,8 @@
                     </h2>
                     <div class="w-20 h-1 bg-[#ca7305] rounded-full mt-3 mb-6"></div>
                     <p class="text-base sm:text-md md:text-lg leading-relaxed text-gray-100">
-                        Menciptakan keadilan bersama, menegakkan kedaulatan rakyat untuk pengelolaan, penguasaan dan penataan sumber daya alam yang berbasis kearfian lokal.
+                        Menciptakan keadilan bersama, menegakkan kedaulatan rakyat untuk pengelolaan, penguasaan dan
+                        penataan sumber daya alam yang berbasis kearfian lokal.
                     </p>
                 </div>
 
@@ -107,7 +95,8 @@
                         <li class="flex items-start gap-3">
                             <span
                                 class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#ca7305] text-black font-bold">4</span>
-                            Menguatkan sumber-sumber ekonomi masyarakat desa dan pedalaman sebagai sumber kesejahteraan dalam bentuk koperasi.
+                            Menguatkan sumber-sumber ekonomi masyarakat desa dan pedalaman sebagai sumber kesejahteraan
+                            dalam bentuk koperasi.
                         </li>
                         <li class="flex items-start gap-3">
                             <span
@@ -139,62 +128,27 @@
 
             <!-- Grid -->
             <div class="flex flex-wrap justify-center gap-10">
-                <!-- Card -->
-                <div class="relative group w-64">
-                    <!-- Photo -->
-                    <div
-                        class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile1.png') }}" alt="Finance"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                {{-- Card --}}
+                @foreach ($tim as $team)
+                    <div class="relative group w-64">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
+                            class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                            <img src="{{ asset('storage/' . $team->foto) }}" alt="{{ $team->jabatan }}"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
+                            </div>
+                        </div>
+                        <!-- Info -->
+                        <div class="mt-4 text-center">
+                            <h4 class="text-lg font-bold text-gray-800 group-hover:text-[#ca7305] transition">
+                                {{ $team->nama_tim }}
+                            </h4>
+                            <p class="text-sm text-gray-600">{{ $team->jabatan }}</p>
                         </div>
                     </div>
-                    <!-- Info -->
-                    <div class="mt-4 text-center">
-                        <h4 class="text-lg font-bold text-gray-800 group-hover:text-[#ca7305] transition">
-                            LA ODE FITRIYADI NUR SYAWAL
-                        </h4>
-                        <p class="text-sm text-gray-600">Director</p>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="relative group w-64">
-                    <div
-                        class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile2.jpg') }}" alt="Finance"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h4 class="text-lg font-bold text-gray-800 group-hover:text-[#ca7305] transition">
-                            Heriyani
-                        </h4>
-                        <p class="text-sm text-gray-600">Finance</p>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="relative group w-64">
-                    <div
-                        class="relative w-64 h-64 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                        <img src="{{ asset('assets/img/Profile3.png') }}" alt="Program Manager"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition">
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h4 class="text-lg font-bold text-gray-800 group-hover:text-[#ca7305] transition">
-                            Irsan Nassa
-                        </h4>
-                        <p class="text-sm text-gray-600">Program Manager</p>
-                    </div>
-                </div>
-
+                @endforeach
+                {{-- Card --}}
             </div>
         </div>
     </section>
