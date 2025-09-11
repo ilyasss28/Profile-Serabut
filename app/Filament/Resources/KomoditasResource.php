@@ -17,10 +17,14 @@ class KomoditasResource extends Resource
     protected static ?string $navigationLabel  = 'Komoditas';
     protected static ?string $pluralModelLabel = 'Komoditas';
     protected static ?string $modelLabel       = 'Komoditas';
-    protected static ?string $navigationGroup  = 'Profile Serabut';
+    protected static ?string $navigationGroup  = 'Tentang Serabut';
     public static function getNavigationBadge(): ?string
     {
-        return (string) Komoditas::count(); // jumlah data dari tabel publikasi
+        return (string) Komoditas::count();
+    }
+    public static function getNavigationSort(): ?int
+    {
+        return 2;
     }
 
     public static function form(Form $form): Form

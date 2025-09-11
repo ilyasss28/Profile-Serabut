@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TimResource\Pages;
 use App\Models\Tim;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -21,10 +20,14 @@ class TimResource extends Resource
     protected static ?string $navigationLabel  = 'Tim';
     protected static ?string $pluralModelLabel = 'Tim';
     protected static ?string $modelLabel       = 'Tim';
-    protected static ?string $navigationGroup  = 'Profile Serabut';
+    protected static ?string $navigationGroup  = 'Tentang Serabut';
     public static function getNavigationBadge(): ?string
     {
         return (string) Tim::count();
+    }
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
     }
 
     public static function form(Form $form): Form

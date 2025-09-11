@@ -39,7 +39,7 @@
         <a href="{{ route('wilayahkerja') }}"
             class="block bg-white/60 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="9">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_desa ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Lokasi</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Desa Yang Terlibat</p>
@@ -49,7 +49,7 @@
         <a href="{{ route('wilayahkerja') }}"
             class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="344">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_masyarakat ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Orang</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
@@ -58,7 +58,7 @@
         <a href="{{ route('komoditas') }}"
             class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="4">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_komoditas ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Jenis</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Bahan Komoditas</p>

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wilayah_kerjas', function (Blueprint $table) {
+        Schema::create('peta_wilayah_kerjas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_desa');
-            $table->string('jumlah_petani');
-            $table->string('tahun_berdiri');
-            $table->string('url_maps')->nullable();
+            $table->string('judul');
+            $table->text('deskripsi')->nullable();
+            $table->string('gambar_peta');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wilayah_kerjas');
+        Schema::dropIfExists('peta_wilayah_kerjas');
     }
 };

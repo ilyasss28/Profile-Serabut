@@ -20,7 +20,7 @@ class ProfileImageResource extends Resource
     protected static ?string $navigationLabel  = 'Profile Image';
     protected static ?string $pluralModelLabel = 'Profile Image';
     protected static ?string $modelLabel       = 'Profile Image';
-    protected static ?string $navigationGroup  = 'Profile Serabut';
+    protected static ?string $navigationGroup  = 'Beranda Serabut';
     public static function getNavigationBadge(): ?string
     {
         return (string) ProfileImage::count(); // jumlah data dari tabel publikasi

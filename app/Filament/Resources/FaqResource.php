@@ -21,6 +21,10 @@ class FaqResource extends Resource
     {
         return (string) Faq::count(); // jumlah data dari tabel publikasi
     }
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
 
     public static function form(Form $form): Form
     {

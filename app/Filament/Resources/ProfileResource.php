@@ -3,13 +3,11 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProfileResource\Pages;
 use App\Models\Profile;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,12 +15,11 @@ class ProfileResource extends Resource
 {
     protected static ?string $model = Profile::class;
 
-    protected static ?string $navigationIcon   = 'heroicon-o-user-circle';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $navigationLabel  = 'Profile Serabut';
     protected static ?string $pluralModelLabel = 'Profile Serabut';
     protected static ?string $modelLabel       = 'Profile Serabut';
-    protected static ?string $navigationGroup  = 'Profile Serabut';
-
+    protected static ?string $navigationGroup  = 'Beranda Serabut';
 
     public static function form(Form $form): Form
     {
@@ -65,15 +62,14 @@ class ProfileResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('judul')
-                ->label('Judul')
-                ->searchable(),
+                    ->label('Judul')
+                    ->limit(40),
                 TextColumn::make('sub_judul')
-                ->label('Sub Judul')
-                ->searchable(),
+                    ->label('Sub Judul'),
                 TextColumn::make('deskripsi')
-                ->label('Deskripsi')
-                ->formatStateUsing(fn ($state) => strip_tags($state))
-                ->limit(50),
+                    ->label('Deskripsi')
+                    ->formatStateUsing(fn($state) => strip_tags($state))
+                    ->limit(40),
             ])
             ->filters([
                 //
@@ -102,5 +98,13 @@ class ProfileResource extends Resource
             'create' => Pages\CreateProfile::route('/create'),
             'edit'   => Pages\EditProfile::route('/{record}/edit'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        if (Profile::count() >= 1) {
+            return false; // hide tombol Create
+        }
+        return true;
     }
 }
