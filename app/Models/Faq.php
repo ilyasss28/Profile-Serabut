@@ -9,7 +9,12 @@ class Faq extends Model
 {
     use HasFactory;
      protected $fillable = [
+        'kategori_faq_id',
         'question',
         'answer',
     ];
+    public function kategoriFaq()
+    {
+        return $this->belongsTo(KategoriFAQ::class, 'kategori_faq_id');
+    }
 }

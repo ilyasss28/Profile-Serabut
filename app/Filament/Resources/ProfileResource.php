@@ -68,6 +68,7 @@ class ProfileResource extends Resource
                     ->label('Sub Judul'),
                 TextColumn::make('deskripsi')
                     ->label('Deskripsi')
+                    ->nullable()
                     ->formatStateUsing(fn($state) => strip_tags($state))
                     ->limit(40),
             ])

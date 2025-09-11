@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_faq_id')->constrained('kategori_faqs')->onDelete('cascade');
             $table->string('question');
             $table->text('answer');
             $table->boolean('is_active')->default(true); // untuk aktif/tidak

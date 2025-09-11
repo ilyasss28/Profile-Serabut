@@ -12,12 +12,15 @@ class KomoditasController extends Controller
      */
     public function index()
     {
-        return view ('components.komoditas');
+        $komoditas = Komoditas::all();
+
+        return view ('components.komoditas', compact('komoditas'));
     }
 
-    public function indexDetail()
+    public function indexDetail($id)
     {
-        return view ('components.detail-komoditas');
+        $komoditas = Komoditas::findOrFail($id);
+        return view('components.detail-komoditas', compact('komoditas'));
     }
 
     /**

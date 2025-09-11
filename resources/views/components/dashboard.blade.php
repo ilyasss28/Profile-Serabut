@@ -39,7 +39,8 @@
         <a href="{{ route('wilayahkerja') }}"
             class="block bg-white/60 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_desa ?? 0 }}">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight"
+                    data-target="{{ $statistik->jumlah_desa ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Lokasi</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Desa Yang Terlibat</p>
@@ -49,7 +50,8 @@
         <a href="{{ route('wilayahkerja') }}"
             class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_masyarakat ?? 0 }}">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight"
+                    data-target="{{ $statistik->jumlah_masyarakat ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Orang</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Masyarakat Terlibat</p>
@@ -58,7 +60,8 @@
         <a href="{{ route('komoditas') }}"
             class="block backdrop-blur-sm bg-white/30 rounded-2xl shadow p-6 hover:shadow-md hover:scale-[1.02] transition transform duration-300">
             <div class="w-full flex items-center justify-center space-x-2">
-                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight" data-target="{{ $statistik->jumlah_komoditas ?? 0 }}">0</h6>
+                <h6 class="text-2xl font-extrabold text-[#ca7305] tracking-tight"
+                    data-target="{{ $statistik->jumlah_komoditas ?? 0 }}">0</h6>
                 <span class="text-lg md:text-xl font-medium text-gray-700">Jenis</span>
             </div>
             <p class="mt-3 text-gray-700 font-medium">Bahan Komoditas</p>
@@ -111,12 +114,13 @@
 
             <!-- Content -->
             <div class="flex flex-col justify-start flex-1 gap-4">
-                <h4 class="text-sm font-semibold text-gray-600 uppercase">{{ $profiles->first()->sub_judul ?? 'Tentang Kami' }}</h4>
+                <h4 class="text-sm font-semibold text-gray-600 uppercase">
+                    {{ $profiles->first()->sub_judul ?? 'Tentang Kami' }}</h4>
                 <h2 class="text-2xl md:text-3xl font-bold text-[#ca7305]">
                     {{ $profiles->first()->judul ?? 'Pemberdayaan Masyarakat & Pelestarian Lingkungan' }}
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
-                    {{ Str::words(strip_tags($profiles->first()->deskripsi), 60, '...') }}
+                    {{ Str::words(strip_tags($profiles->first()?->deskripsi ?? ''), 60, '...') }}
                 </p>
                 <!-- CTA Button -->
                 <a href="{{ route('profile') }}"
@@ -273,50 +277,24 @@
                 </div>
             </div>
 
-            @php
-                $commodities = [
-                    [
-                        'name' => 'Padi',
-                        'image' => '/assets/img/komoditas/padi.jpg',
-                        'desc' => 'Komoditas utama yang menjadi sumber pangan pokok masyarakat desa.',
-                    ],
-                    [
-                        'name' => 'Jagung',
-                        'image' => '/assets/img/komoditas/jagung.jpg',
-                        'desc' => 'Jagung digunakan sebagai bahan pangan alternatif dan pakan ternak.',
-                    ],
-                    [
-                        'name' => 'Kopi',
-                        'image' => '/assets/img/komoditas/kopi.jpg',
-                        'desc' => 'Komoditas unggulan dengan potensi ekspor tinggi di wilayah Serabut.',
-                    ],
-                    [
-                        'name' => 'Cokelat',
-                        'image' => '/assets/img/komoditas/cokelat.jpg',
-                        'desc' => 'Cokelat menjadi produk turunan dengan nilai ekonomi tinggi.',
-                    ],
-                ];
-            @endphp
-
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
-                @foreach ($commodities as $item)
-                    <a href="{{ route('detail-komoditas') }}"
-                        class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-[#ca7305]/40">
+                @foreach ($komoditas as $item)
+                    <a href="{{ route('detail-komoditas', $item->id) }}"
+                        class="group relative bg-white rounded-2xl shadow-sm hover:shadow-lg overflow-hidden transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-[#ca7305]/40">
 
                         <!-- Gambar -->
                         <div class="relative h-56 w-full">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"
+                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama }}"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                         </div>
 
                         <!-- Konten -->
                         <div class="p-5 flex flex-col justify-between h-40">
-                            <h3
-                                class="text-lg font-extrabold text-[#ca7305] tracking-wide">
-                                {{ $item['name'] }}
+                            <h3 class="text-lg font-extrabold text-[#ca7305] tracking-wide">
+                                {{ $item->nama }}
                             </h3>
                             <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                                {{ Str::words($item['desc'], 15, '...') }}
+                                {{ Str::words(strip_tags($item->deskripsi ?? ''), 10, '...') }}
                             </p>
 
                             <span
@@ -500,7 +478,7 @@
 
                 <!-- Tombol Aksi -->
                 <div class="flex justify-start md:justify-end">
-                    <a href="/FAQ" class="btn-primary text-md">
+                    <a href="{{ route('faq') }}" class="btn-primary text-md">
                         Jelajahi FAQ
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -509,40 +487,38 @@
 
             <!-- Accordion -->
             <div x-data="{ selected: null }" class="space-y-4">
-                <!-- Item -->
-                <template
-                    x-for="(item, index) in [
-        { q: 'Apa itu Sekolah Rakyat Butuni?', a: 'Sekolah Rakyat Butuni adalah ruang belajar bersama berbasis komunitas yang berfokus pada pendidikan alternatif untuk masyarakat.' },
-        { q: 'Siapa yang mendirikan Sekolah Rakyat Butuni?', a: 'Sekolah Rakyat Butuni didirikan oleh sekelompok relawan pendidikan dan aktivis sosial yang peduli terhadap akses pendidikan di daerah.' },
-        { q: 'Apa saja kegiatan utama yang dilakukan?', a: 'Beberapa kegiatan utama meliputi kelas literasi, diskusi komunitas, pelatihan keterampilan, hingga kegiatan seni dan budaya.' }
-    ]"
-                    :key="index">
+                @foreach ($categories as $catIndex => $category)
+                    @if ($category->faqs->isNotEmpty())
+                        @php $faq = $category->faqs->first(); @endphp
+                        <div class="bg-white shadow rounded-2xl p-5 cursor-pointer transition-all duration-500 hover:shadow-lg hover:scale-[1.01]"
+                            @click="selected !== {{ $catIndex }} ? selected = {{ $catIndex }} : selected = null">
 
-                    <div class="bg-white shadow rounded-2xl p-5 cursor-pointer transition-all duration-500 hover:shadow-lg hover:scale-[1.01]"
-                        @click="selected !== index ? selected = index : selected = null">
+                            <!-- Header -->
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-semibold text-gray-800">
+                                    {{ $faq->question }}
+                                </h3>
+                                <span class="transform transition-transform duration-500"
+                                    :class="selected === {{ $catIndex }} ? 'rotate-180 text-[#ca7305]' :
+                                        'rotate-0 text-gray-500'">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </div>
 
-                        <!-- Header -->
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-gray-800" x-text="item.q"></h3>
-                            <span class="transform transition-transform duration-500"
-                                :class="selected === index ? 'rotate-180 text-[#ca7305]' : 'rotate-0 text-gray-500'">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                            <!-- Isi -->
+                            <div x-show="selected === {{ $catIndex }}" x-collapse
+                                x-transition:enter="transition ease-out duration-500"
+                                x-transition:enter-start="opacity-0 -translate-y-2"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                x-transition:leave="transition ease-in duration-400"
+                                x-transition:leave-start="opacity-100 translate-y-0"
+                                x-transition:leave-end="opacity-0 -translate-y-2"
+                                class="mt-3 text-gray-600 leading-relaxed">
+                                <p>{{ $faq->answer }}</p>
+                            </div>
                         </div>
-
-                        <!-- Isi -->
-                        <div x-show="selected === index" x-collapse
-                            x-transition:enter="transition ease-out duration-500"
-                            x-transition:enter-start="opacity-0 -translate-y-2"
-                            x-transition:enter-end="opacity-100 translate-y-0"
-                            x-transition:leave="transition ease-in duration-400"
-                            x-transition:leave-start="opacity-100 translate-y-0"
-                            x-transition:leave-end="opacity-0 -translate-y-2"
-                            class="mt-3 text-gray-600 leading-relaxed">
-                            <p x-text="item.a"></p>
-                        </div>
-                    </div>
-                </template>
+                    @endif
+                @endforeach
             </div>
         </div>
     </section>

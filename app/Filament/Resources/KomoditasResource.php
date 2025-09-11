@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\KomoditasResource\Pages;
 use App\Models\Komoditas;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -32,6 +33,7 @@ class KomoditasResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nama')
+                    ->label('Nama Komoditas')
                     ->required()
                     ->columnSpanFull()
                     ->maxLength(255),
@@ -55,12 +57,13 @@ class KomoditasResource extends Resource
                     ->nullable()
                     ->columnSpanFull(),
 
-                Forms\Components\FileUpload::make('gambar')
+                FileUpload::make('gambar')
+                    ->label('Gambar Komoditas')
+                    ->required()
                     ->image()
                     ->columnSpanFull()
                     ->directory('komoditas')
                     ->nullable(),
-
             ]);
     }
 

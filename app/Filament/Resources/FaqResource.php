@@ -3,15 +3,20 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FaqResource\Pages;
 use App\Models\Faq;
-use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class FaqResource extends Resource
 {
-    protected static ?string $model = Faq::class;
+    protected static ?string $model            = Faq::class;
     protected static ?string $navigationIcon   = 'heroicon-o-question-mark-circle';
     protected static ?string $navigationLabel  = 'FAQ';
     protected static ?string $pluralModelLabel = 'FAQ';
@@ -21,22 +26,26 @@ class FaqResource extends Resource
     {
         return (string) Faq::count(); // jumlah data dari tabel publikasi
     }
-    public static function getNavigationSort(): ?int
-    {
-        return 1;
-    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('question')
+                Select::make('kategori_faq_id')
+                    ->label('Kategori FAQ')
+                    ->relationship('kategoriFaq', 'nama')
+                    ->required()
+                    ->columnSpanFull(),
+                TextInput::make('question')
                     ->label('Pertanyaan')
-                    ->required(),
-                Forms\Components\Textarea::make('answer')
+                    ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+                Textarea::make('answer')
                     ->label('Jawaban')
-                    ->required(),
-                Forms\Components\Toggle::make('is_active')
+                    ->required()
+                    ->columnSpanFull(),
+                Toggle::make('is_active')
                     ->label('Aktif')
                     ->default(true),
             ]);
@@ -46,15 +55,27 @@ class FaqResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('question')->label('Pertanyaan')->searchable(),
-                Tables\Columns\TextColumn::make('answer')->label('Jawaban')->limit(50),
-                Tables\Columns\IconColumn::make('is_active')
+                TextColumn::make('question')
+                    ->label('Pertanyaan')
+                    ->searchable(),
+                TextColumn::make('answer')
+                    ->label('Jawaban')
+                    ->limit(50),
+                IconColumn::make('is_active')
                     ->boolean()
                     ->label('Aktif'),
-                Tables\Columns\TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y H:i'),
             ])
             ->filters([
                 Tables\Filters\TernaryFilter::make('is_active')->label('Status'),
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
 

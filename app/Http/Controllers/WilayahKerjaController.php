@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PetaWilayahKerja;
 use App\Models\WilayahKerja;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class WilayahKerjaController extends Controller
      */
     public function index()
     {
-        return view('components.wilayahkerja');
+        $peta_wilayah = PetaWilayahKerja::first();
+        $wilayahs = WilayahKerja::all();
+        return view('components.wilayahkerja', compact('wilayahs', 'peta_wilayah'));
     }
 
     /**
