@@ -13,8 +13,7 @@ use Filament\Tables\Table;
 class KomoditasResource extends Resource
 {
     protected static ?string $model = Komoditas::class;
-
-    protected static ?string $navigationIcon   = 'heroicon-o-archive-box';
+    protected static ?string $navigationIcon   = 'heroicon-o-cube';
     protected static ?string $navigationLabel  = 'Komoditas';
     protected static ?string $pluralModelLabel = 'Komoditas';
     protected static ?string $modelLabel       = 'Komoditas';

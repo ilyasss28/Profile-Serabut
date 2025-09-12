@@ -16,7 +16,7 @@ Route::get('/wilayah-kerja', [WilayahKerjaController::class, 'index'])->name('wi
 Route::get('/komoditas', [KomoditasController::class, 'index'])->name('komoditas');
 Route::get('/komoditas/detail/{id}', [KomoditasController::class, 'indexDetail'])->name('detail-komoditas');
 Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
-Route::get('/proyek/detail', [ProyekController::class, 'indexDetail'])->name('detail-proyek');
+Route::get('/proyek/detail/{id}', [ProyekController::class, 'indexDetail'])->name('detail-proyek');
 Route::get('/publikasi', [PublikasiController::class, 'index'])->name('publikasi');
-Route::get('/publikasi/detail', [PublikasiController::class, 'indexDetail'])->name('detail-publikasi');
+Route::get('/publikasi/detail/{id}', [PublikasiController::class, 'indexDetail'])->name('detail-publikasi');
 Route::get('/FAQ', [FaqController::class, 'index'])->name('faq');

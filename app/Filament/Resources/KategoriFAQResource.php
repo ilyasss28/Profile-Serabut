@@ -13,7 +13,7 @@ class KategoriFAQResource extends Resource
 {
     protected static ?string $model = KategoriFAQ::class;
 
-    protected static ?string $navigationIcon   = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon   = 'heroicon-o-tag';
     protected static ?string $navigationLabel  = 'Kategori FAQ';
     protected static ?string $pluralModelLabel = 'Kategori FAQ';
     protected static ?string $modelLabel       = 'Kategori FAQ';
@@ -21,10 +21,6 @@ class KategoriFAQResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return (string) KategoriFAQ::count();
-    }
-    public static function getNavigationSort(): ?int
-    {
-        return 1;
     }
 
     public static function form(Form $form): Form
@@ -38,7 +34,7 @@ class KategoriFAQResource extends Resource
                     ->unique(ignoreRecord: true)
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_active')
-                    ->label('Aktif')
+                    ->label('Aktif / Non-aktif')
                     ->default(true),
             ]);
     }
@@ -50,7 +46,7 @@ class KategoriFAQResource extends Resource
                 Tables\Columns\TextColumn::make('nama')->label('Nama Kategori')->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean()
-                    ->label('Aktif'),
+                    ->label('Aktif / Non-aktif'),
                 Tables\Columns\TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y H:i'),
             ])
             ->filters([

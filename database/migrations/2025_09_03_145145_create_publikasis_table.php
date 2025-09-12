@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -13,9 +15,14 @@ return new class extends Migration
     {
         Schema::create('publikasis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_publikasi_id')->references('id')->on('kategori_publikasis')->onDelete('cascade');
             $table->string('judul');
             $table->text('deskripsi')->nullable();
             $table->string('gambar')->nullable();
+            $table->string('penulis')->nullable();
+            $table->string('DOI')->nullable();
+            $table->string('penerbit')->nullable();
+            $table->date('tanggal_terbit')->nullable();
             $table->string('file_url')->nullable();
             $table->timestamps();
         });

@@ -1,94 +1,133 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PublikasiResource\Pages;
-use App\Filament\Resources\PublikasiResource\RelationManagers;
 use App\Models\Publikasi;
-use Filament\Forms;
-use Filament\Forms\Components\Tabs\Tab;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PublikasiResource extends Resource
 {
 
-    protected static ?string $model = Publikasi::class;
-    protected static ?string $navigationIcon = 'heroicon-o-book-open';
-     public static function getNavigationBadge(): ?string
+    protected static ?string $model           = Publikasi::class;
+    protected static ?string $navigationIcon  = 'heroicon-o-document-text';
+    protected static ?string $navigationGroup = 'Manajemen Konten';
+    public static function getNavigationBadge(): ?string
     {
         return (string) Publikasi::count(); // jumlah data dari tabel publikasi
     }
 
-
-
     public static function form(Form $form): Form
     {
-       return $form->schema([
-            Forms\Components\TextInput::make('judul')
+        return $form->schema([
+            Select::make('kategori_publikasi_id')
+                ->label('Kategori Publikasi')
+                ->relationship(
+                    name: 'kategoriPublikasi',
+                    titleAttribute: 'nama',
+                    modifyQueryUsing: fn($query) => $query->where('is_active', true)
+                )
                 ->required()
                 ->columnSpanFull(),
-            Forms\Components\Select::make('kategori_publikasi_id')
-                ->label('Kategori Publikasi')
-                ->columnSpanFull()
-                ->relationship('kategoriPublikasi', 'nama')
-                ->required(),
-            Forms\Components\RichEditor::make('deskripsi')
+
+            TextInput::make('judul')
+                ->required()
+                ->columnSpanFull(),
+            RichEditor::make('deskripsi')
                 ->label('Deskripsi')
                 ->toolbarButtons([
-                'bold',
-                'italic',
-                'strike',
-                'underline',
-                'bulletList',
-                'orderedList',
-                'link',
-                'blockquote',
-                'codeBlock',
-                'redo',
-                'undo',
-                'attachFiles',
+                    'bold',
+                    'italic',
+                    'strike',
+                    'underline',
+                    'bulletList',
+                    'orderedList',
+                    'link',
+                    'blockquote',
+                    'codeBlock',
+                    'redo',
+                    'undo',
+                    'attachFiles',
                 ])
-            ->required()
-            ->columnSpanFull(),
-
-            Forms\Components\TextInput::make('file_url')
-                ->label('Link File')
-                ->ColumnSpanFull()
-                ->required(),
-            Forms\Components\FileUpload::make('gambar')
-                    ->image()
-                    ->directory('gambars')
-                    ->required()
-                    ->nullable()
-                    ->columnSpanFull(),
+                ->required()
+                ->columnSpanFull(),
+            FileUpload::make('gambar')
+                ->image()
+                ->directory('gambars')
+                ->required()
+                ->nullable()
+                ->columnSpanFull(),
+            TextInput::make('penulis')
+                ->required()
+                ->nullable(),
+            TextInput::make('DOI')
+                ->label('DOI')
+                ->required()
+                ->nullable(),
+            TextInput::make('penerbit')
+                ->required()
+                ->nullable(),
+            DatePicker::make('tanggal_terbit')
+                ->label('Tanggal Terbit')
+                ->required()
+                ->nullable(),
+            FileUpload::make('file_url')
+                ->label('Upload File')
+                ->directory('files')
+                ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
+                ->required()
+                ->columnSpanFull(),
         ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table->columns([
-            Tables\Columns\ImageColumn::make('gambar')
-                    ->label('Gambar')
-                    ->circular(),
-            Tables\Columns\TextColumn::make('judul')->sortable()->searchable(),
-            Tables\Columns\TextColumn::make('deskripsi')
+            TextColumn::make('kategoriPublikasi.nama')
+                ->label('Kategori Publikasi')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('judul')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('deskripsi')
                 ->limit(50)
-                ->formatStateUsing(fn(?string $state) => $state ? strip_tags($state) : '')
-                ->wrap(),
-            Tables\Columns\TextColumn::make('kategoriPublikasi.nama')->label('Kategori Publikasi'),
-            Tables\Columns\TextColumn::make('file_url'),
-            Tables\Columns\TextColumn::make('created_at')
-            ->label('Tanggal Dibuat')
-            ->date(),
+                ->sortable()
+                ->searchable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            ImageColumn::make('gambar')
+                ->label('Gambar')
+                ->circular()
+                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('penulis')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('DOI')
+                ->label('DOI')
+                ->sortable()
+                ->searchable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('penerbit')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('tanggal_terbit')
+                ->label('Tanggal Terbit')
+                ->date()
+                ->sortable()
+                ->searchable(),
 
         ])
-        ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
-        ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
+            ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
+            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 
     public static function getRelations(): array
@@ -101,9 +140,9 @@ class PublikasiResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPublikasis::route('/'),
+            'index'  => Pages\ListPublikasis::route('/'),
             'create' => Pages\CreatePublikasi::route('/create'),
-            'edit' => Pages\EditPublikasi::route('/{record}/edit'),
+            'edit'   => Pages\EditPublikasi::route('/{record}/edit'),
         ];
     }
 }

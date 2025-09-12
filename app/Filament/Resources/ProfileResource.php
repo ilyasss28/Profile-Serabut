@@ -14,8 +14,7 @@ use Filament\Tables\Table;
 class ProfileResource extends Resource
 {
     protected static ?string $model = Profile::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
+    protected static ?string $navigationIcon   = 'heroicon-o-user-circle';
     protected static ?string $navigationLabel  = 'Profile Serabut';
     protected static ?string $pluralModelLabel = 'Profile Serabut';
     protected static ?string $modelLabel       = 'Profile Serabut';

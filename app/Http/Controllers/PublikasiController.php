@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Publikasi;
@@ -12,11 +11,18 @@ class PublikasiController extends Controller
      */
     public function index()
     {
-        return view('components.publikasi');
+        $publikasis = Publikasi::paginate(3);
+        foreach ($publikasis as $publikasi) {
+            $publikasi->formatted_date = \Carbon\Carbon::parse($publikasi->tanggal_terbit)->translatedFormat('d F Y');
+        }
+        return view('components.publikasi', compact('publikasis'));
     }
 
-    public function indexDetail(){
-        return view('components.detail-publikasi');
+    public function indexDetail($id)
+    {
+        $publikasi                 = Publikasi::findOrFail($id);
+        $publikasi->formatted_date = \Carbon\Carbon::parse($publikasi->tanggal_terbit)->translatedFormat('d F Y');
+        return view('components.detail-publikasi', compact('publikasi'));
     }
 
     /**

@@ -10,11 +10,15 @@ class Publikasi extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'kategori_publikasi_id',
         'judul',
         'deskripsi',
-        'kategori_publikasi_id',
-        'file_url',
         'gambar',
+        'penulis',
+        'DOI',
+        'penerbit',
+        'tanggal_terbit',
+        'file_url',
     ];
     public function kategoriPublikasi()
 {

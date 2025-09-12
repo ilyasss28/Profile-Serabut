@@ -10,6 +10,6 @@ class KategoriProgram extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
-        'deskripsi',
+        'is_active',
     ];
 }

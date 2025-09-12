@@ -72,39 +72,7 @@
 
             {{-- Pagination start --}}
             <div class="mt-10 flex justify-center">
-                <nav class="inline-flex items-center gap-2">
-                    <!-- Previous Button -->
-                    <a href="#"
-                        class="flex items-center w-10 h-10 justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300 group">
-                        <svg class="w-4 h-4 group-hover:text-white" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </a>
-
-                    <!-- Page Numbers -->
-                    <div class="flex items-center gap-1">
-                        <a href="#"
-                            class="w-10 h-10 flex items-center justify-center text-sm font-medium bg-[#ca7305] text-white rounded-full">1</a>
-                        <a href="#"
-                            class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">2</a>
-                        <a href="#"
-                            class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">3</a>
-                        <span
-                            class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500">...</span>
-                        <a href="#"
-                            class="w-10 h-10 flex items-center justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300">10</a>
-                    </div>
-
-                    <!-- Next Button -->
-                    <a href="#"
-                        class="flex items-center w-10 h-10 justify-center text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full hover:bg-[#ca7305] hover:text-white transition-all duration-300 group">
-                        <svg class="w-4 h-4 group-hover:text-white" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                </nav>
+                {{ $komoditas->links('components.pagination') }}
             </div>
             {{-- Pagination end --}}
         </div>

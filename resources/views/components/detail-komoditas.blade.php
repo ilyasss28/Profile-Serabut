@@ -42,14 +42,14 @@
 
         <div class="max-w-7xl mx-auto space-y-16">
             {{-- Deskripsi Utama --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden lg:flex lg:items-center">
-                <!-- Gambar -->
-                <div class="lg:w-1/2">
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
+                <!-- Gambar di atas -->
+                <div>
                     <img src="{{ asset('storage/' . $komoditas->gambar) }}" alt="{{ $komoditas->nama }}"
-                        class="w-full h-80 lg:h-full object-cover">
+                        class="w-full h-80 object-cover">
                 </div>
-                <!-- Konten -->
-                <div class="lg:w-1/2 p-8 lg:p-12">
+                <!-- Konten di bawah gambar -->
+                <div class="content p-8 lg:p-12">
                     <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Tentang {{ $komoditas->nama }}</h2>
                     <p class="text-gray-700 leading-relaxed text-lg mb-6">
                         {!! $komoditas->deskripsi !!}

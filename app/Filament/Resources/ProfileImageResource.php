@@ -15,8 +15,7 @@ use Filament\Tables\Table;
 class ProfileImageResource extends Resource
 {
     protected static ?string $model = ProfileImage::class;
-
-    protected static ?string $navigationIcon   = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon   = 'heroicon-o-photo';
     protected static ?string $navigationLabel  = 'Profile Image';
     protected static ?string $pluralModelLabel = 'Profile Image';
     protected static ?string $modelLabel       = 'Profile Image';

@@ -10,7 +10,7 @@ class KategoriPublikasi extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
-        'deskripsi',
+        'is_active',
     ];
     public function publikasis()
 {

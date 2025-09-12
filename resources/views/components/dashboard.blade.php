@@ -167,11 +167,21 @@
                     <img src="/assets/img/slide1.jpg" alt="Main Article"
                         class="w-full h-[600px] object-cover transition-transform duration-300 group-hover:scale-110">
 
-                    <!-- Tanggal -->
-                    <div
-                        class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                        <i class="fas fa-calendar-alt text-white/80"></i>
-                        <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
+                    <!-- Tanggal & Kategori -->
+                    <div class="absolute top-3 left-3 flex items-center gap-2">
+                        <!-- Tanggal -->
+                        <span
+                            class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                            <i class="fas fa-calendar-alt text-white/80"></i>
+                            <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
+                        </span>
+                        <!-- Kategori Status -->
+                        <span
+                            class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                            <i class="fas fa-tag text-white/80"></i>
+                            Selesai
+                            <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
+                        </span>
                     </div>
 
                     <!-- Overlay -->
@@ -196,11 +206,20 @@
                         <img src="/assets/img/slide2.jpg" alt="Article 1"
                             class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
 
-                        <!-- Tanggal -->
-                        <div
-                            class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                            <i class="fas fa-calendar-alt text-white/80"></i>
-                            <time datetime="2025-05-15" class="tracking-wide">15 Mei 2025</time>
+                        <div class="absolute top-3 left-3 flex items-center gap-2">
+                            <!-- Tanggal -->
+                            <span
+                                class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-calendar-alt text-white/80"></i>
+                                <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
+                            </span>
+                            <!-- Kategori Status -->
+                            <span
+                                class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-tag text-white/80"></i>
+                                Sedang Berjalan
+                                <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
+                            </span>
                         </div>
 
                         <!-- Overlay -->
@@ -224,10 +243,20 @@
                             class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
 
                         <!-- Tanggal -->
-                        <div
-                            class="absolute top-3 left-3 flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                            <i class="fas fa-calendar-alt text-white/80"></i>
-                            <time datetime="2025-05-11" class="tracking-wide">11 Mei 2025</time>
+                        <div class="absolute top-3 left-3 flex items-center gap-2">
+                            <!-- Tanggal -->
+                            <span
+                                class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-calendar-alt text-white/80"></i>
+                                <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
+                            </span>
+                            <!-- Kategori Status -->
+                            <span
+                                class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-tag text-white/80"></i>
+                                Sedang Berjalan
+                                <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
+                            </span>
                         </div>
 
                         <!-- Overlay -->
@@ -280,26 +309,33 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
                 @foreach ($komoditas as $item)
                     <a href="{{ route('detail-komoditas', $item->id) }}"
-                        class="group relative bg-white rounded-2xl shadow-sm hover:shadow-lg overflow-hidden transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-[#ca7305]/40">
+                        class="group relative bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg hover:border-[#ca7305]/40
+                  overflow-hidden transition-all duration-500 transform hover:-translate-y-2">
 
                         <!-- Gambar -->
-                        <div class="relative h-56 w-full">
+                        <div class="relative w-full h-56 overflow-hidden">
                             <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama }}"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
                         </div>
 
                         <!-- Konten -->
-                        <div class="p-5 flex flex-col justify-between h-40">
-                            <h3 class="text-lg font-extrabold text-[#ca7305] tracking-wide">
+                        <div class="flex flex-col justify-between h-40 p-5">
+                            <!-- Judul -->
+                            <h3 class="text-lg font-extrabold tracking-wide text-[#ca7305]">
                                 {{ $item->nama }}
                             </h3>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+
+                            <!-- Deskripsi -->
+                            <p class="mb-4 text-sm leading-relaxed text-gray-600">
                                 {{ Str::words(strip_tags($item->deskripsi ?? ''), 10, '...') }}
                             </p>
 
+                            <!-- Link Detail -->
                             <span
-                                class="inline-flex items-center gap-2 text-[#ca7305] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-                                Lihat Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                                class="inline-flex items-center gap-2 text-sm font-semibold text-[#ca7305]
+                             transition-all duration-300 group-hover:gap-3 group-hover:underline">
+                                Lihat Detail
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
                             </span>
                         </div>
                     </a>
@@ -339,117 +375,44 @@
             </div>
 
             <!-- Publikasi Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Publikasi Card 1 -->
-                <a href="/publikasi/detail/1"
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek1.jpg') }}" alt="Publikasi 1"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach ($publikasis as $publis)
+                    <a href="{{ route('detail-publikasi', $publis->id) }}"
+                        class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
+                        <div class="relative h-90">
+                            <img src="{{ asset('storage/' . $publis->gambar) }}" alt="{{ $publis->judul }}"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 
-                        <!-- Tanggal & Kategori -->
-                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
-                            <!-- Tanggal -->
-                            <time datetime="2025-01-28"
-                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-calendar-alt text-white/80"></i>
-                                28 Jan 2025
-                            </time>
+                            <!-- Tanggal & Kategori -->
+                            <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
+                                <!-- Tanggal -->
+                                <time datetime="{{ $publis->tanggal_terbit }}"
+                                    class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                    <i class="fas fa-calendar-alt text-white/80"></i>
+                                    {{ $publis->formatted_date }}
+                                </time>
 
-                            <!-- Kategori -->
-                            <span
-                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-tag text-white/80"></i>
-                                Pendidikan
-                            </span>
+                                <!-- Kategori -->
+                                <span
+                                    class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
+                                    <i class="fas fa-tag text-white/80"></i>
+                                    {{ $publis->kategoriPublikasi->nama }}
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Judul Utama</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
-                            </p>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">{{ $publis->judul }}</h3>
+                                <p class="text-sm md:text-base">
+                                    {!! Str::words($publis->deskripsi, 12, '...') !!}
+                                </p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-lg"></i>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-lg"></i>
-                    </div>
-                </a>
-
-                <!-- Publikasi Card 2 -->
-                <a href="/publikasi/detail/1"
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek2.jpg') }}" alt="Publikasi 1"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-                        <!-- Tanggal & Kategori -->
-                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
-                            <!-- Tanggal -->
-                            <time datetime="2025-01-28"
-                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-calendar-alt text-white/80"></i>
-                                28 Jan 2025
-                            </time>
-
-                            <!-- Kategori -->
-                            <span
-                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-tag text-white/80"></i>
-                                Pendidikan
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Judul 2</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
-                            </p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-lg"></i>
-                    </div>
-                </a>
-
-                <!-- Publikasi Card 3 -->
-                <a href="/publikasi/detail/3"
-                    class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
-                    <div class="relative h-90">
-                        <img src="{{ asset('assets/img/proyek3.jpg') }}" alt="Publikasi 3"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-                        <!-- Tanggal & Kategori -->
-                        <div class="absolute top-3 left-3 flex items-center gap-2 text-xs text-white">
-                            <!-- Tanggal -->
-                            <time datetime="2025-01-28"
-                                class="flex items-center gap-1 bg-gradient-to-r from-black/60 to-black/40 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-calendar-alt text-white/80"></i>
-                                28 Jan 2025
-                            </time>
-
-                            <!-- Kategori -->
-                            <span
-                                class="flex items-center gap-1 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 px-3 py-1 rounded-full shadow backdrop-blur-sm">
-                                <i class="fas fa-tag text-white/80"></i>
-                                Pendidikan
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Judul Utama</h3>
-                            <p class="text-sm md:text-base">
-                                {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus.', 10, '...') }}
-                            </p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-lg"></i>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
             </div>
             {{-- Card Publikasi --}}
         </div>

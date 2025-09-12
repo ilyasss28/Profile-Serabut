@@ -33,7 +33,11 @@ class FaqResource extends Resource
             ->schema([
                 Select::make('kategori_faq_id')
                     ->label('Kategori FAQ')
-                    ->relationship('kategoriFaq', 'nama')
+                    ->relationship(
+                        name: 'kategoriFaq',
+                        titleAttribute: 'nama',
+                        modifyQueryUsing: fn($query) => $query->where('is_active', true)
+                    )
                     ->required()
                     ->columnSpanFull(),
                 TextInput::make('question')

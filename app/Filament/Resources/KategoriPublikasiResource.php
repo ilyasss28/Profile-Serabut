@@ -3,19 +3,20 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\KategoriPublikasiResource\Pages;
 use App\Models\KategoriPublikasi;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class KategoriPublikasiResource extends Resource
 {
-    protected static ?string $model = KategoriPublikasi::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $model           = KategoriPublikasi::class;
+    protected static ?string $navigationIcon  = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Manajemen Konten';
     public static function getNavigationBadge(): ?string
     {
         return (string) KategoriPublikasi::count(); // jumlah data dari tabel publikasi
@@ -28,10 +29,11 @@ class KategoriPublikasiResource extends Resource
                 TextInput::make('nama')
                     ->label('Nama Kategori')
                     ->required()
-                    ->maxLength(255),
-                Textarea::make('deskripsi')
-                    ->label('Deskripsi')
-                    ->rows(3),
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+                Toggle::make('is_active')
+                    ->label('Aktif / Non-aktif')
+                    ->default(true),
             ]);
     }
 
@@ -39,23 +41,22 @@ class KategoriPublikasiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
                 TextColumn::make('nama')
                     ->label('Nama Kategori')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('deskripsi')
-                    ->limit(50)
-                    ->formatStateUsing(fn(?string $state) => $state ? strip_tags($state) : '')
-                    ->wrap(),
-                TextColumn::make('created_at')
-                    ->label('Dibuat')
-                    ->dateTime('d M Y H:i'),
+                IconColumn::make('is_active')
+                    ->boolean()
+                    ->label('Aktif / Non-aktif'),
+                TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y H:i'),
             ])
             ->filters([
                 //
             ])
-            ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
             ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 

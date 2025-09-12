@@ -25,7 +25,7 @@
                 <!-- Navigasi -->
                 <div class="flex flex-col sm:flex-row justify-between items-start gap-8">
                     <div class="whitespace-nowrap">
-                        <h4 class="text-lg font-semibold mb-4">Navigasi</h4>
+                        <h4 class="text-lg font-semibold mb-2">Navigasi</h4>
                         <ul class="space-y-2">
                             <li><a href="/" class="hover:text-[#ca7305] transition">Beranda</a></li>
                             <li><a href="{{ route('profile') }}" class="hover:text-[#ca7305] transition">Profile</a></li>

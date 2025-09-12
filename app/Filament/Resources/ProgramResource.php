@@ -16,7 +16,7 @@ class ProgramResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
     public static function getNavigationBadge(): ?string
     {
-        return (string) Program::count(); // jumlah data dari tabel publikasi
+        return (string) Program::count();
     }
 
     public static function form(Form $form): Form
@@ -83,7 +83,7 @@ class ProgramResource extends Resource
             ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
             ->bulkActions([Tables\Actions\DeleteBulkAction::make()])
             ->filters([
-               
+
             ]);
     }
 

@@ -12,7 +12,7 @@ class KomoditasController extends Controller
      */
     public function index()
     {
-        $komoditas = Komoditas::all();
+        $komoditas = Komoditas::paginate(4);
 
         return view ('components.komoditas', compact('komoditas'));
     }
