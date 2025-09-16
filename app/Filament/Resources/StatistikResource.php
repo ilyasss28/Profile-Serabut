@@ -14,7 +14,7 @@ class StatistikResource extends Resource
 {
     protected static ?string $model           = Statistik::class;
     protected static ?string $navigationIcon  = 'heroicon-o-chart-bar';
-    protected static ?string $navigationGroup = 'Beranda Serabut';
+    protected static ?string $navigationGroup = 'Tentang Serabut';
     public static function getNavigationSort(): ?int
     {
         return 1;

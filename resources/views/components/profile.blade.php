@@ -21,9 +21,15 @@
     <section class="max-w-full px-6 py-12">
         <div class="flex flex-col lg:flex-row gap-4">
             <!-- Image -->
-            <div class="relative rounded-lg overflow-hidden lg:w-1/2 h-[200px] sm:h-[240px] md:h-[280px]">
-                <img src="{{ asset('storage/' . $profile_image->gambar) }}" alt="Slide 1" class="w-full h-full object-cover">
-            </div>
+            {{-- @foreach ($profiles as $gambar)
+                @foreach ($gambar->gambar as $img)
+                    <div class="relative rounded-lg overflow-hidden lg:w-1/2 h-[200px] sm:h-[240px] md:h-[280px]">
+                        <img src="{{ asset('storage/' . $img) }}" alt="Slide 1"
+                            class="w-full h-full object-cover">
+                    </div>
+                @endforeach
+            @endforeach --}}
+
 
             {{-- Konten --}}
             <div class="flex flex-col justify-start flex-1 gap-3">
@@ -39,7 +45,6 @@
                 </p>
             </div>
         </div>
-
     </section>
 
     {{-- Visi & Misi --}}

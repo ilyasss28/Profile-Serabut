@@ -3,60 +3,53 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProgramResource\Pages;
 use App\Models\Program;
-use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class ProgramResource extends Resource
 {
     protected static ?string $model = Program::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-book-open';
-    public static function getNavigationBadge(): ?string
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) Program::count();
+        return false;
     }
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nama')
+                TextInput::make('judul')
+                    ->label('Judul Program')
                     ->required()
+                    ->maxLength(255),
+                DatePicker::make('tanggal_kegiatan')
+                    ->label('Tanggal Kegiatan')
+                    ->nullable(),
+                TextInput::make('lokasi')
+                    ->label('Lokasi')
                     ->maxLength(255)
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('kategori_program_id')
-                    ->label('Kategori Program')
-                    ->ColumnSpanFull()
-                    ->relationship('kategoriProgram', 'nama')
-                    ->required(),
-                Forms\Components\RichEditor::make('deskripsi')
-                    ->label('Deskripsi')
-                    ->required()
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'strike',
-                        'underline',
-                        'bulletList',
-                        'orderedList',
-                        'link',
-                        'blockquote',
-                        'codeBlock',
-                        'redo',
-                        'undo',
-                        'attachFiles',
+                    ->nullable(),
+                Select::make('status')
+                    ->label('Status')
+                    ->options([
+                        'Sedang Berjalan' => 'Sedang Berjalan',
+                        'Selesai'         => 'Selesai',
                     ])
-                    ->nullable()
-                    ->columnSpanFull(),
-                Forms\Components\FileUpload::make('gambar')
+                    ->default('Sedang Berjalan')
+                    ->required(),
+                FileUpload::make('gambar')
+                    ->label('Gambar')
                     ->image()
-                    ->required()
+                    ->columnSpanFull()
                     ->directory('programs')
-                    ->nullable()
-                    ->ColumnSpanFull(),
+                    ->nullable(),
             ]);
     }
 
@@ -64,21 +57,24 @@ class ProgramResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('gambar')
+                TextColumn::make('judul')
+                    ->label('Judul Program')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('tanggal_kegiatan')
+                    ->label('Tanggal Kegiatan')
+                    ->date(),
+                TextColumn::make('lokasi')
+                    ->label('Lokasi')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->sortable()
+                    ->searchable(),
+                ImageColumn::make('gambar')
                     ->label('Gambar')
                     ->circular(),
-
-                Tables\Columns\TextColumn::make('nama')
-                    ->searchable()
-                    ->limit(50)
-                    ->sortable(),
-
-                Tables\Columns\TextColumn::make('kategoriProgram.nama')->label('Kategori Program'),
-
-                Tables\Columns\TextColumn::make('deskripsi')
-                    ->limit(50)
-                    ->formatStateUsing(fn(?string $state) => $state ? strip_tags($state) : '')
-                    ->wrap(),
             ])
             ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
             ->bulkActions([Tables\Actions\DeleteBulkAction::make()])

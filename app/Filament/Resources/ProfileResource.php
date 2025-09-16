@@ -3,22 +3,24 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProfileResource\Pages;
 use App\Models\Profile;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class ProfileResource extends Resource
 {
-    protected static ?string $model = Profile::class;
+    protected static ?string $model            = Profile::class;
     protected static ?string $navigationIcon   = 'heroicon-o-user-circle';
     protected static ?string $navigationLabel  = 'Profile Serabut';
     protected static ?string $pluralModelLabel = 'Profile Serabut';
     protected static ?string $modelLabel       = 'Profile Serabut';
-    protected static ?string $navigationGroup  = 'Beranda Serabut';
+    protected static ?string $navigationGroup  = 'Tentang Serabut';
 
     public static function form(Form $form): Form
     {
@@ -53,6 +55,15 @@ class ProfileResource extends Resource
                     ])
                     ->nullable()
                     ->columnSpanFull(),
+                FileUpload::make('gambar')
+                    ->label('Gambar Galeri')
+                    ->image()
+                    ->multiple()
+                    ->reorderable()
+                    ->required()
+                    ->columnSpanFull()
+                    ->directory('galery')
+                    ->disk('public'),
             ]);
     }
 
@@ -67,9 +78,13 @@ class ProfileResource extends Resource
                     ->label('Sub Judul'),
                 TextColumn::make('deskripsi')
                     ->label('Deskripsi')
-                    ->nullable()
                     ->formatStateUsing(fn($state) => strip_tags($state))
                     ->limit(40),
+                ImageColumn::make('gambar')
+                    ->label('Gambar Galery')
+                    ->square()
+                    ->circular()
+                    ->limit(12),
             ])
             ->filters([
                 //

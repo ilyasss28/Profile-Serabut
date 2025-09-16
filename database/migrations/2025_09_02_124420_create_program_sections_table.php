@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategori_programs', function (Blueprint $table) {
+        Schema::create('program_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->unique();
-            $table->boolean('is_active')->default(true);
+            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
+            $table->string('judul_section');
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
+
+            $table->unique(['program_id', 'judul_section']);
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('program_sections');
     }
 };

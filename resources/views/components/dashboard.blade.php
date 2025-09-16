@@ -73,7 +73,7 @@
     <section class="max-w-full px-6 py-12">
         <div class="flex flex-col md:flex-row gap-4">
             <!-- Video Carousel -->
-            <div x-data="{ currentSlide: 0, slides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)"
+            <div x-data="{ currentSlide: 0, slides: {{ $totalSlides }} }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % slides }, 5000)"
                 class="relative rounded-lg aspect-video overflow-hidden flex-1">
 
                 <!-- Slides wrapper -->
@@ -81,12 +81,14 @@
                     <div class="flex transition-transform duration-1000 ease-in-out h-full"
                         :style="`transform: translateX(-${currentSlide * 100}%);`">
 
-                        <!-- Slide 1 -->
-                        @foreach ($profile_image as $img)
-                            <div class="min-w-full h-full">
-                                <img src="{{ asset('storage/' . $img->gambar) }}" alt="Slide {{ $loop->iteration }}"
-                                    class="w-full h-full object-cover rounded-lg">
-                            </div>
+                        <!-- Slides -->
+                        @foreach ($profiles as $gambar)
+                            @foreach ($gambar->gambar as $img)
+                                <div class="min-w-full h-full">
+                                    <img src="{{ asset('storage/' . $img) }}" alt="Gambar Serabut"
+                                        class="w-full h-full object-cover rounded-lg">
+                                </div>
+                            @endforeach
                         @endforeach
                     </div>
 
@@ -145,8 +147,8 @@
                             Program Unggulan
                         </h2>
                         <p class="text-gray-600 max-w-2xl italic">
-                            Menampilkan berbagai inisiatif dan program unggulan Sekolah Rakyat Butuni yang berfokus pada
-                            pemberdayaan masyarakat, pendidikan berkelanjutan, dan pembangunan komunitas.
+                            Menampilkan program unggulan Sekolah Rakyat Butuni untuk pemberdayaan masyarakat dan
+                            pengembangan komunitas.
                         </p>
                     </div>
                 </div>
@@ -161,10 +163,10 @@
 
             <!-- Grid Proyek -->
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Artikel Utama -->
-                <a href="/proyek/detail"
+                <!-- Program Utama -->
+                <a href="{{ route('detail-proyek', $mainProgram->id) }}"
                     class="block relative md:col-span-2 group overflow-hidden rounded-lg shadow-md">
-                    <img src="/assets/img/slide1.jpg" alt="Main Article"
+                    <img src="{{ asset('storage/' . $mainProgram->gambar) }}" alt="{{ $mainProgram->judul }}"
                         class="w-full h-[600px] object-cover transition-transform duration-300 group-hover:scale-110">
 
                     <!-- Tanggal & Kategori -->
@@ -173,14 +175,15 @@
                         <span
                             class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                             <i class="fas fa-calendar-alt text-white/80"></i>
-                            <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
+                            <time datetime="{{ $mainProgram->tanggal_kegiatan }}">
+                                {{ \Carbon\Carbon::parse($mainProgram->tanggal_kegiatan)->translatedFormat('d F Y') }}
+                            </time>
                         </span>
-                        <!-- Kategori Status -->
+                        <!-- Status -->
                         <span
                             class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                             <i class="fas fa-tag text-white/80"></i>
-                            Selesai
-                            <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
+                            {{ $mainProgram->status }}
                         </span>
                     </div>
 
@@ -189,9 +192,9 @@
                         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
                         <div class="w-full p-6 text-white flex items-center justify-between">
                             <div>
-                                <h3 class="text-xl sm:text-3xl font-bold mb-2">Judul Utama</h3>
+                                <h3 class="text-xl sm:text-3xl font-bold mb-2">{{ $mainProgram->judul }}</h3>
                                 <p class="text-md sm:text-xl md:text-base">
-                                    {{ Str::words('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque cum natus ad labore omnis, reiciendis tempora fugiat similique, aliquam ex voluptatibus voluptatem commodi necessitatibus, maiores architecto quia vitae repellendus. Placeat, aut labore aliquid molestiae laboriosam eos beatae praesentium voluptate? Quidem est similique autem iusto eligendi facilis error explicabo sequi tempore.', 15, '...') }}
+                                    {!! Str::words(optional($mainProgram->latarBelakang)->deskripsi ?? 'Deskripsi belum tersedia', 25, '...') !!}
                                 </p>
                             </div>
                             <i class="fa-solid fa-chevron-right text-lg ml-4"></i>
@@ -199,81 +202,45 @@
                     </div>
                 </a>
 
-                <!-- Artikel Samping -->
+                <!-- Program Samping -->
                 <div class="flex flex-col gap-4">
-                    <!-- Artikel 1 -->
-                    <a href="/proyek/detail" class="block relative group overflow-hidden rounded-md shadow">
-                        <img src="/assets/img/slide2.jpg" alt="Article 1"
-                            class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
+                    @foreach ($sidePrograms as $program)
+                        <a href="{{ route('detail-proyek', $program->id) }}"
+                            class="block relative group overflow-hidden rounded-md shadow">
+                            <img src="{{ asset('storage/' . $program->gambar) }}" alt="{{ $program->judul }}"
+                                class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
 
-                        <div class="absolute top-3 left-3 flex items-center gap-2">
-                            <!-- Tanggal -->
-                            <span
-                                class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                <i class="fas fa-calendar-alt text-white/80"></i>
-                                <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
-                            </span>
-                            <!-- Kategori Status -->
-                            <span
-                                class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                <i class="fas fa-tag text-white/80"></i>
-                                Sedang Berjalan
-                                <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
-                            </span>
-                        </div>
-
-                        <!-- Overlay -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
-                            <div class="p-4 text-white w-full flex items-center justify-between">
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1">Judul 1</h3>
-                                    <p class="text-md">
-                                        {{ Str::words('Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum reiciendis blanditiis deleniti.', 10, '...') }}
-                                    </p>
-                                </div>
-                                <i class="fa-solid fa-chevron-right mt-1 ml-3"></i>
+                            <div class="absolute top-3 left-3 flex items-center gap-2">
+                                <span
+                                    class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                    <i class="fas fa-calendar-alt text-white/80"></i>
+                                    <time datetime="{{ $program->tanggal_kegiatan }}">
+                                        {{ \Carbon\Carbon::parse($program->tanggal_kegiatan)->translatedFormat('d F Y') }}
+                                    </time>
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                    <i class="fas fa-tag text-white/80"></i>
+                                    {{ $program->status }}
+                                </span>
                             </div>
-                        </div>
-                    </a>
 
-                    <!-- Artikel 2 -->
-                    <a href="/proyek/detail" class="block relative group overflow-hidden rounded-md shadow">
-                        <img src="/assets/img/slide3.jpg" alt="Article 2"
-                            class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
-
-                        <!-- Tanggal -->
-                        <div class="absolute top-3 left-3 flex items-center gap-2">
-                            <!-- Tanggal -->
-                            <span
-                                class="flex items-center gap-2 bg-gradient-to-r from-black/60 to-black/40 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                <i class="fas fa-calendar-alt text-white/80"></i>
-                                <time datetime="2025-06-28" class="tracking-wide">28 Januari 2025</time>
-                            </span>
-                            <!-- Kategori Status -->
-                            <span
-                                class="flex items-center gap-2 bg-gradient-to-r from-[#ca7305]/80 to-[#ca7305]/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                <i class="fas fa-tag text-white/80"></i>
-                                Sedang Berjalan
-                                <!-- atau gunakan "Sedang Berjalan" sesuai kebutuhan -->
-                            </span>
-                        </div>
-
-                        <!-- Overlay -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
-                            <div class="p-4 text-white w-full flex items-center justify-between">
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1">Judul 2</h3>
-                                    <p class="text-md">
-                                        {{ Str::words('Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum reiciendis blanditiis deleniti.', 10, '...') }}
-                                    </p>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                                <div class="p-4 text-white w-full flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl font-bold mb-1">{{ $program->judul }}</h3>
+                                        <p class="text-md">
+                                            {!! Str::words(optional($program->latarBelakang)->deskripsi ?? 'Deskripsi belum tersedia', 10, '...') !!}
+                                        </p>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mt-1 ml-3"></i>
                                 </div>
-                                <i class="fa-solid fa-chevron-right mt-1 ml-3"></i>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    @endforeach
                 </div>
+
             </div>
         </div>
     </section>

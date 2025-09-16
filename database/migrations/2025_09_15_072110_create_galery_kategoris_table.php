@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategori_publikasis', function (Blueprint $table) {
+        Schema::create('galery_kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->unique();
             $table->boolean('is_active')->default(true);
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('galery_kategoris');
     }
 };

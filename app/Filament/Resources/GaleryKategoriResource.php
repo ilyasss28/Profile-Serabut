@@ -1,8 +1,8 @@
 <?php
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KategoriPublikasiResource\Pages;
-use App\Models\KategoriPublikasi;
+use App\Filament\Resources\GaleryKategoriResource\Pages;
+use App\Models\GaleryKategori;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -11,10 +11,11 @@ use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
-class KategoriPublikasiResource extends Resource
+class GaleryKategoriResource extends Resource
 {
-    protected static ?string $model = KategoriPublikasi::class;
+    protected static ?string $model = GaleryKategori::class;
     public static function shouldRegisterNavigation(): bool
     {
         return false;
@@ -26,10 +27,11 @@ class KategoriPublikasiResource extends Resource
                 TextInput::make('nama')
                     ->label('Nama Kategori')
                     ->required()
-                    ->maxLength(255)
+                    ->reactive()
                     ->columnSpanFull(),
+
                 Toggle::make('is_active')
-                    ->label('Aktif / Non-aktif')
+                    ->label('Status')
                     ->default(true),
             ]);
     }
@@ -46,15 +48,19 @@ class KategoriPublikasiResource extends Resource
                     ->boolean()
                     ->label('Status'),
                 TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y H:i'),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
-            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
     }
 
     public static function getRelations(): array
@@ -67,9 +73,9 @@ class KategoriPublikasiResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListKategoriPublikasis::route('/'),
-            'create' => Pages\CreateKategoriPublikasi::route('/create'),
-            'edit'   => Pages\EditKategoriPublikasi::route('/{record}/edit'),
+            'index'  => Pages\ListGaleryKategoris::route('/'),
+            'create' => Pages\CreateGaleryKategori::route('/create'),
+            'edit'   => Pages\EditGaleryKategori::route('/{record}/edit'),
         ];
     }
 }

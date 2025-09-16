@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
-use App\Models\ProfileImage;
 use App\Models\Tim;
 use Illuminate\Http\Request;
 
@@ -13,10 +12,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profiles      = Profile::with('images')->get();
-        $profile_image = ProfileImage::with('profile')->first();
+        $profiles      = Profile::all();
         $tim           = Tim::all();
-        return view('components.profile', compact('profiles', 'profile_image', 'tim'));
+        return view('components.profile', compact('profiles', 'tim'));
     }
 
     /**

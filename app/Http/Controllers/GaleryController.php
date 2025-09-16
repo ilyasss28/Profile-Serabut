@@ -1,27 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\Komoditas;
+use App\Models\Galery;
+use App\Models\GaleryKategori;
 use Illuminate\Http\Request;
 
-class KomoditasController extends Controller
+class GaleryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $komoditas = Komoditas::paginate(4);
+        $galeries = Galery::with('kategoriGalery')->get();
 
-        return view ('components.komoditas', compact('komoditas'));
-    }
+        $categories = GaleryKategori::all();
 
-    public function indexDetail($id)
-    {
-        $komoditas = Komoditas::findOrFail($id);
-        
-        return view('components.detail-komoditas', compact('komoditas'));
+        return view('components.galery', compact('galeries', 'categories'));
     }
 
     /**
@@ -43,7 +38,7 @@ class KomoditasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Komoditas $komoditas)
+    public function show(Galery $galery)
     {
         //
     }
@@ -51,7 +46,7 @@ class KomoditasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Komoditas $komoditas)
+    public function edit(Galery $galery)
     {
         //
     }
@@ -59,7 +54,7 @@ class KomoditasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Komoditas $komoditas)
+    public function update(Request $request, Galery $galery)
     {
         //
     }
@@ -67,7 +62,7 @@ class KomoditasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Komoditas $komoditas)
+    public function destroy(Galery $galery)
     {
         //
     }

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('galeries', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('gambar')->nullable();
-            $table->date('tanggal_kegiatan')->nullable();
-            $table->text('lokasi')->nullable();
-            $table->enum('status', ['Sedang Berjalan', 'Selesai'])->default('Sedang Berjalan');
+            $table->foreignId('kategori_galery_id')->constrained('galery_kategoris')->onDelete('cascade');
+            $table->json('gambar');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('galeries');
     }
 };

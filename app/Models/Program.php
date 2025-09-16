@@ -8,15 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     use HasFactory;
-
+    protected $table = 'programs';
     protected $fillable = [
-        'nama',
-        'kategori',
+        'judul',
+        'tanggal_kegiatan',
+        'lokasi',
+        'status',
         'gambar',
-        'deskripsi',
     ];
-    public function kategoriProgram()
-{
-    return $this->belongsTo(KategoriProgram::class, 'kategori');
-}
+    public function programsection()
+    {
+        return $this->hasMany(ProgramSection::class, 'program_id');
+    }
+
+    public function latarBelakang()
+    {
+        return $this->hasOne(ProgramSection::class, 'program_id')
+            ->where('judul_section', 'Latar Belakang');
+    }
 }

@@ -16,17 +16,11 @@ use Filament\Tables\Table;
 
 class FaqResource extends Resource
 {
-    protected static ?string $model            = Faq::class;
-    protected static ?string $navigationIcon   = 'heroicon-o-question-mark-circle';
-    protected static ?string $navigationLabel  = 'FAQ';
-    protected static ?string $pluralModelLabel = 'FAQ';
-    protected static ?string $modelLabel       = 'FAQ';
-    protected static ?string $navigationGroup  = 'Pertanyaan';
-    public static function getNavigationBadge(): ?string
+    protected static ?string $model = Faq::class;
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) Faq::count(); // jumlah data dari tabel publikasi
+        return false;
     }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -50,7 +44,7 @@ class FaqResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Toggle::make('is_active')
-                    ->label('Aktif')
+                    ->label('Status')
                     ->default(true),
             ]);
     }
@@ -59,18 +53,25 @@ class FaqResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('kategoriFaq.nama')
+                    ->label('Kategori FAQ')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('question')
                     ->label('Pertanyaan')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('answer')
                     ->label('Jawaban')
+                    ->sortable()
                     ->limit(50),
                 IconColumn::make('is_active')
                     ->boolean()
-                    ->label('Aktif'),
+                    ->sortable()
+                    ->label('Status'),
             ])
             ->filters([
-                Tables\Filters\TernaryFilter::make('is_active')->label('Status'),
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

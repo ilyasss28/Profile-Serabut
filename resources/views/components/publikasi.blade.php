@@ -12,8 +12,7 @@
                 Publikasi Serabut
             </h1>
             <p class="text-base sm:text-md md:text-lg max-w-3xl mx-auto">
-                Jelajahi berbagai proyek Sekolah Rakyat Butuni yang mengedepankan kolaborasi, inovasi, serta
-                keberlanjutan untuk membangun masyarakat dan lingkungan yang lebih baik.
+                Jelajahi berbagai kumpulan artikel, laporan, dan publikasi terkini dari Sekolah Rakyat Butuni sebagai wujud transparansi, edukasi, dan inspirasi bagi masyarakat.
             </p>
         </div>
     </section>
@@ -23,16 +22,13 @@
     <section class="py-12 px-6 bg-white">
         <div class="container mx-auto">
             <div class="flex flex-row gap-3 mb-10">
-                <!-- Garis samping -->
                 <span class="w-1 bg-[#ca7305] rounded"></span>
-                <!-- Konten publikasi -->
                 <div class="flex flex-col">
                     <h2 class="text-xl md:text-2xl font-bold text-[#252422] uppercase">
                         Artikel & Publikasi
                     </h2>
                     <p class="text-gray-600 max-w-2xl italic">
-                        Kumpulan berita, artikel, laporan, dan dokumentasi kegiatan yang dipublikasikan oleh Sekolah
-                        Rakyat Butuni.
+                        Menampilkan artikel, laporan, dan publikasi terkini dari Sekolah Rakyat Butuni untuk pemberdayaan masyarakat dan pengembangan komunitas.
                     </p>
                 </div>
             </div>

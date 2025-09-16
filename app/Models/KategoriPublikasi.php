@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class KategoriPublikasi extends Model
 {
     use HasFactory;
+    protected $table = 'kategori_publikasis';
     protected $fillable = [
         'nama',
         'is_active',

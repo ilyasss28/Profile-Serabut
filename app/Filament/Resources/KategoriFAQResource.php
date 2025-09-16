@@ -7,22 +7,17 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class KategoriFAQResource extends Resource
 {
     protected static ?string $model = KategoriFAQ::class;
-
-    protected static ?string $navigationIcon   = 'heroicon-o-tag';
-    protected static ?string $navigationLabel  = 'Kategori FAQ';
-    protected static ?string $pluralModelLabel = 'Kategori FAQ';
-    protected static ?string $modelLabel       = 'Kategori FAQ';
-    protected static ?string $navigationGroup  = 'Pertanyaan';
-    public static function getNavigationBadge(): ?string
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) KategoriFAQ::count();
+        return false;
     }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -34,7 +29,7 @@ class KategoriFAQResource extends Resource
                     ->unique(ignoreRecord: true)
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_active')
-                    ->label('Aktif / Non-aktif')
+                    ->label('Status')
                     ->default(true),
             ]);
     }
@@ -43,11 +38,15 @@ class KategoriFAQResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nama')->label('Nama Kategori')->searchable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean()
-                    ->label('Aktif / Non-aktif'),
-                Tables\Columns\TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y H:i'),
+                TextColumn::make('nama')
+                    ->label('Nama Kategori')
+                    ->searchable(),
+                IconColumn::make('is_active')
+                    ->label('Status')
+                    ->boolean(),
+                TextColumn::make('created_at')
+                    ->label('Dibuat')
+                    ->dateTime('d M Y H:i'),
             ])
             ->filters([
                 //

@@ -18,14 +18,11 @@ use Filament\Tables\Table;
 class PublikasiResource extends Resource
 {
 
-    protected static ?string $model           = Publikasi::class;
-    protected static ?string $navigationIcon  = 'heroicon-o-document-text';
-    protected static ?string $navigationGroup = 'Manajemen Konten';
-    public static function getNavigationBadge(): ?string
+    protected static ?string $model = Publikasi::class;
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) Publikasi::count(); // jumlah data dari tabel publikasi
+        return false;
     }
-
     public static function form(Form $form): Form
     {
         return $form->schema([

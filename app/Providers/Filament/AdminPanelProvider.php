@@ -2,6 +2,22 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\FaqResource;
+use App\Filament\Resources\GaleryKategoriResource;
+use App\Filament\Resources\GaleryResource;
+use App\Filament\Resources\KategoriFAQResource;
+use App\Filament\Resources\KategoriPublikasiResource;
+use App\Filament\Resources\ProgramResource;
+use App\Filament\Resources\ProgramSectionResource;
+use App\Filament\Resources\PublikasiResource;
+use App\Models\Faq;
+use App\Models\Galery;
+use App\Models\GaleryKategori;
+use App\Models\KategoriFAQ;
+use App\Models\KategoriPublikasi;
+use App\Models\Program;
+use App\Models\ProgramSection;
+use App\Models\Publikasi;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -18,6 +34,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Facades\Filament as FilamentAsset;
+use Filament\Navigation\NavigationItem;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 
@@ -34,6 +51,64 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('SERABUT')
             ->brandLogoHeight('3rem')
             ->spa()
+            ->sidebarCollapsibleOnDesktop()
+            ->navigationItems([
+                // Content Management
+                NavigationItem::make('Program')
+                ->url(fn (): string => ProgramResource::getUrl())
+                ->icon('heroicon-o-square-3-stack-3d')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) Program::query()->count()),
+                NavigationItem::make('Program Detail')
+                ->url(fn (): string => ProgramSectionResource::getUrl())
+                ->icon('heroicon-o-squares-2x2')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) ProgramSection::query()->count()),
+
+                NavigationItem::make('Publikasi')
+                ->url(fn (): string => PublikasiResource::getUrl())
+                ->icon('heroicon-o-newspaper')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) Publikasi::query()->count()),
+
+                NavigationItem::make('Kategori Publikasi')
+                ->url(fn (): string => KategoriPublikasiResource::getUrl())
+                ->icon('heroicon-o-tag')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) KategoriPublikasi::query()->count()),
+
+                NavigationItem::make('Galery')
+                ->url(fn (): string => GaleryResource::getUrl())
+                ->icon('heroicon-o-camera')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) Galery::query()->count()),
+
+                NavigationItem::make('Kategori Galery')
+                ->url(fn (): string => GaleryKategoriResource::getUrl())
+                ->icon('heroicon-o-tag')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) GaleryKategori::query()->count()),
+
+                // Management FAQ
+                NavigationItem::make('FAQ')
+                ->url(fn (): string => FaqResource::getUrl())
+                ->icon('heroicon-o-question-mark-circle')
+                ->group('FAQ Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) Faq::query()->count()),
+                NavigationItem::make('Kategori FAQ')
+                ->url(fn (): string => KategoriFAQResource::getUrl())
+                ->icon('heroicon-o-tag')
+                ->group('FAQ Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) KategoriFAQ::count()),
+            ])
             ->colors([
                 'primary' => Color::Orange,
             ])

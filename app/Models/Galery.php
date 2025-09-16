@@ -1,22 +1,23 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Galery extends Model
 {
     use HasFactory;
-    protected $table = 'profiles';
+    protected $table    = 'galeries';
     protected $fillable = [
-        'judul',
-        'sub_judul',
-        'deskripsi',
-        'gambar'
+        'kategori_galery_id',
+        'gambar',
     ];
-
     protected $casts = [
         'gambar' => 'array',
     ];
+
+    public function kategoriGalery()
+    {
+        return $this->belongsTo(GaleryKategori::class, 'kategori_galery_id');
+    }
 }

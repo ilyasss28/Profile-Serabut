@@ -50,6 +50,7 @@
 
             <a href="{{ route('proyek') }}" class="nav-link">Program</a>
             <a href="{{ route('publikasi') }}" class="nav-link">Publikasi</a>
+            <a href="{{ route('galery') }}" class="nav-link">Galeri</a>
         </nav>
 
         {{-- Mobile Menu Button --}}
@@ -97,6 +98,7 @@
                 <a href="{{ route('proyek') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Program</a>
                 <a href="{{ route('publikasi') }}"
                     class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Publikasi</a>
+                <a href="{{ route('galery') }}" class="block px-4 py-2 text-gray-700 hover:text-[#ca7305]">Galeri</a>
             </div>
         </div>
     </div>
