@@ -15,12 +15,11 @@ use Filament\Tables\Table;
 
 class ProfileResource extends Resource
 {
-    protected static ?string $model            = Profile::class;
-    protected static ?string $navigationIcon   = 'heroicon-o-user-circle';
-    protected static ?string $navigationLabel  = 'Profile Serabut';
-    protected static ?string $pluralModelLabel = 'Profile Serabut';
-    protected static ?string $modelLabel       = 'Profile Serabut';
-    protected static ?string $navigationGroup  = 'Tentang Serabut';
+    protected static ?string $model = Profile::class;
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {

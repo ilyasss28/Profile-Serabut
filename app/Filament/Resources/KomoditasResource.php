@@ -13,18 +13,9 @@ use Filament\Tables\Table;
 class KomoditasResource extends Resource
 {
     protected static ?string $model = Komoditas::class;
-    protected static ?string $navigationIcon   = 'heroicon-o-cube';
-    protected static ?string $navigationLabel  = 'Komoditas';
-    protected static ?string $pluralModelLabel = 'Komoditas';
-    protected static ?string $modelLabel       = 'Komoditas';
-    protected static ?string $navigationGroup  = 'Tentang Serabut';
-    public static function getNavigationBadge(): ?string
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) Komoditas::count();
-    }
-    public static function getNavigationSort(): ?int
-    {
-        return 2;
+        return false;
     }
 
     public static function form(Form $form): Form

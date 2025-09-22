@@ -1,7 +1,12 @@
 <?php
-
 namespace App\Filament\Widgets;
 
+use App\Models\Faq;
+use App\Models\Galery;
+use App\Models\Komoditas;
+use App\Models\Program;
+use App\Models\Publikasi;
+use App\Models\Tim;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -11,36 +16,47 @@ class StatOverview extends BaseWidget
 
     protected function getStats(): array
     {
-         return [
-            Stat::make('Anggota', 120)
-                ->description('Total Anggota')
-                ->color('success')
-                ->extraAttributes(['class' => 'h-32']), // bikin kotaknya kecil
-
-            Stat::make('Proyek', 15)
-                ->description('Proyek Aktif')
+        return [
+            Stat::make('Program', Program::count())
+                ->description('Total Program yang dikelola')
                 ->color('primary')
+                ->icon('heroicon-o-clipboard-document')
                 ->extraAttributes(['class' => 'h-32']),
 
-            Stat::make('Cerita', 34)
-                ->description('Cerita Dipublikasikan')
+            Stat::make('Publikasi', Publikasi::count())
+                ->description('Jumlah publikasi terbit')
                 ->color('warning')
+                ->icon('heroicon-o-book-open')
                 ->extraAttributes(['class' => 'h-32']),
 
-            Stat::make('Publikasi', 27)
-                ->description('Jumlah Publikasi')
-                ->color('primary')
+            Stat::make('Komoditas', Komoditas::count())
+                ->description('Jenis komoditas aktif')
+                ->color('success')
+                ->icon('heroicon-o-cube')
                 ->extraAttributes(['class' => 'h-32']),
 
-            Stat::make('Kontak Masuk', 8)
-                ->description('Belum Dibalas')
+            Stat::make('Tim', Tim::count())
+                ->description('Jumlah anggota tim')
+                ->color('info')
+                ->icon('heroicon-o-users')
+                ->extraAttributes(['class' => 'h-32']),
+
+            Stat::make('Galeri', Galery::count())
+                ->description('Dokumentasi kegiatan')
                 ->color('danger')
+                ->icon('heroicon-o-photo')
+                ->extraAttributes(['class' => 'h-32']),
+            Stat::make('FAQ', Faq::count())
+                ->description('Daftar pertanyaan')
+                ->color('secondary')
+                ->icon('heroicon-o-question-mark-circle')
                 ->extraAttributes(['class' => 'h-32']),
         ];
     }
-     protected int | array $columns = [
+
+    protected int|array $columns = [
         'default' => 1,
-        'md' => 2,
-        'lg' => 5, // di layar besar jadi 5 sejajar
+        'md'      => 2,
+        'lg'      => 3, // biar 6 kotak rapih dalam 2 baris (3+3)
     ];
 }

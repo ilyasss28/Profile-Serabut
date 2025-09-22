@@ -7,17 +7,29 @@ use App\Filament\Resources\GaleryKategoriResource;
 use App\Filament\Resources\GaleryResource;
 use App\Filament\Resources\KategoriFAQResource;
 use App\Filament\Resources\KategoriPublikasiResource;
+use App\Filament\Resources\KomoditasResource;
+use App\Filament\Resources\PetaWilayahKerjaResource;
+use App\Filament\Resources\ProfileResource;
 use App\Filament\Resources\ProgramResource;
 use App\Filament\Resources\ProgramSectionResource;
 use App\Filament\Resources\PublikasiResource;
+use App\Filament\Resources\StatistikResource;
+use App\Filament\Resources\TimResource;
+use App\Filament\Resources\WilayahKerjaResource;
 use App\Models\Faq;
 use App\Models\Galery;
 use App\Models\GaleryKategori;
 use App\Models\KategoriFAQ;
 use App\Models\KategoriPublikasi;
+use App\Models\Komoditas;
+use App\Models\PetaWilayahKerja;
+use App\Models\Profile;
 use App\Models\Program;
 use App\Models\ProgramSection;
 use App\Models\Publikasi;
+use App\Models\Statistik;
+use App\Models\Tim;
+use App\Models\WilayahKerja;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -53,6 +65,46 @@ class AdminPanelProvider extends PanelProvider
             ->spa()
             ->sidebarCollapsibleOnDesktop()
             ->navigationItems([
+                // Tentang Serabut
+                NavigationItem::make('Profil Serabut')
+                ->url(fn(): string => ProfileResource::getUrl())
+                ->icon('heroicon-o-user-circle')
+                ->group('Tentang Serabut')
+                ->sort(1),
+
+                NavigationItem::make('Statistik')
+                ->url(fn(): string => StatistikResource::getUrl())
+                ->icon('heroicon-o-chart-bar')
+                ->group('Tentang Serabut')
+                ->sort(1),
+
+                NavigationItem::make('Tim')
+                ->url(fn(): string => TimResource::getUrl())
+                ->icon('heroicon-o-user-group')
+                ->group('Tentang Serabut')
+                ->sort(1)
+                ->badge(fn(): ?string => (string) Tim::query()->count()),
+
+                NavigationItem::make('Komoditas')
+                ->url(fn(): string => KomoditasResource::getUrl())
+                ->icon('heroicon-o-cube')
+                ->group('Tentang Serabut')
+                ->sort(1)
+                ->badge(fn(): ?string => (string) Komoditas::query()->count()),
+
+                NavigationItem::make('Daftar Wilayah Kerja')
+                ->url(fn(): string => WilayahKerjaResource::getUrl())
+                ->icon('heroicon-o-map-pin')
+                ->group('Tentang Serabut')
+                ->sort(1)
+                ->badge(fn(): ?string => (string) WilayahKerja::query()->count()),
+
+                NavigationItem::make('Peta Wilayah Kerja')
+                ->url(fn(): string => PetaWilayahKerjaResource::getUrl())
+                ->icon('heroicon-o-map')
+                ->group('Tentang Serabut')
+                ->sort(1),
+
                 // Content Management
                 NavigationItem::make('Program')
                 ->url(fn (): string => ProgramResource::getUrl())

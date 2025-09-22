@@ -16,12 +16,9 @@ use Filament\Tables\Table;
 class PetaWilayahKerjaResource extends Resource
 {
     protected static ?string $model = PetaWilayahKerja::class;
-
-    protected static ?string $navigationIcon  = 'heroicon-o-map-pin';
-    protected static ?string $navigationGroup = 'Tentang Serabut';
-    public static function getNavigationSort(): ?int
+    public static function shouldRegisterNavigation(): bool
     {
-        return 3;
+        return false;
     }
 
     public static function form(Form $form): Form

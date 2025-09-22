@@ -12,12 +12,10 @@ use Filament\Tables\Table;
 
 class StatistikResource extends Resource
 {
-    protected static ?string $model           = Statistik::class;
-    protected static ?string $navigationIcon  = 'heroicon-o-chart-bar';
-    protected static ?string $navigationGroup = 'Tentang Serabut';
-    public static function getNavigationSort(): ?int
+    protected static ?string $model = Statistik::class;
+    public static function shouldRegisterNavigation(): bool
     {
-        return 1;
+        return false;
     }
 
     public static function form(Form $form): Form

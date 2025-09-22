@@ -15,15 +15,9 @@ use Filament\Tables\Table;
 class WilayahKerjaResource extends Resource
 {
     protected static ?string $model = WilayahKerja::class;
-    protected static ?string $navigationIcon  = 'heroicon-o-map';
-    protected static ?string $navigationGroup = 'Tentang Serabut';
-    public static function getNavigationBadge(): ?string
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) WilayahKerja::count();
-    }
-    public static function getNavigationSort(): ?int
-    {
-        return 4;
+        return false;
     }
 
     public static function form(Form $form): Form

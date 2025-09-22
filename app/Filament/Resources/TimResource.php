@@ -15,19 +15,9 @@ use Filament\Tables\Table;
 class TimResource extends Resource
 {
     protected static ?string $model = Tim::class;
-
-    protected static ?string $navigationIcon   = 'heroicon-o-user-group';
-    protected static ?string $navigationLabel  = 'Tim';
-    protected static ?string $pluralModelLabel = 'Tim';
-    protected static ?string $modelLabel       = 'Tim';
-    protected static ?string $navigationGroup  = 'Tentang Serabut';
-    public static function getNavigationBadge(): ?string
+    public static function shouldRegisterNavigation(): bool
     {
-        return (string) Tim::count();
-    }
-    public static function getNavigationSort(): ?int
-    {
-        return 1;
+        return false;
     }
 
     public static function form(Form $form): Form
