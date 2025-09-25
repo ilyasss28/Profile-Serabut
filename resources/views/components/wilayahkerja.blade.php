@@ -33,10 +33,10 @@
                 </div>
 
                 {{-- Deskripsi --}}
-                <div>
+                <div class="space-y-4">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">{{ $peta_wilayah->judul }}</h2>
-                    <p class="text-gray-600 mb-6">
-                        {{ $peta_wilayah->deskripsi }}
+                    <p class="text-gray-600">
+                        {!! $peta_wilayah->deskripsi !!}
                     </p>
 
                     {{-- List Desa --}}

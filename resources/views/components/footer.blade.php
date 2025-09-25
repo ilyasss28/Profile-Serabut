@@ -30,7 +30,8 @@
                             <li><a href="/" class="hover:text-[#ca7305] transition">Beranda</a></li>
                             <li><a href="{{ route('profile') }}" class="hover:text-[#ca7305] transition">Profile</a></li>
                             <li><a href="{{ route('proyek') }}" class="hover:text-[#ca7305] transition">Program</a></li>
-                            <li><a href="{{ route('publikasi') }}" class="hover:text-[#ca7305] transition">Publikasi</a></li>
+                            <li><a href="{{ route('publikasi') }}" class="hover:text-[#ca7305] transition">Artikel Publikasi</a></li>
+                            <li><a href="{{ route('galery') }}" class="hover:text-[#ca7305] transition">Galery</a></li>
                         </ul>
                     </div>
 
@@ -49,7 +50,7 @@
                     <!-- Kontak & Lokasi -->
                     <div>
                         <h4 class="text-lg font-semibold mb-2">Lokasi</h4>
-                        <p><strong>Jl. Dayanu Ikhsanuddin Topaz Residence 1 Kel. Sulaa Kec.Betaombari Kota Baubau, Sulawesi Tenggara</strong></p>
+                        <p><strong>Jl. Sultan Dayanu Ikhsanuddin (Topaz Residence 1) Kel. Sulaa Kec.Betaombari Kota Baubau, Sulawesi Tenggara</strong></p>
                         <p class="text-sm text-gray-300 mt-1">Senin - Jumat: 08:00 - 17:00 WIB</p>
                     </div>
                 </div>

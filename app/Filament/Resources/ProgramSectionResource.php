@@ -74,20 +74,16 @@ class ProgramSectionResource extends Resource
                     ->sortable()->searchable(),
                 TextColumn::make('deskripsi')
                     ->label('Deskripsi')
+                    ->formatStateUsing(fn($state) => strip_tags($state))
                     ->limit(50)
-                    ->sortable()->searchable(),
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
+            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 
     public static function getRelations(): array

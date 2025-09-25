@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PetaWilayahKerjaResource\Pages;
 use App\Models\PetaWilayahKerja;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -30,10 +30,24 @@ class PetaWilayahKerjaResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
-                Textarea::make('deskripsi')
+                RichEditor::make('deskripsi')
                     ->label('Deskripsi')
-                    ->rows(3)
-                    ->maxLength(65535)
+                    ->required()
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'strike',
+                        'underline',
+                        'bulletList',
+                        'orderedList',
+                        'link',
+                        'blockquote',
+                        'codeBlock',
+                        'redo',
+                        'undo',
+                        'attachFiles',
+                    ])
+                    ->nullable()
                     ->columnSpanFull(),
                 FileUpload::make('gambar_peta')
                     ->label('Gambar Peta')
@@ -55,8 +69,8 @@ class PetaWilayahKerjaResource extends Resource
                     ->sortable(),
                 TextColumn::make('deskripsi')
                     ->label('Deskripsi')
-                    ->limit(50)
-                    ->sortable(),
+                    ->formatStateUsing(fn($state) => strip_tags($state))
+                    ->limit(40),
                 ImageColumn::make('gambar_peta')
                     ->label('Gambar Peta')
                     ->size(50)
@@ -65,14 +79,8 @@ class PetaWilayahKerjaResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
+            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 
     public static function getRelations(): array

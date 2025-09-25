@@ -119,14 +119,14 @@ class AdminPanelProvider extends PanelProvider
                 ->sort(3)
                 ->badge(fn (): ?string => (string) ProgramSection::query()->count()),
 
-                NavigationItem::make('Publikasi')
+                NavigationItem::make('Artikel Publikasi')
                 ->url(fn (): string => PublikasiResource::getUrl())
                 ->icon('heroicon-o-newspaper')
                 ->group('Content Management')
                 ->sort(3)
                 ->badge(fn (): ?string => (string) Publikasi::query()->count()),
 
-                NavigationItem::make('Kategori Publikasi')
+                NavigationItem::make('Kategori Artikel Publikasi')
                 ->url(fn (): string => KategoriPublikasiResource::getUrl())
                 ->icon('heroicon-o-tag')
                 ->group('Content Management')

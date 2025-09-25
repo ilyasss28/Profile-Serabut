@@ -39,6 +39,11 @@ class PublikasiResource extends Resource
             TextInput::make('judul')
                 ->required()
                 ->columnSpanFull(),
+            DatePicker::make('tanggal_terbit')
+                ->label('Tanggal Terbit')
+                ->required()
+                ->nullable()
+                ->columnSpanFull(),
             RichEditor::make('deskripsi')
                 ->label('Deskripsi')
                 ->toolbarButtons([
@@ -63,20 +68,6 @@ class PublikasiResource extends Resource
                 ->required()
                 ->nullable()
                 ->columnSpanFull(),
-            TextInput::make('penulis')
-                ->required()
-                ->nullable(),
-            TextInput::make('DOI')
-                ->label('DOI')
-                ->required()
-                ->nullable(),
-            TextInput::make('penerbit')
-                ->required()
-                ->nullable(),
-            DatePicker::make('tanggal_terbit')
-                ->label('Tanggal Terbit')
-                ->required()
-                ->nullable(),
             FileUpload::make('file_url')
                 ->label('Upload File')
                 ->directory('files')
@@ -100,27 +91,23 @@ class PublikasiResource extends Resource
                 ->limit(50)
                 ->sortable()
                 ->searchable()
+                ->formatStateUsing(fn($state) => strip_tags($state))
                 ->toggleable(isToggledHiddenByDefault: true),
-            ImageColumn::make('gambar')
-                ->label('Gambar')
-                ->circular()
-                ->toggleable(isToggledHiddenByDefault: true),
-            TextColumn::make('penulis')
-                ->sortable()
-                ->searchable(),
-            TextColumn::make('DOI')
-                ->label('DOI')
-                ->sortable()
-                ->searchable()
-                ->toggleable(isToggledHiddenByDefault: true),
-            TextColumn::make('penerbit')
-                ->sortable()
-                ->searchable(),
             TextColumn::make('tanggal_terbit')
                 ->label('Tanggal Terbit')
                 ->date()
                 ->sortable()
                 ->searchable(),
+            ImageColumn::make('gambar')
+                ->label('Gambar')
+                ->circular(),
+            TextColumn::make('file_url')
+                ->label('File')
+                ->url(fn($record) => $record->file_url, true) // klik untuk buka file
+                ->icon('heroicon-o-document-text')
+                ->sortable()
+                ->searchable()
+                ->toggleable(isToggledHiddenByDefault: true),
 
         ])
             ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])

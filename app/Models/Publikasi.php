@@ -15,9 +15,6 @@ class Publikasi extends Model
         'judul',
         'deskripsi',
         'gambar',
-        'penulis',
-        'DOI',
-        'penerbit',
         'tanggal_terbit',
         'file_url',
     ];

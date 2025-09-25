@@ -229,7 +229,7 @@
                                 class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
                                 <div class="p-4 text-white w-full flex items-center justify-between">
                                     <div class="flex-1">
-                                        <h3 class="text-xl font-bold mb-1">{{ $program->judul }}</h3>
+                                        <h3 class="text-xl font-bold mb-1">{{ Str::limit($program->judul, 35, '...') }}</h3>
                                         <p class="text-md">
                                             {!! Str::words(optional($program->latarBelakang)->deskripsi ?? 'Deskripsi belum tersedia', 10, '...') !!}
                                         </p>
@@ -371,9 +371,9 @@
 
                         <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
                             <div>
-                                <h3 class="text-xl font-bold mb-2">{{ $publis->judul }}</h3>
+                                <h3 class="text-xl font-bold mb-2">{{ Str::limit($publis->judul, 35, '...') }}</h3>
                                 <p class="text-sm md:text-base">
-                                    {!! Str::words($publis->deskripsi, 12, '...') !!}
+                                    {!! Str::words($publis->deskripsi, 10, '...') !!}
                                 </p>
                             </div>
                             <i class="fa-solid fa-chevron-right text-lg"></i>

@@ -16,7 +16,7 @@
             </span>
 
             <!-- Nama Komoditas -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-4xl mb-4">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold capitalize leading-tight max-w-4xl mb-3">
                 Komoditas {{ $komoditas->nama }}
             </h1>
         </div>

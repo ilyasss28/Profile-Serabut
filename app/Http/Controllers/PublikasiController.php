@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\KategoriPublikasi;
 use App\Models\Publikasi;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,13 @@ class PublikasiController extends Controller
      */
     public function index()
     {
-        $publikasis = Publikasi::with('kategori')
-        ->where('is_active', 1)
-        ->paginate(3);
-        
+        $publikasis = Publikasi::with('kategoriPublikasi')
+        ->whereHas('kategoriPublikasi', function ($q) {
+            $q->where('is_active', 1);
+        })
+        ->orderByDesc('tanggal_terbit')
+        ->paginate(6);
+
         foreach ($publikasis as $publikasi) {
             $publikasi->formatted_date = \Carbon\Carbon::parse($publikasi->tanggal_terbit)->translatedFormat('d F Y');
         }

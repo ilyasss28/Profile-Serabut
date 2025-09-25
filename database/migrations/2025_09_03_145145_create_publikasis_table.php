@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('judul');
             $table->text('deskripsi')->nullable();
             $table->string('gambar')->nullable();
-            $table->string('penulis')->nullable();
-            $table->string('DOI')->nullable();
-            $table->string('penerbit')->nullable();
             $table->date('tanggal_terbit')->nullable();
             $table->string('file_url')->nullable();
             $table->timestamps();

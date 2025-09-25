@@ -12,9 +12,13 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        $galeries = Galery::with('kategoriGalery')->get();
+        $galeries = Galery::with('kategoriGalery')
+            ->whereHas('kategoriGalery', function ($q) {
+                $q->where('is_active', 1);
+            })
+            ->get();
 
-        $categories = GaleryKategori::all();
+        $categories = GaleryKategori::where('is_active', 1)->get();
 
         return view('components.galery', compact('galeries', 'categories'));
     }

@@ -9,7 +9,7 @@
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                Publikasi Serabut
+                Artikel Publikasi
             </h1>
             <p class="text-base sm:text-md md:text-lg max-w-3xl mx-auto">
                 Jelajahi berbagai kumpulan artikel, laporan, dan publikasi terkini dari Sekolah Rakyat Butuni sebagai wujud transparansi, edukasi, dan inspirasi bagi masyarakat.
@@ -62,7 +62,7 @@
 
                         <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex justify-between items-center">
                             <div>
-                                <h3 class="text-xl font-bold mb-2">{{ $publis->judul }}</h3>
+                                <h3 class="text-xl font-bold mb-2">{{ Str::limit($publis->judul, 30, '...') }}</h3>
                                 <p class="text-sm md:text-base">
                                     {!! Str::words($publis->deskripsi, 12, '...') !!}
                                 </p>

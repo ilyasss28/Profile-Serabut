@@ -13,7 +13,7 @@
             </span>
 
             <!-- Judul Program -->
-            <h6 class="text-xl sm:text-2xl md:text-3xl font-bold leading-tight max-w-4xl mb-3">
+            <h6 class="text-2xl sm:text-3xl md:text-4xl font-bold capitalize leading-tight max-w-4xl mb-3">
                 {{ $program->judul }}
             </h6>
 
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </aside>
-            
+
         </div>
     </section>
 </x-main>

@@ -13,6 +13,7 @@ class Faq extends Model
         'kategori_faq_id',
         'question',
         'answer',
+        'is_active'
     ];
     public function kategoriFaq()
     {
