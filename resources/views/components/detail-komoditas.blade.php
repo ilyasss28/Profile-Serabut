@@ -41,21 +41,40 @@
         </div>
 
         <div class="max-w-7xl mx-auto space-y-16">
-            {{-- Deskripsi Utama --}}
-            <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
-                <!-- Gambar di atas -->
-                <div>
+            {{-- Card Utama --}}
+            <div
+                class="bg-white rounded-3xl shadow overflow-hidden border border-gray-100">
+
+                <!-- Gambar -->
+                <div class="relative">
                     <img src="{{ asset('storage/' . $komoditas->gambar) }}" alt="{{ $komoditas->nama }}"
-                        class="w-full h-80 object-cover">
+                        class="w-full h-96 object-cover transform hover:scale-105 transition duration-700 ease-in-out">
+
+                    <!-- Overlay gradien -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+                    <!-- Judul di atas gambar -->
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h1 class="text-3xl md:text-4xl font-extrabold drop-shadow-lg">
+                            {{ $komoditas->nama }}
+                        </h1>
+                        <p class="mt-2 text-sm md:text-base text-gray-200">Informasi detail tentang komoditas unggulan
+                        </p>
+                    </div>
                 </div>
-                <!-- Konten di bawah gambar -->
+
+                <!-- Konten -->
                 <div class="content p-8 lg:p-12">
-                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Tentang {{ $komoditas->nama }}</h2>
-                    <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-[#ca7305] inline-block pb-1">
+                        Tentang {{ $komoditas->nama }}
+                    </h2>
+
+                    <div class="text-gray-700 leading-relaxed text-justify space-y-4 text-lg prose max-w-none">
                         {!! $komoditas->deskripsi !!}
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 </x-main>

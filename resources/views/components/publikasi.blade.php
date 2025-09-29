@@ -35,7 +35,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($publikasis as $publis)
-                    <a href="{{ route('detail-publikasi', $publis->id) }}"
+                    <a href="{{ route('detail-publikasi', $publis->slug) }}"
                         class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
                         <div class="relative h-90">
                             <img src="{{ asset('storage/' . $publis->gambar) }}" alt="{{ $publis->judul }}"

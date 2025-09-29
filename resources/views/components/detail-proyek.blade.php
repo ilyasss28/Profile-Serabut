@@ -40,7 +40,7 @@
                             <i class="fas fa-seedling text-[#ca7305] mr-3"></i>
                             {{ $section->judul_section }}
                         </h2>
-                        <div class="content text-gray-700 leading-relaxed prose max-w-none">
+                        <div class="content text-gray-700 text-justify leading-relaxed prose max-w-none">
                             {!! $section->deskripsi !!}
                         </div>
                     </article>

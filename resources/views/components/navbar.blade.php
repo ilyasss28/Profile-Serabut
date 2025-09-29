@@ -90,7 +90,7 @@
                         <a href="{{ route('wilayahkerja') }}"
                             class="block py-2 text-gray-700 hover:text-[#ca7305]">Wilayah Kerja</a>
                         <a href="{{ route('komoditas') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#ca7305]">
+                            class="block py-2 text-gray-700 hover:text-[#ca7305]">
                             Jenis Komoditas
                         </a>
                     </div>

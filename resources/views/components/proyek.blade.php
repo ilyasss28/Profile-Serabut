@@ -76,7 +76,7 @@
                         @endif
 
                         <!-- Tombol -->
-                        <a href="{{ route('detail-proyek', $project->id) }}"
+                        <a href="{{ route('detail-proyek', $project->slug) }}"
                             class="inline-flex items-center text-[#ca7305] font-semibold hover:underline">
                             Lihat Project <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>

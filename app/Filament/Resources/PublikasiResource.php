@@ -35,15 +35,13 @@ class PublikasiResource extends Resource
                 )
                 ->required()
                 ->columnSpanFull(),
-
             TextInput::make('judul')
-                ->required()
-                ->columnSpanFull(),
+                ->label('Judul')
+                ->required(),
             DatePicker::make('tanggal_terbit')
                 ->label('Tanggal Terbit')
                 ->required()
-                ->nullable()
-                ->columnSpanFull(),
+                ->nullable(),
             RichEditor::make('deskripsi')
                 ->label('Deskripsi')
                 ->toolbarButtons([

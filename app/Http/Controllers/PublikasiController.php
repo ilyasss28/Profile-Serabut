@@ -25,10 +25,12 @@ class PublikasiController extends Controller
         return view('components.publikasi', compact('publikasis'));
     }
 
-    public function indexDetail($id)
+    public function indexDetail($slug)
     {
-        $publikasi                 = Publikasi::findOrFail($id);
+        $publikasi = Publikasi::where('slug', $slug)->firstOrFail();
+
         $publikasi->formatted_date = \Carbon\Carbon::parse($publikasi->tanggal_terbit)->translatedFormat('d F Y');
+
         return view('components.detail-publikasi', compact('publikasi'));
     }
 

@@ -164,7 +164,7 @@
             <!-- Grid Proyek -->
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Program Utama -->
-                <a href="{{ route('detail-proyek', $mainProgram->id) }}"
+                <a href="{{ route('detail-proyek', $mainProgram->slug) }}"
                     class="block relative md:col-span-2 group overflow-hidden rounded-lg shadow-md">
                     <img src="{{ asset('storage/' . $mainProgram->gambar) }}" alt="{{ $mainProgram->judul }}"
                         class="w-full h-[600px] object-cover transition-transform duration-300 group-hover:scale-110">
@@ -205,7 +205,7 @@
                 <!-- Program Samping -->
                 <div class="flex flex-col gap-4">
                     @foreach ($sidePrograms as $program)
-                        <a href="{{ route('detail-proyek', $program->id) }}"
+                        <a href="{{ route('detail-proyek', $program->slug) }}"
                             class="block relative group overflow-hidden rounded-md shadow">
                             <img src="{{ asset('storage/' . $program->gambar) }}" alt="{{ $program->judul }}"
                                 class="w-full h-73 object-cover transition-transform duration-300 group-hover:scale-110">
@@ -275,7 +275,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
                 @foreach ($komoditas as $item)
-                    <a href="{{ route('detail-komoditas', $item->id) }}"
+                    <a href="{{ route('detail-komoditas', $item->slug) }}"
                         class="group relative bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg hover:border-[#ca7305]/40
                   overflow-hidden transition-all duration-500 transform hover:-translate-y-2">
 
@@ -344,7 +344,7 @@
             <!-- Publikasi Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($publikasis as $publis)
-                    <a href="{{ route('detail-publikasi', $publis->id) }}"
+                    <a href="{{ route('detail-publikasi', $publis->slug) }}"
                         class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block">
                         <div class="relative h-90">
                             <img src="{{ asset('storage/' . $publis->gambar) }}" alt="{{ $publis->judul }}"

@@ -17,10 +17,10 @@ class KomoditasController extends Controller
         return view ('components.komoditas', compact('komoditas'));
     }
 
-    public function indexDetail($id)
-    {
-        $komoditas = Komoditas::findOrFail($id);
-        
+    public function indexDetail($slug)
+{
+    $komoditas = Komoditas::where('slug', $slug)->firstOrFail();
+
         return view('components.detail-komoditas', compact('komoditas'));
     }
 

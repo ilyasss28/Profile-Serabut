@@ -42,7 +42,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
                 @foreach ($komoditas as $item)
-                    <a href="{{ route('detail-komoditas', $item->id) }}"
+                    <a href="{{ route('detail-komoditas', $item->slug) }}"
                         class="group relative bg-white rounded-2xl shadow-sm hover:shadow-lg overflow-hidden transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-[#ca7305]/40">
 
                         <!-- Gambar -->

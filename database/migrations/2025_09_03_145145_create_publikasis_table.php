@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kategori_publikasi_id')->references('id')->on('kategori_publikasis')->onDelete('cascade');
             $table->string('judul');
+            $table->string('slug')->unique();
             $table->text('deskripsi')->nullable();
             $table->string('gambar')->nullable();
             $table->date('tanggal_terbit')->nullable();

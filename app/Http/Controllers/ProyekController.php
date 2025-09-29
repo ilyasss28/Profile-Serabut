@@ -12,15 +12,16 @@ class ProyekController extends Controller
      */
     public function index()
     {
-        $program = Program::with('latarBelakang') // ambil hanya section "Latar Belakang"
-            ->paginate(3);
+        $program = Program::with(['latarBelakang', 'programsection'])
+        ->orderBy('created_at', 'asc')
+        ->paginate(3);
 
         return view('components.proyek', compact('program'));
     }
 
-    public function indexDetail($id)
+    public function indexDetail(Program $program)
     {
-        $program = Program::with('programsection')->findOrFail($id);
+        $program->load('programsection');
 
         return view('components.detail-proyek', compact('program'));
     }

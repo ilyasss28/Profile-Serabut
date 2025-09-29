@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->string('slug')->unique();
             $table->string('gambar')->nullable();
             $table->date('tanggal_kegiatan')->nullable();
             $table->text('lokasi')->nullable();
