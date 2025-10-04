@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\GaleryResource\Pages;
-use App\Models\Galery;
+use App\Filament\Resources\ProfileImagesResource\Pages;
+use App\Filament\Resources\ProfileImagesResource\RelationManagers;
+use App\Models\ProfileImages;
+use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
@@ -11,51 +14,52 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class GaleryResource extends Resource
+class ProfileImagesResource extends Resource
 {
-    protected static ?string $model = Galery::class;
+    protected static ?string $model = ProfileImages::class;
+
     public static function shouldRegisterNavigation(): bool
     {
         return false;
     }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('kategori_galery_id')
-                    ->label('Kategori Galery')
+                Select::make('profile_id')
+                    ->label('Profile')
                     ->relationship(
-                        name: 'kategoriGalery',
-                        titleAttribute: 'nama',
-                        modifyQueryUsing: fn($query) => $query->where('is_active', true)
+                        name: 'profile',
+                        titleAttribute: 'judul',
                     )
                     ->required()
                     ->columnSpanFull(),
 
-                FileUpload::make('gambar')
+                FileUpload::make('image_path')
                     ->label('Gambar Galeri')
                     ->image()
                     ->required()
                     ->columnSpanFull()
-                    ->directory('galery')
+                    ->directory('profile')
                     ->disk('public'),
             ]);
     }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('kategoriGalery.nama')
-                ->label('Kategori Galery')
-                ->sortable()
-                ->searchable(),
-
-                ImageColumn::make('gambar')
-                ->label('Gambar Galery')
-                ->square()
-                ->circular()
-                ->limit(12),
+                TextColumn::make('profile.judul')
+                    ->label('Judul')
+                    ->limit(50),
+                ImageColumn::make('image_path')
+                    ->label('Gambar Galeri')
+                    ->disk('public')
+                    ->circular(),
             ])
             ->filters([
                 //
@@ -74,9 +78,9 @@ class GaleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListGaleries::route('/'),
-            'create' => Pages\CreateGalery::route('/create'),
-            'edit'   => Pages\EditGalery::route('/{record}/edit'),
+            'index' => Pages\ListProfileImages::route('/'),
+            'create' => Pages\CreateProfileImages::route('/create'),
+            'edit' => Pages\EditProfileImages::route('/{record}/edit'),
         ];
     }
 }

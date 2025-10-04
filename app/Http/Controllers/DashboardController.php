@@ -14,12 +14,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::all();
+        $profiles = Profile::with('images')->get();
 
-        $totalSlides = 0;
-        foreach ($profiles as $gambar) {
-            $totalSlides += count($gambar->gambar ?? []);
-        }
+        // total slides (kalau kamu pakai di Alpine.js)
+        $totalSlides = $profiles->sum(fn($p) => $p->images->count());
 
         $statistik = Statistik::first();
 

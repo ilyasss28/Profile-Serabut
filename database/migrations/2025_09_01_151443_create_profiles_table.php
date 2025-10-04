@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->string('sub_judul')->nullable();
             $table->text('deskripsi')->nullable();
-            $table->json('gambar');
             $table->timestamps();
         });
     }

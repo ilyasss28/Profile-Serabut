@@ -82,10 +82,11 @@
                         :style="`transform: translateX(-${currentSlide * 100}%);`">
 
                         <!-- Slides -->
-                        @foreach ($profiles as $gambar)
-                            @foreach ($gambar->gambar as $img)
+                        @foreach ($profiles as $profile)
+                            @foreach ($profile->images as $image)
                                 <div class="min-w-full h-full">
-                                    <img src="{{ asset('storage/' . $img) }}" alt="Gambar Serabut"
+                                    <img src="{{ asset('storage/' . $image->image_path) }}"
+                                        alt="Gambar {{ $profile->judul }}" loading="lazy"
                                         class="w-full h-full object-cover rounded-lg">
                                 </div>
                             @endforeach
@@ -229,7 +230,8 @@
                                 class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
                                 <div class="p-4 text-white w-full flex items-center justify-between">
                                     <div class="flex-1">
-                                        <h3 class="text-xl font-bold mb-1">{{ Str::limit($program->judul, 35, '...') }}</h3>
+                                        <h3 class="text-xl font-bold mb-1">
+                                            {{ Str::limit($program->judul, 35, '...') }}</h3>
                                         <p class="text-md">
                                             {!! Str::words(optional($program->latarBelakang)->deskripsi ?? 'Deskripsi belum tersedia', 10, '...') !!}
                                         </p>

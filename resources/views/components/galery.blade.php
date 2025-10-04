@@ -64,15 +64,13 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
                     @foreach ($galeries as $galery)
-                        @foreach ($galery->gambar as $img)
-                            <div class="gallery-item rounded-xl overflow-hidden shadow-md group"
-                                x-show="activeCategory === 'all' || activeCategory === '{{ $galery->kategori_galery_id }}'"
-                                x-transition>
-                                <img src="{{ asset('storage/' . $img) }}"
-                                    alt="{{ $galery->kategori->nama ?? 'Galeri' }}"
-                                    class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
-                            </div>
-                        @endforeach
+                        <div class="gallery-item rounded-xl overflow-hidden shadow-md group"
+                            x-show="activeCategory === 'all' || activeCategory === '{{ $galery->kategori_galery_id }}'"
+                            x-transition>
+                            <img src="{{ asset('storage/' . $galery->gambar) }}"
+                                alt="{{ $galery->kategori->nama ?? 'Galeri' }}"
+                                class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
+                        </div>
                     @endforeach
 
                 </div>

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('profile_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_faq_id')->constrained('kategori_faqs')->onDelete('cascade');
-            $table->string('question');
-            $table->text('answer');
-            $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('profile_id');
+            $table->string('image_path');
             $table->timestamps();
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('profile_images');
     }
 };

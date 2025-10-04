@@ -12,10 +12,7 @@ class Galery extends Model
         'kategori_galery_id',
         'gambar',
     ];
-    protected $casts = [
-        'gambar' => 'array',
-    ];
-
+    
     public function kategoriGalery()
     {
         return $this->belongsTo(GaleryKategori::class, 'kategori_galery_id');

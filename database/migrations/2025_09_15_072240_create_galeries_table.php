@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kategori_galery_id')->constrained('galery_kategoris')->onDelete('cascade');
-            $table->json('gambar');
+            $table->string('gambar');
             $table->timestamps();
         });
     }

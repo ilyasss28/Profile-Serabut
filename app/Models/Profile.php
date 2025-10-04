@@ -13,10 +13,10 @@ class Profile extends Model
         'judul',
         'sub_judul',
         'deskripsi',
-        'gambar'
     ];
 
-    protected $casts = [
-        'gambar' => 'array',
-    ];
+    public function images()
+    {
+        return $this->hasMany(ProfileImages::class);
+    }
 }

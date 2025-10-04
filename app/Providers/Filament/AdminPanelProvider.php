@@ -9,6 +9,7 @@ use App\Filament\Resources\KategoriFAQResource;
 use App\Filament\Resources\KategoriPublikasiResource;
 use App\Filament\Resources\KomoditasResource;
 use App\Filament\Resources\PetaWilayahKerjaResource;
+use App\Filament\Resources\ProfileImagesResource;
 use App\Filament\Resources\ProfileResource;
 use App\Filament\Resources\ProgramResource;
 use App\Filament\Resources\ProgramSectionResource;
@@ -24,6 +25,7 @@ use App\Models\KategoriPublikasi;
 use App\Models\Komoditas;
 use App\Models\PetaWilayahKerja;
 use App\Models\Profile;
+use App\Models\ProfileImages;
 use App\Models\Program;
 use App\Models\ProgramSection;
 use App\Models\Publikasi;
@@ -72,6 +74,13 @@ class AdminPanelProvider extends PanelProvider
                 ->group('Tentang Serabut')
                 ->sort(1),
 
+                NavigationItem::make('Gambar Profile')
+                ->url(fn(): string => ProfileImagesResource::getUrl())
+                ->icon('heroicon-o-photo')
+                ->group('Tentang Serabut')
+                ->sort(1)
+                ->badge(fn (): ?string => (string) ProfileImages::query()->count()),
+
                 NavigationItem::make('Statistik')
                 ->url(fn(): string => StatistikResource::getUrl())
                 ->icon('heroicon-o-chart-bar')
@@ -119,13 +128,6 @@ class AdminPanelProvider extends PanelProvider
                 ->sort(3)
                 ->badge(fn (): ?string => (string) ProgramSection::query()->count()),
 
-                NavigationItem::make('Artikel Publikasi')
-                ->url(fn (): string => PublikasiResource::getUrl())
-                ->icon('heroicon-o-newspaper')
-                ->group('Content Management')
-                ->sort(3)
-                ->badge(fn (): ?string => (string) Publikasi::query()->count()),
-
                 NavigationItem::make('Kategori Artikel Publikasi')
                 ->url(fn (): string => KategoriPublikasiResource::getUrl())
                 ->icon('heroicon-o-tag')
@@ -133,12 +135,12 @@ class AdminPanelProvider extends PanelProvider
                 ->sort(3)
                 ->badge(fn (): ?string => (string) KategoriPublikasi::query()->count()),
 
-                NavigationItem::make('Galery')
-                ->url(fn (): string => GaleryResource::getUrl())
-                ->icon('heroicon-o-camera')
+                NavigationItem::make('Artikel Publikasi')
+                ->url(fn (): string => PublikasiResource::getUrl())
+                ->icon('heroicon-o-newspaper')
                 ->group('Content Management')
                 ->sort(3)
-                ->badge(fn (): ?string => (string) Galery::query()->count()),
+                ->badge(fn (): ?string => (string) Publikasi::query()->count()),
 
                 NavigationItem::make('Kategori Galery')
                 ->url(fn (): string => GaleryKategoriResource::getUrl())
@@ -146,6 +148,13 @@ class AdminPanelProvider extends PanelProvider
                 ->group('Content Management')
                 ->sort(3)
                 ->badge(fn (): ?string => (string) GaleryKategori::query()->count()),
+
+                NavigationItem::make('Galery')
+                ->url(fn (): string => GaleryResource::getUrl())
+                ->icon('heroicon-o-camera')
+                ->group('Content Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) Galery::query()->count()),
 
                 // Management FAQ
                 NavigationItem::make('FAQ')
