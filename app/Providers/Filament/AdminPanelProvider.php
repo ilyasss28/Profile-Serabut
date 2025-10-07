@@ -157,18 +157,19 @@ class AdminPanelProvider extends PanelProvider
                 ->badge(fn (): ?string => (string) Galery::query()->count()),
 
                 // Management FAQ
+                NavigationItem::make('Kategori FAQ')
+                ->url(fn (): string => KategoriFAQResource::getUrl())
+                ->icon('heroicon-o-tag')
+                ->group('FAQ Management')
+                ->sort(3)
+                ->badge(fn (): ?string => (string) KategoriFAQ::query()->count()),
+
                 NavigationItem::make('FAQ')
                 ->url(fn (): string => FaqResource::getUrl())
                 ->icon('heroicon-o-question-mark-circle')
                 ->group('FAQ Management')
                 ->sort(3)
                 ->badge(fn (): ?string => (string) Faq::query()->count()),
-                NavigationItem::make('Kategori FAQ')
-                ->url(fn (): string => KategoriFAQResource::getUrl())
-                ->icon('heroicon-o-tag')
-                ->group('FAQ Management')
-                ->sort(3)
-                ->badge(fn (): ?string => (string) KategoriFAQ::count()),
             ])
             ->colors([
                 'primary' => Color::Orange,
